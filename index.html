@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bernatali</title>
+    
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+Pro:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="top">
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header" data-header>
+      <div class="container">
+        <div class="overlay" data-overlay></div>
+
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <button
+              class="nav-close-btn"
+              aria-label="Close Menu"
+              data-nav-close-btn
+            >
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a
+                style="font-size: large"
+                href="#home"
+                class="navbar-link"
+                data-navbar-link
+                >Home</a
+              >
+            </li>
+
+            <li class="navbar-item">
+              <a
+                style="font-size: large"
+                href="#about"
+                class="navbar-link"
+                data-navbar-link
+                >About</a
+              >
+            </li>
+
+            <li class="navbar-item">
+              <a
+                style="font-size: large"
+                href="#services"
+                class="navbar-link"
+                data-navbar-link
+                >Services</a
+              >
+            </li>
+
+            
+            <li class="navbar-item">
+              <a
+                style="font-size: large"
+                href="#testimonial"
+                class="navbar-link"
+                data-navbar-link
+                >Success stories</a
+              >
+            </li>
+
+            <li class="navbar-item">
+              <a
+                style="font-size: large"
+                href="#location"
+                class="navbar-link"
+                data-navbar-link
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+      <script>
+        window.addEventListener("scroll", function () {
+          const header = document.querySelector(".header");
+          if (window.scrollY > 50) {
+            header.classList.add("active");
+          } else {
+            header.classList.remove("active");
+          }
+        });
+      </script>
+      
+    </header>
+
+    <main>
+      <article>
+        <!-- 
+        - #HERO
+      -->
+
+       
+        <section class="hero" id="home">
+          <!-- Video background container -->
+          <div class="hero-bg">
+            <video autoplay muted loop playsinline class="hero-video">
+              <source src="images/hero3.mp4" type="video/mp4" />
+              <!-- Fallback image if video doesn't load -->
+              <img
+                src="images/test.jpg"
+                alt="Background"
+                class="hero-bg-image"
+              />
+            </video>
+            <div class="hero-overlay"></div>
+          </div>
+
+          <div class="container">
+            <div class="hero-content">
+              <h1 class="hero-title">Building Stronger Brands!</h1>
+              <p class="hero-text"></p>
+              <button class="btn" onclick="scrollToAbout()">Learn More</button>
+              <script>
+                function scrollToAbout() {
+                  document.getElementById('about').scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }
+                </script>
+            </div>
+          </div>
+        </section>
+
+        <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="about">
+        <div class="container">
+          <div class="slideshow-container reveal">
+            <!-- Slides -->
+            <div class="mySlides fade">
+              <img src="images/about1.jpg" width="700" height="200" loading="lazy" alt="Slide 1" class="w-100 banner-animation">
+            </div>
+            <div class="mySlides fade">
+              <img src="images/about2.jpg" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
+            </div>
+            <div class="mySlides fade">
+              <img src="./assets/images/slide3.jpg" width="700" height="200" loading="lazy" alt="Slide 3" class="w-100 banner-animation">
+            </div>
+            
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+      
+          <div class="about-content reveal">
+            <h2 class="h2 section-title underline">About Us</h2>
+      
+            <p style="text-align: justify" class="about-text">
+              A dynamic and fast growing sourcing company specialized in apparel fabric and sourcing, based in Sri Lanka, providing a vital link between customers & suppliers internationally and locally.
+              <br><br>
+              We work closely with manufacturing facilities of international companies, who are fully equipped with the most technologically advanced, efficient, and competitive facilities for all processes.
+              <br><br>
+              Our team has vast experience in the garment industry from product development to garment manufacturing and fabric dying to finishing. We have highly trained and skilled staff to provide the best customer support and after sales solutions. We are continuously on the look for new developments and trends in the market.
+              <br><br>
+              We are linked with many state-of-the-art apparel manufacturers in Sri Lanka / India / Bangladesh and China and undertake apparel orders for lingerie, casual wear, pants, shirts and many more items. We have very strong sourcing capabilities and our prices are extremely competitive.
+              <br><br>
+              The company has diversified its business line by exporting Sri Lankan spices, tea, coconut and coconut-based products to the International market.
+            </p>
+      
+            <ul class="stats-list">
+              <li class="stats-card reveal">
+                <p class="h3 stats-title" data-count="9875">0</p>
+                <p class="stats-text">Satisfied Clients</p>
+              </li>
+      
+              <li class="stats-card reveal">
+                <p class="h3 stats-title" data-count="7894">0</p>
+                <p class="stats-text">Project Launched</p>
+              </li>
+      
+              <li class="stats-card reveal">
+                <p class="h3 stats-title" data-count="65">0</p>
+                <p class="stats-text">Years Completed</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <script>
+          // Intersection Observer for reveal animations
+          const reveals = document.querySelectorAll('.reveal');
+          
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: 0.1
+          });
+      
+          reveals.forEach(reveal => {
+            observer.observe(reveal);
+          });
+      
+          // Slideshow functionality
+          let slideIndex = 1;
+          showSlides(slideIndex);
+      
+          function plusSlides(n) {
+            showSlides(slideIndex += n);
+          }
+      
+          function currentSlide(n) {
+            showSlides(slideIndex = n);
+          }
+      
+          function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+          }
+      
+          // Optional: Auto-advance slides
+          setInterval(() => {
+            plusSlides(1);
+          }, 5000);
+        </script>
+      </section>
+      
+
+        <!-- 
+        - #PARTNERS
+      -->
+
+        <section class="section partners" id="partners">
+          <div class="container">
+            <h2 class="h2 section-title underline">Our Partners</h2>
+
+            <div class="partners-carousel">
+              <div class="carousel-track">
+                <div class="partner-item">
+                  <img src="images/p3.png" alt="Partner 1" />
+                </div>
+                <div class="partner-item">
+                  <img src="images/p2.png" alt="Partner 2" />
+                </div>
+                <div class="partner-item">
+                  <img src="images/p4.png" alt="Partner 3" />
+                </div>
+                <div class="partner-item">
+                  <img src="images/mothercare1799.jpg" alt="Partner 4" />
+                </div>
+                <div class="partner-item">
+                  <img src="images/Murray.png" alt="Partner 5" />
+                </div>
+
+                <!-- Duplicates for seamless loop -->
+                <div class="partner-item">
+                  <img src="images/P & P.jpg" alt="Partner 1" />
+                </div>
+                <div class="partner-item">
+                  <img src="images/Phase Eight.png" alt="Partner 2" />
+                </div>
+                <div class="partner-item">
+                  <img src="images/Ritz Clothing.jpg" alt="Partner 3" />
+                </div>
+                <div class="partner-item">
+                  <img src="./assets/images/partner4.png" alt="Partner 4" />
+                </div>
+                <div class="partner-item">
+                  <img src="./assets/images/partner5.png" alt="Partner 5" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service" id="services">
+        <div class="container">
+          <h2 class="h2 section-title underline">Services</h2>
+
+          <ul class="service-list">
+            <li>
+              <div class="service-card">
+                <div class="card-icon">
+                  <img src="images/service1.jpg" alt="Apparel sourcing" width="240" height="`240" style="border-radius: 10px; ">
+                </div>
+
+                <h3 class="h3 title">Sourcing apparel</h3>
+
+                <p class="text">
+                  Mauris ut felis malesuada eros varius tristique a at orci.
+                  Nulla vulputate, leo sit amet rhoncus suscipit, enim ex
+                  venenatis ipsum, et porttitor.
+                </p>
+
+                <button class="card-btn" aria-label="Show More">
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </button>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <div class="card-icon">
+                  <img src="images/service2.jpg" alt="Tourism" width="250" height="`250" style="border-radius: 10px;">
+                </div>
+
+                <h3 class="h3 title">Tourism</h3>
+
+                <p class="text">
+                  Mauris ut felis malesuada eros varius tristique a at orci.
+                  Nulla vulputate, leo sit amet rhoncus suscipit, enim ex
+                  venenatis ipsum, et porttitor.
+                </p>
+
+                <button class="card-btn" aria-label="Show More">
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </button>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <div class="card-icon">
+                  <img src="images/service3.jpg" alt="Spices and Tea" width="250" height="250" style="border-radius: 10px;">
+                </div>
+
+                <h3 class="h3 title">Spices & Tea</h3>
+
+                <p class="text">
+                  Mauris ut felis malesuada eros varius tristique a at orci.
+                  Nulla vulputate, leo sit amet rhoncus suscipit, enim ex
+                  venenatis ipsum, et porttitor.
+                </p>
+
+                <button class="card-btn" aria-label="Show More">
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </button>
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+                <div class="card-icon">
+                  <img src="images/service4.jpg" alt="Home Decor" width="250" height="250" style="border-radius: 10px;">
+                </div>
+
+                <h3 class="h3 title">Home Decor & Furnishing</h3>
+
+                <p class="text">
+                  Mauris ut felis malesuada eros varius tristique a at orci.
+                  Nulla vulputate, leo sit amet rhoncus suscipit, enim ex
+                  venenatis ipsum, et porttitor.
+                </p>
+
+                <button class="card-btn" aria-label="Show More">
+                  <ion-icon name="chevron-forward-outline"></ion-icon>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+        <!-- 
+        - #FEATURES
+      -->
+
+        
+
+        <!-- 
+        - #success stories
+      -->
+
+      <section class="section testimonial" id="testimonial">
+        <div class="container">
+          <h2 class="h2 section-title underline">Success stories</h2>
+      
+          <ul class="testimonial-list">
+            <li class="testimonial-card">
+              <figure class="testimonial-img">
+                <img src="./assets/images/client1.jpg" alt="Jane Doe" class="img-cover" />
+              </figure>
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  "This service completely exceeded my expectations. The team was professional,
+                  efficient, and truly cared about the end result."
+                </p>
+                <h3 class="client-name">Jane Doe</h3>
+                <span class="client-role">Marketing Director, XYZ Ltd</span>
+              </div>
+            </li>
+      
+            <li class="testimonial-card">
+              <figure class="testimonial-img">
+                <img src="./assets/images/client2.jpg" alt="John Smith" class="img-cover" />
+              </figure>
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  "Working with them was an absolute pleasure. They delivered on time and exceeded all our expectations."
+                </p>
+                <h3 class="client-name">John Smith</h3>
+                <span class="client-role">CEO, ABC Corp</span>
+              </div>
+            </li>
+      
+            <li class="testimonial-card">
+              <figure class="testimonial-img">
+                <img src="./assets/images/client3.jpg" alt="Emily Clark" class="img-cover" />
+              </figure>
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  "Highly recommended! Their dedication and quality of work are unmatched."
+                </p>
+                <h3 class="client-name">Emily Clark</h3>
+                <span class="client-role">Project Manager, SoftTech</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+        
+      
+      </article>
+
+      <!-- Location Section -->
+      <section class="location" id="location">
+        <div class="container">
+          <h2 class="section-title underline">Our Location</h2>
+
+          <div class="location-content">
+            <div class="location-info">
+              <h3 class="h3">Visit Our Office</h3>
+              <p class="location-text">
+                We're conveniently located in the heart of the city. Come by and
+                discuss your project with our team.
+              </p>
+
+              <div class="contact-info">
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <ion-icon name="location-outline"></ion-icon>
+                  </div>
+                  <address>123 Design Street, London, UK</address>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <ion-icon name="call-outline"></ion-icon>
+                  </div>
+                  <a href="tel:+441234567890">+44 123 456 7890</a>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <ion-icon name="mail-outline"></ion-icon>
+                  </div>
+                  <a href="mailto:info@yourdesign.com">info@yourdesign.com</a>
+                </div>
+              </div>
+
+              <button class="btn">Get Directions</button>
+            </div>
+
+            <div class="map-container">
+              <!-- Google Map Embed -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.680380058435!2d-0.127758323709283!3d51.50732231698888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c38c8cd1d9%3A0xb78f2474b9a45aa9!2sBig%20Ben!5e0!3m2!1sen!2suk!4v1715612345678"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="map-iframe"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 
+    - #FOOTER
+  -->
+
+    <footer class="footer">
+      <div class="footer-top section">
+        <div class="container">
+          <div class="footer-brand">
+            <a href="#" class="logo">Bernatali</a>
+
+            <p class="text">
+              -----
+            </p>
+
+            <ul class="social-list">
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="social-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Our links</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Home</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">About Us</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Services</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Team</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Our Services</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Strategy & Research</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Web Development</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Web Solution</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Digital Marketing</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">App Design</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Other links</p>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">FAQ</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Portfolio</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Terms & Conditions</a>
+            </li>
+
+            <li>
+              <a href="#" class="footer-link">Support</a>
+            </li>
+          </ul>
+
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Contact Us</p>
+            </li>
+
+            <li class="footer-item">
+              <div class="footer-item-icon">
+                <ion-icon name="call"></ion-icon>
+              </div>
+
+              <div>
+                <a href="tel:+2484214313" class="footer-item-link"
+                  >+248-421-4313</a
+                >
+                <a href="tel:+2486871365" class="footer-item-link"
+                  >+248-687-1365</a
+                >
+              </div>
+            </li>
+
+            <li class="footer-item">
+              <div class="footer-item-icon">
+                <ion-icon name="mail"></ion-icon>
+              </div>
+
+              <div>
+                <a href="mailto:info@desinic.com" class="footer-item-link"
+                  >info@desinic.com</a
+                >
+                <a href="mailto:help@desinic.com" class="footer-item-link"
+                  >help@desinic.com</a
+                >
+              </div>
+            </li>
+
+            <li class="footer-item">
+              <div class="footer-item-icon">
+                <ion-icon name="location"></ion-icon>
+              </div>
+
+              <address class="footer-item-link">
+                Pontiac, Michigan, United States of America
+              </address>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          
+        </p>
+      </div>
+    </footer>
+
+    <!-- 
+    - #GO TO TOP
+  -->
+
+    <a href="#top" class="go-top active" aria-label="Go To Top" data-go-top>
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </a>
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Function to animate counting
+        function animateCount(element) {
+          const target = parseInt(element.getAttribute('data-count'));
+          const duration = 2000; // Animation duration in ms
+          const start = 0;
+          const increment = target / (duration / 16); // 60fps
+          
+          let current = start;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              clearInterval(timer);
+              current = target;
+            }
+            element.textContent = Math.floor(current).toLocaleString();
+          }, 16);
+        }
+      
+        // Intersection Observer to trigger animation when section is in view
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counters = entry.target.querySelectorAll('.stats-title');
+              counters.forEach(counter => {
+                animateCount(counter);
+              });
+              observer.unobserve(entry.target); // Stop observing after animation
+            }
+          });
+        }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+      
+        // Observe the about section
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+          observer.observe(aboutSection);
+        }
+      });
+      </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navbarLinks = document.querySelectorAll('.navbar-link');
+    const sections = document.querySelectorAll('section');
+    
+    // Highlight active section in navbar
+    window.addEventListener('scroll', function() {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navbarLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  });
+  </script>
+  </body>
+</html>
