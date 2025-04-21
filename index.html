@@ -309,6 +309,34 @@
               </div>
             </div>
           </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const animatedElements = [
+                ...document.querySelectorAll(".testimonial-card"),
+                ...document.querySelectorAll(".location-info"),
+                ...document.querySelectorAll(".map-container"),
+                ...document.querySelectorAll(".partner-item")
+              ];
+          
+              const observer = new IntersectionObserver(
+                (entries, observer) => {
+                  entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                      entry.target.classList.add("animate");
+                      entry.target.style.animationDelay = `${index * 0.2}s`;
+                      observer.unobserve(entry.target);
+                    }
+                  });
+                },
+                {
+                  threshold: 0.2,
+                }
+              );
+          
+              animatedElements.forEach(el => observer.observe(el));
+            });
+          </script>
+          
         </section>
 
         <!-- 
@@ -323,7 +351,7 @@
             <li>
               <div class="service-card">
                 <div class="card-icon">
-                  <img src="images/service1.jpg" alt="Apparel sourcing" width="240" height="`240" style="border-radius: 10px; ">
+                  <img src="images/service1.jpg" alt="Apparel sourcing" width="250" height="`250" style="border-radius: 10px; ">
                 </div>
 
                 <h3 class="h3 title">Sourcing apparel</h3>
@@ -394,6 +422,28 @@
             </li>
           </ul>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const serviceCards = document.querySelectorAll(".service-card");
+        
+            const observer = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    observer.unobserve(entry.target); // Animate only once
+                  }
+                });
+              },
+              {
+                threshold: 0.2
+              }
+            );
+        
+            serviceCards.forEach(card => observer.observe(card));
+          });
+        </script>
+        
       </section>
 
         <!-- 
@@ -456,6 +506,29 @@
             </li>
           </ul>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".testimonial-card");
+        
+            const observer = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach((entry, index) => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    entry.target.style.animationDelay = `${index * 0.2}s`; // optional stagger
+                    observer.unobserve(entry.target);
+                  }
+                });
+              },
+              {
+                threshold: 0.2,
+              }
+            );
+        
+            cards.forEach(card => observer.observe(card));
+          });
+        </script>
+        
       </section>
         
       
@@ -516,6 +589,33 @@
             </div>
           </div>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const animatedElements = [
+              ...document.querySelectorAll(".testimonial-card"),
+              ...document.querySelectorAll(".location-info"),
+              ...document.querySelectorAll(".map-container")
+            ];
+        
+            const observer = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach((entry, index) => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    entry.target.style.animationDelay = `${index * 0.2}s`; // Optional stagger
+                    observer.unobserve(entry.target);
+                  }
+                });
+              },
+              {
+                threshold: 0.2,
+              }
+            );
+        
+            animatedElements.forEach(el => observer.observe(el));
+          });
+        </script>
+        
       </section>
     </main>
 

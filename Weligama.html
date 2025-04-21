@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tourism Website</title>
+    <link rel="stylesheet" href="css/destination.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .breadcrumb {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-align: left;
+        margin: 20px 0;
+        margin-left: 50px;
+        margin-top: 50px;
+      }
+
+      .breadcrumb a {
+        text-decoration: none;
+        color: #006666; /* Teal color */
+        margin: 0 5px;
+        transition: color 0.3s ease-in-out;
+      }
+
+      .breadcrumb a:hover {
+        color: #ffcc00; /* Highlight color */
+      }
+
+      .breadcrumb span {
+        color: #333; /* Dark color for the current page */
+      }
+      body,
+      html {
+        overflow-x: hidden;
+        /* Hides horizontal scrolling */
+        width: 100%;
+      }
+
+      /* Add a black background color to the top navigation */
+      .topnav {
+        background-color: #333;
+        overflow: hidden;
+      }
+
+      /* Style the links inside the navigation bar */
+      .topnav a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        font-weight: 100;
+        padding: 15px;
+        display: block; 
+        transition: all 0.3s ease; 
+      }
+
+      /* Add an active class to highlight the current page */
+      .active {
+        background-color: #04aa6d;
+        color: white;
+      }
+
+      /* Hide the link that should open and close the topnav on small screens */
+      .topnav .icon {
+        display: none;
+      }
+
+      /* Dropdown container - needed to position the dropdown content */
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      /* Style the dropdown button to fit inside the topnav */
+      .dropdown .dropbtn {
+  font-size: 20px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: -14px -16px;
+  background-color: inherit;
+  font-family: inherit;
+  padding: 14px 10px;
+  margin: 0 -30px;
+  cursor: pointer;
+  font-family: Roboto;
+ 
+}
+
+      /* Style the dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        top: 70%; /* Move dropdown slightly down */
+        background: rgba(255, 255, 255, 0.1); /* Adjust transparency */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      /* Style the links inside the dropdown */
+      .dropdown-content a {
+        float: none;
+        color: whitesmoke;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        font-family: Roboto;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      /* Add a dark background on topnav links and the dropdown button on hover */
+      .topnav a:hover,
+      .dropdown:hover .dropbtn {
+        background-color: white;
+        color: black;
+      }
+
+      /* Add a grey background to dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Show the dropdown menu when the user moves the mouse over the dropdown button */
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+      @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child),
+        .dropdown .dropbtn {
+          display: none;
+        }
+        .topnav a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+      @media screen and (max-width: 600px) {
+        .topnav.responsive {
+          position: relative;
+        }
+        .topnav.responsive a.icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        .topnav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+        .topnav.responsive .dropdown {
+          float: none;
+        }
+        .topnav.responsive .dropdown-content {
+          position: relative;
+        }
+        .topnav.responsive .dropdown .dropbtn {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+
+      .banner video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the video covers the entire banner */
+        z-index: -1;
+      }
+
+      .navbar {
+        position: fixed; /* Keeps the navbar at the top */
+        top: 0; /* Positions it at the very top */
+        left: 0; /* Aligns it with the left edge */
+        width: 100%; /* Ensures it spans the full screen width */
+        padding: 15px 30px; /* Reduces padding for better spacing */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100; /* Ensures it stays above other elements */
+        background-color: rgba(
+          0,
+          95,
+          95,
+          0.5
+        ); /* Semi-transparent background */
+        margin: 0; /* Removes unnecessary spacing */
+      }
+
+      .navbar ul {
+        list-style: none;
+        padding: 0; /* Make sure there's no default padding */
+        margin: 0; /* Ensure no margin around the list */
+        display: flex;
+      }
+
+      .navbar ul li {
+        margin: 0 20px; /* Adjusting margin for spacing between items */
+      }
+
+      .navbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 15px;
+        display: block; /* Ensures the whole area around the text is clickable */
+        transition: all 0.3s ease; /* Smooth transition for color and background */
+      }
+
+      /* Hover effect for anchor tag */
+      .navbar ul li a:hover {
+        background: #e0ffff; /* Change background color on hover */
+        color: black; /* Change text color on hover */
+      }
+
+      .logo {
+        width: 75px;
+        margin-top: -10px;
+        cursor: pointer;
+      }
+
+      .content {
+        width: 100%;
+        position: absolute;
+        color: white;
+        top: 45%;
+        transform: translateY(-50%);
+        text-align: left;
+        padding-right: 50%;
+        padding-left: 5%;
+        padding-top: 5%;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      .content h1 {
+        margin-top: 120px;
+        font-size: 52px;
+        font-weight: 800;
+        color: #ffd700;
+      }
+      .content h2 {
+        font-weight: 800;
+        font-size: 52px;
+        color: #e0ffff;
+      }
+
+      .sub {
+        width: 100%;
+        position: absolute;
+        color: white;
+      }
+
+      .sub h5 {
+        margin-top: 100px;
+        font-size: 30px;
+        font-weight: 800;
+        margin-top: -1px;
+      }
+      button {
+        width: 220px;
+        padding: 15px;
+        margin: 20px 5px;
+        text-align: center;
+        border-radius: 25px;
+        color: black;
+        border: 2px;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        float: right;
+        margin-right: 472px; /* Adjust this value to control the distance */
+        margin-top: 55px; /* Adjust this value to move the button down */
+        overflow: visible;
+        white-space: nowrap; /* Ensures text stays on one line */
+      }
+      button:hover {
+        background: #ff5733;
+        transition: 0.5s;
+      }
+      button:hover {
+        color: white;
+      }
+      .banner video {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+      }
+
+      /*=============== GOOGLE FONTS ===============*/
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+      /*=============== VARIABLES CSS ===============*/
+      :root {
+        /*========== Colors ==========*/
+        /*Color mode HSL(hue, saturation, lightness)*/
+        --first-color: hsl(82, 60%, 28%);
+        --title-color: hsl(0, 0%, 15%);
+        --text-color: hsl(0, 0%, 35%);
+        --body-color: hsl(0, 0%, 95%);
+        --container-color: hsl(0, 0%, 100%);
+
+        /*========== Font and typography ==========*/
+        /*.5rem = 8px | 1rem = 16px ...*/
+        --body-font: "Poppins", sans-serif;
+        --h2-font-size: 1.25rem;
+        --small-font-size: 0.813rem;
+      }
+
+      /*========== Responsive typography ==========*/
+      @media screen and (min-width: 1120px) {
+        :root {
+          --h2-font-size: 1.5rem;
+          --small-font-size: 0.875rem;
+        }
+      }
+
+      /*=============== BASE ===============*/
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: var(--body-font);
+        background-color: var(--body-color);
+        color: var(--text-color);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /*=============== CARD ===============*/
+      .container {
+        display: grid;
+        place-items: center;
+        margin-inline: 1.5rem;
+        padding-block: 5rem;
+        display: grid;
+        margin-left: 800px;
+        margin-top: -50px;
+        padding: 2rem;
+        overflow-x: auto;
+        animation-name: fade-in-element;
+      }
+
+      @keyframes fade-in-element {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .card__container {
+        display: flex;
+        row-gap: 3.5rem;
+        justify-content: flex-end; /* Align to the right */
+      }
+
+      .card__article {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card__img {
+        width: 150px !important;
+        height: auto !important;
+        border-radius: 1.5rem !important;
+      }
+
+      .card__data {
+        width: 150px !important;
+        background-color: var(--container-color);
+        padding: 1rem 2rem;
+        box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+        border-radius: 1rem;
+        position: absolute;
+        bottom: -9rem;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        opacity: 0;
+        transition: opacity 1s 1s;
+      }
+
+      .card__description {
+        display: block;
+        font-size: var(--small-font-size);
+        margin-bottom: 0.25rem;
+        font-family: Roboto;
+      }
+
+      .card__title {
+        font-size: var(--h5-font-size);
+        font-weight: 500;
+        color: var(--title-color);
+        margin-bottom: 0.75rem;
+        font-family: Roboto;
+      }
+
+      .card__button {
+        text-decoration: none;
+        font-size: var(--small-font-size);
+        font-weight: 500;
+        color: var(--first-color);
+      }
+
+      .card__button:hover {
+        text-decoration: underline;
+      }
+
+      /* Naming animations in hover */
+      .card__article:hover .card__data {
+        animation: show-data 1s forwards;
+        opacity: 1;
+        transition: opacity 0.3s;
+      }
+
+      .card__article:hover {
+        animation: remove-overflow 2s forwards;
+      }
+
+      .card__article:not(:hover) {
+        animation: show-overflow 2s forwards;
+      }
+
+      .card__article:not(:hover) .card__data {
+        animation: remove-data 1s forwards;
+      }
+
+      /* Card animation */
+      @keyframes show-data {
+        50% {
+          transform: translateY(-10rem);
+        }
+        100% {
+          transform: translateY(-7rem);
+        }
+      }
+
+      @keyframes remove-overflow {
+        to {
+          overflow: initial;
+        }
+      }
+
+      @keyframes remove-data {
+        0% {
+          transform: translateY(-7rem);
+        }
+        50% {
+          transform: translateY(-10rem);
+        }
+        100% {
+          transform: translateY(0.5rem);
+        }
+      }
+
+      @keyframes show-overflow {
+        0% {
+          overflow: initial;
+          pointer-events: none;
+        }
+        50% {
+          overflow: hidden;
+        }
+      }
+
+      /*=============== BREAKPOINTS ===============*/
+      /* For small devices */
+      @media screen and (max-width: 340px) {
+        .container {
+          margin-inline: 1rem;
+        }
+
+        .card__data {
+          width: 200px;
+          padding: 1rem;
+        }
+      }
+
+      /* For medium devices */
+      @media screen and (min-width: 768px) {
+        .card__container {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 1.5rem;
+        }
+      }
+
+      /* For large devices */
+      @media screen and (min-width: 1120px) {
+        .container {
+          height: 100vh;
+        }
+
+        .card__container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .card__img {
+          width: 348px;
+        }
+        .card__data {
+          width: 316px;
+          padding-inline: 2.5rem;
+        }
+      }
+
+      /*=============== Footer ===============*/
+
+      .footer img {
+        opacity: 0.8; /* Adjust the value (0 to 1) to control transparency */
+        /* Make the image smaller */
+        height: auto; /* Maintain aspect ratio */
+        display: block;
+        margin: 0 auto; /* Center the image */
+        height: 40%;
+      }
+      .des_Guide {
+        margin-top: 80px;
+        margin-left: 10px;
+      }
+      .des_Guide h2 {
+        margin-left: 40px;
+        margin-top: -50px;
+        margin-bottom: 50px;
+        font-weight: 800;
+        font-size: 52px;
+        color: black;
+        font-family: Roboto;
+      }
+
+      .des_Guide h4 {
+        margin-left: 40px;
+        margin-top: -50px;
+        margin-bottom: 70px;
+        font-weight: 300;
+        font-size: 52px;
+        color: black;
+        font-family: Roboto;
+      }
+
+      .des_Guide h5 {
+        margin-left: 40px;
+        margin-top: -50px;
+        margin-bottom: 50px;
+        text-align: left;
+        font-family: Roboto;
+        color: black;
+        font-size: 15px;
+        text-align: justify;
+        font-weight: 300;
+      }
+      .google-map {
+        padding-bottom: 50%;
+        position: relative;
+        position: relative; /* or 'fixed' if you want it fixed while scrolling */
+        top: -550px; /* Moves the map up by 50px */
+        right: -580px;
+      }
+
+      .google-map iframe {
+        height: 60%;
+        width: 60%;
+
+        position: absolute;
+      }
+      
+
+      .top-thing {
+    text-align: center; /* Centers the text horizontally */
+    margin-bottom: 20px; /* Adds some space between the text and the cards */
+    font-weight: bold;
+    margin-top: -700px;
+    margin-left: 50px; /* Adjust the position */
+}
+
+.top-thing h4 {
+    margin-left: 40px;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    font-weight: 800;
+    font-size: 52px;
+    font-family: Roboto;
+}
+
+/* Styling for the text colors */
+.black-text {
+    color: lightseagreen;
+}
+
+.gold-text {
+    color: black;
+}
+
+      .card-container {
+        display: flex !important; /* Keep cards in a row */
+
+        margin-top: -40px !important;
+        margin-left: 150px !important;
+        margin-right: 150px !important;
+        margin-inline: 1.5rem !important;
+        padding-block: 5rem !important;
+        width: 100% !important; /* Full width */
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        width: 350px !important; /* Fixed width for each card */
+        background-color: whitesmoke !important;
+        border-radius: 20px !important;
+
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2) !important;
+        margin: 20px !important; /* Space between cards */
+        flex-shrink: 0 !important; /* Prevent cards from shrinking */
+      }
+
+      .card img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 10px !important;
+      }
+
+      .card-content {
+        margin: 20px !important;
+        padding: 16px !important;
+        font-family: "Roboto";
+        font-weight: bold;
+        color: black;
+      }
+
+      .card-content {
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .card-content p {
+        color: #666 !important;
+        font-size: 14px !important;
+        min-height: 60px;
+        flex-grow: 1;
+      }
+
+      .card-content .btn {
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-top: 10px !important;
+        color: black;
+        font-family: Roboto;
+      }
+      .btn-container {
+        display: flex;
+        gap: 10px;
+        margin-top: auto; /* Push buttons to the bottom */
+      }
+
+      .des-image {
+        width: 30%;
+        height: 30%;
+        margin-left: 50px;
+        border-radius: 10px !important;
+        margin-top: -30px;
+      }
+
+      .footer-content img {
+        opacity: 0.9;
+      }
+      /*=============== Footer ===============*/
+
+.footer {
+  background: url('../assets/footer-image05.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  padding: 40px 20px;
+  color: white;
+  text-align: center;
+  height: 500px;
+}
+
+/* Add blur effect */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Inherits the background image */
+  filter: blur(2px); /* Adjust blur intensity */
+  z-index: 1;
+}
+
+/* Ensure content stays visible */
+.footer * {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.columns {
+  text-align: left;
+  margin: 60px;
+  min-width: 200px; /* Ensures they don't shrink too much */
+}
+
+.columns h4{
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  border-bottom: 2px solid #ffd700;
+
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 5px 0;
+}
+
+ul li a {
+  
+  text-decoration: none;
+  color: #E0E0E0;
+  font-size: 20px;
+  font-size: 100;
+}
+
+ul li a:hover {
+  color: #ffd700;
+}
+
+
+      
+    </style>
+
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <section>
+      <div class="banner">
+        <img src="destinations-pics/weligama.png" />
+        <div class="navbar">
+          <img class="logo" src="assets/401-logo.png" />
+          <ul>
+            <li><a href="index.html">Home</a></li>
+
+            <div class="dropdown">
+              <button class="dropbtn">
+                Destinations
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="Weligama.html">Weligama</a>
+                <a href="Trincomalee.html">Trincomalee</a>
+                <a href="Yala.html">Yala</a>
+                <a href="Sigriya.html">Sigriya</a>
+                <a href="Polonnaruwa.html">Polonnaruwa</a>
+                <a href="Nuwara Eliya.html">Nuwara Eliya</a>
+                <a href="Mirissa.html">Mirissa</a>
+                <a href="Kandy.html">Kandy</a>
+                <a href="Hikkaduwa.html">Hikkaduwa</a>
+                <a href="Galle.html">Galle</a>
+                <a href="Ella.html">Ella</a>
+                <a href="Anurahapura.html">Anurahapura</a>
+              </div>
+            </div>
+            <li><a href="#">Planning a Trip</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt;
+        <a href="index.html">Destinations</a> &gt;
+        <span>Weligama</span>
+      </nav>
+    </section>
+    <section id="Destinations">
+      <div class="des_Guide">
+        <h2 style="color: #ffcc00;">Weligama</h2>
+        <h4 style="color: lightseagreen;">A Surfer’s Paradise</h4>
+        <h5>
+          Weligama, located on the southern coast of Sri Lanka, is a stunning<br />
+          coastal town known for its golden beaches and crystal-clear waters.<br />
+          The town offers a serene atmosphere perfect for relaxation, with<br />
+          breathtaking sunsets and gentle waves ideal for surfing. Beyond<br />the
+          beach, Weligama invites visitors to explore its rich local culture,<br />
+          delicious seafood, and warm, welcoming community. Whether you're<br />
+          seeking adventure or tranquility, Weligama promises an
+          unforgettable<br />
+          experience amidst natural beauty and vibrant heritage.
+        </h5>
+      </div>
+      <div class="des-image">
+        <img
+          src="destinations-pics/beautiful.jpg"
+          alt="picure of weligama beach"
+        />
+      </div>
+      <div class="map-container">
+        <div class="google-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31744.134213289144!2d80.43337855!3d5.9924256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae115377cc3eaf9%3A0x2463154f2d989243!2sWeligama!5e0!3m2!1sen!2slk!4v1741240221273!5m2!1sen!2slk"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="top-thing">
+        <h4>
+            <span class="black-text">Top things</span>
+            <span class="gold-text">to do in Weligama</span>
+        </h4>
+    </div>
+    
+
+      <div class="card-container">
+        <div class="card">
+          <img src="destinations-pics/turtle.jpg" />
+          <div class="card-content">
+            <h3>5 FUN THINGS TO TO WITH YOUR KIDS IN SRI LANAKA</h3>
+            <p></p>
+            <a href="" class="btn">read more </a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="destinations-pics/surf.jpg" />
+          <div class="card-content">
+            <h3>5 FUN THINGS TO DO IN WELIGAMA BESIDES SURFING</h3>
+            <p></p>
+            <a href="" class="btn">read more</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="destinations-pics/couple.jpg" />
+          <div class="card-content">
+            <h3>COUPLES GUIDE TO BEACH HOPPING</h3>
+            <p></p>
+            <a href="" class="btn">read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="row">
+        <div class="columns">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>         
+            <li><a href="planning.html">Planning a Trip</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="columns">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Flight Booking</a></li>
+          <li><a href="#">Hotel Reservation</a></li>
+          <li><a href="#">Travel Insurance</a></li>
+          <li><a href="#">Car Rental</a></li>
+          </ul>
+        </div>
+        <div class="columns">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>Email: <a href="malito:Support@gamil.com">Support@gamil.com</a></li>
+            <li>Phone: +1 234 567 890</li>
+            <li>Address: 123 Main Street, Anytown, USA</li></li>
+          </ul>
+        </div>
+        <div class="columns">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -680,6 +680,26 @@ video {
   }
 }
 
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.partner-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.partner-item.animate {
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
 
 /*-----------------------------------*\
   #SERVICE
@@ -690,12 +710,7 @@ video {
   gap: 20px;
 }
 
-.service-card {
-  padding: 30px;
-  box-shadow: var(--shadow);
-  border-radius: var(--radius-12);
-  background-color: var(--white);
-}
+
 
 .service-card .card-icon {
   background-image: url("../images/service-banner-pattern.png");
@@ -745,6 +760,56 @@ video {
   background-color: var(--light-green);
 }
 
+/* Add this at the bottom of your CSS */
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to trigger animation */
+.service-card.animate {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+
+.service-card {
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius-12);
+  background-color: var(--white);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.35s ease;
+  transform: translateY(0) scale(1);
+  will-change: transform;
+}
+
+/* Hover: stronger lift, springy bounce */
+.service-card:hover {
+  transform: translateY(-12px) scale(1.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-card:hover {
+  transform: translateY(-12px) scale(1.06);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+              0 0 20px rgba(144, 238, 144, 0.4); /* soft green glow */
+}
+
+
+
 /*-----------------------------------*\
   #FEATURE
 \*-----------------------------------*/
@@ -778,6 +843,7 @@ video {
   max-width: max-content;
   margin-inline: auto;
 }
+
 
 /*-----------------------------------*\
   #sucess stories
@@ -840,6 +906,28 @@ video {
 .client-role {
   font-size: 0.9rem;
   color: #888;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When visible in viewport */
+.testimonial-card.animate {
+  animation: fadeSlideIn 0.8s ease forwards;
 }
 
 
@@ -949,6 +1037,30 @@ video {
     gap: 60px;
   }
 }
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.location-info,
+.map-container {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.location-info.animate,
+.map-container.animate {
+  animation: fadeSlideIn 0.8s ease forwards;
+}
+
 
 /*-----------------------------------*\
   #FOOTER
