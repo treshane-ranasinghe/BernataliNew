@@ -748,14 +748,18 @@ button:hover {
 
 /*=============== Footer ===============*/
 
-.footer {
-  position: relative;
-  padding: 40px 20px;
+footer {
+  width: 100%;
+  background-color: #333; /* or your color */
   color: white;
   text-align: center;
-  height: 500px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
   overflow: hidden;
 }
+
 
 .footer * {
   position: relative;
@@ -781,6 +785,7 @@ button:hover {
   border-bottom: 2px solid #ffd700;
   padding-bottom: 5px;
 }
+
 
 ul {
   list-style: none;
@@ -816,6 +821,55 @@ ul li a:hover {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    position: relative;
+    padding-right: 10%;
+    padding-left: 5%;
+    text-align: center;
+  }
+
+  button {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    float: none;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .columns h4 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .columns h4 {
+    font-size: 22px;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .columns h4 {
+    font-size: 18px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #ffd700;
+  }
 }
 
 
@@ -866,6 +920,7 @@ ul li a:hover {
   .content {
     width: 100%;
     padding: 10px;
+    margin-top: 50px;
     text-align: center;
     position: relative;
     top: 0;
@@ -883,6 +938,7 @@ ul li a:hover {
     width: 100%;
     margin: 10px auto;
     text-align: center;
+    
   }
 
   
@@ -1017,3 +1073,189 @@ ul li a:hover {
   }
 }
 
+/* ============ MOBILE RESPONSIVENESS ============ */
+@media screen and (max-width: 768px) {
+
+  .topnav a {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  .logo {
+    margin-bottom: 15px;
+  }
+
+  .content {
+    position: relative;
+    top: auto;
+    transform: none;
+    padding: 10% 5%;
+    text-align: center;
+  }
+
+  .content h1,
+  .content h2 {
+    font-size: 32px;
+  }
+
+  .sub h5 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  button {
+    float: none;
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    margin-right: 0;
+    white-space: normal;
+    font-size: 18px;
+  }
+
+  .container {
+    margin-left: 0;
+    margin-top: 0;
+    padding: 1rem;
+    display: block;
+  }
+
+  .card__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card__img {
+    width: 100% !important;
+  }
+
+  .card__data {
+    width: 90% !important;
+    padding: 1rem;
+  }
+
+  .card-container {
+    flex-direction: column !important;
+    overflow-x: hidden !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+  }
+
+  .card {
+    width: 90% !important;
+    margin: 15px 0 !important;
+  }
+
+  .dropdown .dropbtn {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .dropdown-content {
+    position: static;
+    min-width: 100%;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: rgba(10, 25, 47, 0.9);
+
+  }
+
+  .dropdown-content a {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .banner video {
+    object-fit: cover;
+    height: auto;
+  }
+
+}
+
+/* ============ ULTRA SMALL DEVICES ============ */
+@media screen and (max-width: 480px) {
+  .content h1,
+  .content h2 {
+    font-size: 24px;
+  }
+
+  .sub h5 {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+/* Default - hide hamburger on desktop */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hide nav-links on mobile by default */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+    padding: 20px;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+  }
+
+  .nav-links ul li {
+    margin: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+}

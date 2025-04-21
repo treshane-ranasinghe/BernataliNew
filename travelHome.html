@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="assets/css/travel.css"/>
     
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,32 +26,42 @@
         </video>
         <div class="navbar">
           <img class="logo" src="travelPics/assets/401-logo.png" />
-          <ul>
-            <li><a href="#">Home</a></li>            
-            
-            <div class="dropdown">
-              <button class="dropbtn">Destinations
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <a href="Weligama.html">Weligama</a>
-                <a href="Trincomalee.html">Trincomalee</a>
-                <a href="Yala.html">Yala</a>
-                <a href="Sigriya.html">Sigriya</a>
-                <a href="Polonnaruwa.html">Polonnaruwa</a>
-                <a href="Nuwara Eliya.html">Nuwara Eliya</a>
-                <a href="Mirissa.html">Mirissa</a>
-                <a href="Kandy.html">Kandy</a>
-                <a href="Hikkaduwa.html">Hikkaduwa</a>
-                <a href="Galle.html">Galle</a>
-                <a href="Ella.html">Ella</a>
-                <a href="Anurahapura.html">Anurahapura</a>                
+        
+          <!-- Hamburger Icon -->
+          <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+          </div>
+        
+          <!-- Navigation Links -->
+          <div class="nav-links" id="navLinks">
+            <ul>
+              <li><a href="#">Home</a></li>            
+              <div class="dropdown">
+                <button class="dropbtn">Destinations
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="Weligama.html">Weligama</a>
+                  <a href="Trincomalee.html">Trincomalee</a>
+                  <a href="Yala.html">Yala</a>
+                  <a href="Sigriya.html">Sigriya</a>
+                  <a href="Polonnaruwa.html">Polonnaruwa</a>
+                  <a href="Nuwara Eliya.html">Nuwara Eliya</a>
+                  <a href="Mirissa.html">Mirissa</a>
+                  <a href="Kandy.html">Kandy</a>
+                  <a href="Hikkaduwa.html">Hikkaduwa</a>
+                  <a href="Galle.html">Galle</a>
+                  <a href="Ella.html">Ella</a>
+                  <a href="Anurahapura.html">Anurahapura</a>                
+                </div>
               </div>
-            </div>
-            <li><a href="#">Planning a Trip</a></li>
-            <li><a href="#">About Us</a></li>
-          </ul>
+              <li><a href="#">Planning a Trip</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </div>
         </div>
+        <script src="script.js"></script>
+        
         <div class="content">
           <h1>Experience</h1>
           <h2>Unforgettable Journeys</h2>
@@ -114,7 +125,7 @@
       <div class="des_Guide">
         <h2 style="color: #ffd700;">Destination <br>Guide</h2>
         <h4 style="color: lightseagreen;">Holiday In Sri Lanka</h4>
-        <h5>Sri Lanka is a meeting place of friendly faces who share their<br>
+        <h5 style="text-align: justify;">Sri Lanka is a meeting place of friendly faces who share their<br>
             homes and trade a space for spiritual healing; a land for learning<br>
             from the old and the new; a hub of commercial activity; a spot for<br>
             tranquility. Sri Lanka casts a spell unlike anywhere else. It draws<br>
