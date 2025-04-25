@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page with Video</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/apparel.css" />
+  
+</head>
+<body>
+  <header class="header" data-header>
+    <div class="container">
+      <a href="#" class="logo"></a>
+      
+      <div class="overlay" data-overlay></div>
+
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-navbar-link>Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link" data-navbar-link>About</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#services" class="navbar-link" data-navbar-link>Services</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#testimonial" class="navbar-link" data-navbar-link>Success stories</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#location" class="navbar-link" data-navbar-link>Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="video-landing">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="images/apparel-landing.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="landing-content">
+      <h1>Building Strong Brands!</h1>
+      <p>Your journey to something amazing starts here.</p>
+      <a href="#services" class="cta-btn">Explore More</a>
+    </div>
+  </div>
+
+  <script>
+    const navbar = document.querySelector("[data-navbar]");
+    const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+    const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+    const overlay = document.querySelector("[data-overlay]");
+    const header = document.querySelector(".header");
+    const navbarLinks = document.querySelectorAll(".navbar-link");
+
+    // Mobile menu toggle
+    const navToggle = function () {
+      navbar.classList.toggle("active");
+      overlay.classList.toggle("active");
+    };
+
+    navOpenBtn.addEventListener("click", navToggle);
+    navCloseBtn.addEventListener("click", navToggle);
+    overlay.addEventListener("click", navToggle);
+
+    // Close mobile menu when clicking on links
+    navbarLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          navbar.classList.remove("active");
+          overlay.classList.remove("active");
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 50) {
+        header.classList.add("active");
+      } else {
+        header.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>
