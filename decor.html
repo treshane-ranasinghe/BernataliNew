@@ -1,11 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bernatali Sourcing Home Decor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/decor.css" />
 </head>
 <body>
-    
+
+<header class="header" data-header>
+  <div class="container">
+    <a href="#" class="logo">Bernatali</a>
+
+    <div class="overlay" data-overlay></div>
+
+    <nav class="navbar" data-navbar>
+      <div class="navbar-top">
+        <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+        <li class="navbar-item"><a href="#home" class="navbar-link" data-navbar-link>Home</a></li>
+        <li class="navbar-item"><a href="#about" class="navbar-link" data-navbar-link>About</a></li>
+        <li class="navbar-item"><a href="#services" class="navbar-link" data-navbar-link>Services</a></li>
+        <li class="navbar-item"><a href="#contact" class="navbar-link" data-navbar-link>Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<div class="video-landing">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/home-decor.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="landing-content">
+    <h1>Transforming Spaces with Style</h1>
+    <p>Elegant and functional decor solutions for your home and workspace.</p>
+    <a href="#services" class="cta-btn">Explore More</a>
+  </div>
+</div>
+
+<script>
+  const navbar = document.querySelector("[data-navbar]");
+  const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+  const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+  const overlay = document.querySelector("[data-overlay]");
+  const header = document.querySelector(".header");
+  const navbarLinks = document.querySelectorAll(".navbar-link");
+
+  const navToggle = function () {
+    navbar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  };
+
+  navOpenBtn.addEventListener("click", navToggle);
+  navCloseBtn.addEventListener("click", navToggle);
+  overlay.addEventListener("click", navToggle);
+
+  navbarLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        navbar.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    });
+  });
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      header.classList.add("active");
+    } else {
+      header.classList.remove("active");
+    }
+  });
+</script>
+
+<!-- Hero Section -->
+<section class="hero-decor" id="home">
+  <div class="container">
+    <h1>Home Decor Sourcing & Styling</h1>
+    <p>Connecting global buyers with premium home decor manufacturers across Worldwide.</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-decor" id="about">
+  <div class="container">
+    <h2>About Our Home Decor Sourcing</h2>
+    <p>
+      At Bernatali Sourcing Studios (Pvt) Ltd, we specialize in sourcing and designing elegant home decor pieces.
+      We partner with reliable manufacturers from Sri Lanka, India, Bangladesh, and China to deliver quality and innovation 
+      in every decor item, including lighting, furniture, kitchenware, and more.
+    </p>
+  </div>
+</section>
+
+<!-- Decor Categories -->
+<section class="decor-categories" id="services">
+  <div class="container">
+    <h2>Our Home Decor Categories</h2>
+    <div class="category-grid">
+      <div class="category-card">
+        <i class="fas fa-couch"></i>
+        <h3>Furniture</h3>
+        <p>Sofas, tables, chairs, and custom pieces</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Lighting</h3>
+        <p>Chandeliers, lamps, and decorative lighting</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-blanket"></i>
+        <h3>Textiles</h3>
+        <p>Curtains, cushions, and upholstery fabrics</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-utensils"></i>
+        <h3>Tableware</h3>
+        <p>Dinnerware, glassware, and serving pieces</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-rug"></i>
+        <h3>Rugs & Carpets</h3>
+        <p>Handmade and machine-made floor coverings</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-paint-roller"></i>
+        <h3>Wall Decor</h3>
+        <p>Mirrors, artwork, and decorative panels</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-spa"></i>
+        <h3>Accessories</h3>
+        <p>Vases, candles, and decorative objects</p>
+      </div>
+      <div class="category-card">
+        <i class="fas fa-door-open"></i>
+        <h3>Outdoor</h3>
+        <p>Patio furniture and garden decor</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="decor-strengths">
+  <div class="container">
+    <h2>Why Choose Bernatali?</h2>
+    <ul>
+      <li>High-quality decor products with timeless appeal</li>
+      <li>Partnerships with trusted suppliers across Asia</li>
+      <li>Custom sourcing for interior designers and bulk orders</li>
+      <li>Competitive pricing and on-time delivery</li>
+      <li>Quality assurance and inspection services</li>
+      <li>Sustainable and eco-friendly options available</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-decor" id="contact">
+  <div class="container">
+    <h2>Looking to Source Home Decor?</h2>
+    <p>Let's create something beautiful for your living space.</p>
+    <a href="#contact" class="cta-button">Get in Touch</a>
+  </div>
+</section>
+
 </body>
 </html>

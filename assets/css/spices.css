@@ -1,7 +1,7 @@
 /* Modern CSS Reset */
 :root {
-  --primary: #9c7c5b; /* Earthy brown tone for home decor */
-  --primary-dark: #7a5c40;
+  --primary: #d35400; /* Warm spice orange color */
+  --primary-dark: #a04000;
   --text-light: #ffffff;
   --text-dark: #333333;
   --bg-dark: #1a1a1a;
@@ -232,64 +232,64 @@ section {
   padding: 5rem 0;
 }
 
-.hero-decor {
+.hero-spices {
   background-color: var(--bg-dark);
   color: var(--text-light);
   text-align: center;
   padding: 6rem 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/decor-hero-bg.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/spices-hero-bg.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.hero-decor h1 {
+.hero-spices h1 {
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 1rem;
 }
 
-.hero-decor p {
+.hero-spices p {
   font-size: 1.25rem;
   opacity: 0.9;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.about-decor {
+.about-spices {
   background-color: var(--text-light);
   text-align: center;
 }
 
-.about-decor h2 {
+.about-spices h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   margin-bottom: 2rem;
   color: var(--bg-dark);
 }
 
-.about-decor p {
+.about-spices p {
   max-width: 800px;
   margin: 0 auto;
   font-size: 1.1rem;
 }
 
-/* Decor Categories Grid */
-.decor-categories {
+/* Spice Products Grid */
+.spice-products {
   background-color: var(--bg-light);
 }
 
-.decor-categories h2 {
+.spice-products h2 {
   text-align: center;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   margin-bottom: 3rem;
   color: var(--bg-dark);
 }
 
-.category-grid {
+.spice-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-.category-card {
+.spice-card {
   background: var(--text-light);
   padding: 2rem 1.5rem;
   border-radius: var(--radius-md);
@@ -299,57 +299,57 @@ section {
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.category-card:hover {
+.spice-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary);
 }
 
-.category-card i {
+.spice-card i {
   font-size: 2.5rem;
   color: var(--primary);
   margin-bottom: 1rem;
 }
 
-.category-card h3 {
+.spice-card h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--bg-dark);
 }
 
-.category-card p {
+.spice-card p {
   font-size: 0.9rem;
   color: #666;
 }
 
 /* Strengths Section */
-.decor-strengths {
+.spice-strengths {
   background-color: var(--text-light);
 }
 
-.decor-strengths .container {
+.spice-strengths .container {
   max-width: 800px;
 }
 
-.decor-strengths h2 {
+.spice-strengths h2 {
   text-align: center;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   margin-bottom: 2rem;
   color: var(--bg-dark);
 }
 
-.decor-strengths ul {
+.spice-strengths ul {
   display: grid;
   gap: 1.5rem;
 }
 
-.decor-strengths li {
+.spice-strengths li {
   position: relative;
   padding-left: 2rem;
   font-size: 1.1rem;
 }
 
-.decor-strengths li::before {
+.spice-strengths li::before {
   content: '';
   position: absolute;
   left: 0;
@@ -361,18 +361,18 @@ section {
 }
 
 /* CTA Section */
-.cta-decor {
+.cta-spices {
   background-color: var(--primary);
   color: var(--text-light);
   text-align: center;
 }
 
-.cta-decor h2 {
+.cta-spices h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   margin-bottom: 1rem;
 }
 
-.cta-decor p {
+.cta-spices p {
   max-width: 600px;
   margin: 0 auto 2rem;
   font-size: 1.1rem;
@@ -477,7 +477,7 @@ section {
     pointer-events: all;
   }
 
-  .category-grid {
+  .spice-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 

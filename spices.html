@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bernatali Sourcing Spices</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/spices.css" />
+</head>
+<body>
+
+<header class="header" data-header>
+  <div class="container">
+    <a href="#" class="logo">Bernatali</a>
+
+    <div class="overlay" data-overlay></div>
+
+    <nav class="navbar" data-navbar>
+      <div class="navbar-top">
+        <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+        <li class="navbar-item"><a href="#home" class="navbar-link" data-navbar-link>Home</a></li>
+        <li class="navbar-item"><a href="#about" class="navbar-link" data-navbar-link>About</a></li>
+        <li class="navbar-item"><a href="#products" class="navbar-link" data-navbar-link>Products</a></li>
+        <li class="navbar-item"><a href="#contact" class="navbar-link" data-navbar-link>Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<div class="video-landing">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/spices-landing.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="landing-content">
+    <h1>Discover the World of Authentic Spices</h1>
+    <p>Premium quality spices sourced directly from their native regions.</p>
+    <a href="#products" class="cta-btn">Explore Products</a>
+  </div>
+</div>
+
+<script>
+  const navbar = document.querySelector("[data-navbar]");
+  const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+  const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+  const overlay = document.querySelector("[data-overlay]");
+  const header = document.querySelector(".header");
+  const navbarLinks = document.querySelectorAll(".navbar-link");
+
+  const navToggle = function () {
+    navbar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  };
+
+  navOpenBtn.addEventListener("click", navToggle);
+  navCloseBtn.addEventListener("click", navToggle);
+  overlay.addEventListener("click", navToggle);
+
+  navbarLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) {
+        navbar.classList.remove("active");
+        overlay.classList.remove("active");
+      }
+    });
+  });
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      header.classList.add("active");
+    } else {
+      header.classList.remove("active");
+    }
+  });
+</script>
+
+<!-- Hero Section -->
+<section class="hero-spices" id="home">
+  <div class="container">
+    <h1>Premium Spice Sourcing</h1>
+    <p>Connecting global buyers with authentic spice producers across Worldwide.</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-spices" id="about">
+  <div class="container">
+    <h2>About Our Spice Sourcing</h2>
+    <p>
+      Bernatali Sourcing Studios specializes in sourcing the finest spices from Sri Lanka, India, Bangladesh, and beyond.
+      We work directly with farmers and producers to bring you the most authentic flavors, carefully processed to maintain
+      their natural aroma and potency.
+    </p>
+  </div>
+</section>
+
+<!-- Spice Products -->
+<section class="spice-products" id="products">
+  <div class="container">
+    <h2>Our Spice Portfolio</h2>
+    <div class="spice-grid">
+      <div class="spice-card">
+        <i class="fas fa-pepper-hot"></i>
+        <h3>Chilies & Peppers</h3>
+        <p>From mild to extremely hot varieties</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-mortar-pestle"></i>
+        <h3>Whole Spices</h3>
+        <p>Cinnamon, cardamom, cloves, and more</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-seedling"></i>
+        <h3>Seeds</h3>
+        <p>Mustard, cumin, fennel, and coriander</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-leaf"></i>
+        <h3>Leaves & Herbs</h3>
+        <p>Curry leaves, bay leaves, pandan</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-spa"></i>
+        <h3>Root Spices</h3>
+        <p>Turmeric, ginger, galangal</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-blender"></i>
+        <h3>Powdered Spices</h3>
+        <p>Custom blends and single-origin powders</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-wine-bottle"></i>
+        <h3>Essential Oils</h3>
+        <p>Pure spice extracts and oils</p>
+      </div>
+      <div class="spice-card">
+        <i class="fas fa-box-open"></i>
+        <h3>Specialty Blends</h3>
+        <p>Authentic regional spice mixtures</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="spice-strengths">
+  <div class="container">
+    <h2>Why Source With Us?</h2>
+    <ul>
+      <li>Direct relationships with spice growers</li>
+      <li>Strict quality control at every stage</li>
+      <li>Ethical and sustainable sourcing</li>
+      <li>Custom processing and packaging</li>
+      <li>Competitive bulk pricing</li>
+      <li>Global logistics expertise</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-spices" id="contact">
+  <div class="container">
+    <h2>Ready to Source Premium Spices?</h2>
+    <p>Let's add authentic flavors to your products.</p>
+    <a href="#contact" class="cta-button">Contact Our Team</a>
+  </div>
+</section>
+
+</body>
+</html>
