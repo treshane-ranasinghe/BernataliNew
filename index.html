@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bernatali</title>
-    
 
     <!-- 
     - favicon
@@ -36,6 +35,10 @@
     <header class="header" data-header>
       <div class="container">
         <div class="overlay" data-overlay></div>
+
+        <a href="#home" class="logo">
+          <img src="images/logo.png" alt="Your Company Logo" style="height: 80px" />
+        </a>
 
         <nav class="navbar" data-navbar>
           <div class="navbar-top">
@@ -79,7 +82,6 @@
               >
             </li>
 
-            
             <li class="navbar-item">
               <a
                 style="font-size: large"
@@ -116,7 +118,6 @@
           }
         });
       </script>
-      
     </header>
 
     <main>
@@ -125,7 +126,6 @@
         - #HERO
       -->
 
-       
         <section class="hero" id="home">
           <!-- Video background container -->
           <div class="hero-bg">
@@ -148,11 +148,11 @@
               <button class="btn" onclick="scrollToAbout()">Learn More</button>
               <script>
                 function scrollToAbout() {
-                  document.getElementById('about').scrollIntoView({
-                    behavior: 'smooth'
+                  document.getElementById("about").scrollIntoView({
+                    behavior: "smooth",
                   });
                 }
-                </script>
+              </script>
             </div>
           </div>
         </section>
@@ -161,132 +161,223 @@
         - #ABOUT
       -->
 
-      <section class="section about" id="about">
-        <div class="container">
-          <div class="slideshow-container reveal">
-            <!-- Slides -->
-            <div class="mySlides fade">
-              <img src="images/about 1.png" width="700" height="200" loading="lazy" alt="Slide 1" class="w-100 banner-animation">
+        <section class="section about" id="about">
+          <div class="container">
+            <div class="slideshow-container reveal">
+              <!-- Slides -->
+              <div class="mySlides fade">
+                <img
+                  src="images/about 1.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 1"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 2.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 3.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 11.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 15.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 12.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+
+              <div class="mySlides fade">
+                <img
+                  src="images/about 8.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 9.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 10.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+              <div class="mySlides fade">
+                <img
+                  src="images/about 13.png"
+                  width="700"
+                  height="200"
+                  loading="lazy"
+                  alt="Slide 2"
+                  class="w-100 banner-animation"
+                />
+              </div>
+
+              <!-- Next and previous buttons -->
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-            <div class="mySlides fade">
-              <img src="images/about 2.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>            
-            <div class="mySlides fade">
-              <img src="images/about 3.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
+
+            <div class="about-content reveal">
+              <h2 class="h2 section-title underline">About Us</h2>
+
+              <p style="text-align: justify" class="about-text">
+                A dynamic and fast growing sourcing company specialized in
+                apparel fabric and sourcing, based in Sri Lanka, providing a
+                vital link between customers & suppliers internationally and
+                locally.
+                <br /><br />
+                We work closely with manufacturing facilities of international
+                companies, who are fully equipped with the most technologically
+                advanced, efficient, and competitive facilities for all
+                processes.
+                <br /><br />
+                Our team has vast experience in the garment industry from
+                product development to garment manufacturing and fabric dying to
+                finishing. We have highly trained and skilled staff to provide
+                the best customer support and after sales solutions. We are
+                continuously on the look for new developments and trends in the
+                market.
+                <br /><br />
+                We are linked with many state-of-the-art apparel manufacturers
+                in Sri Lanka / India / Bangladesh and China and undertake
+                apparel orders for lingerie, casual wear, pants, shirts and many
+                more items. We have very strong sourcing capabilities and our
+                prices are extremely competitive.
+                <br /><br />
+                The company has diversified its business line by exporting Sri
+                Lankan spices, tea, coconut and coconut-based products to the
+                International market.
+              </p>
+
+              <ul class="stats-list">
+                <li class="stats-card reveal">
+                  <p class="h3 stats-title" data-count="9875">0</p>
+                  <p class="stats-text">Satisfied Clients</p>
+                </li>
+
+                <li class="stats-card reveal">
+                  <p class="h3 stats-title" data-count="7894">0</p>
+                  <p class="stats-text">Project Launched</p>
+                </li>
+
+                <li class="stats-card reveal">
+                  <p class="h3 stats-title" data-count="65">0</p>
+                  <p class="stats-text">Years Completed</p>
+                </li>
+              </ul>
             </div>
-            <div class="mySlides fade">
-              <img src="images/about 11.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            <div class="mySlides fade">
-              <img src="images/about 15.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            <div class="mySlides fade">
-              <img src="images/about 12.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            
-            <div class="mySlides fade">
-              <img src="images/about 8.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            <div class="mySlides fade">
-              <img src="images/about 9.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            <div class="mySlides fade">
-              <img src="images/about 10.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            <div class="mySlides fade">
-              <img src="images/about 13.png" width="700" height="200" loading="lazy" alt="Slide 2" class="w-100 banner-animation">
-            </div>
-            
-            
-            
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
           </div>
-      
-          <div class="about-content reveal">
-            <h2 class="h2 section-title underline">About Us</h2>
-      
-            <p style="text-align: justify" class="about-text">
-              A dynamic and fast growing sourcing company specialized in apparel fabric and sourcing, based in Sri Lanka, providing a vital link between customers & suppliers internationally and locally.
-              <br><br>
-              We work closely with manufacturing facilities of international companies, who are fully equipped with the most technologically advanced, efficient, and competitive facilities for all processes.
-              <br><br>
-              Our team has vast experience in the garment industry from product development to garment manufacturing and fabric dying to finishing. We have highly trained and skilled staff to provide the best customer support and after sales solutions. We are continuously on the look for new developments and trends in the market.
-              <br><br>
-              We are linked with many state-of-the-art apparel manufacturers in Sri Lanka / India / Bangladesh and China and undertake apparel orders for lingerie, casual wear, pants, shirts and many more items. We have very strong sourcing capabilities and our prices are extremely competitive.
-              <br><br>
-              The company has diversified its business line by exporting Sri Lankan spices, tea, coconut and coconut-based products to the International market.
-            </p>
-      
-            <ul class="stats-list">
-              <li class="stats-card reveal">
-                <p class="h3 stats-title" data-count="9875">0</p>
-                <p class="stats-text">Satisfied Clients</p>
-              </li>
-      
-              <li class="stats-card reveal">
-                <p class="h3 stats-title" data-count="7894">0</p>
-                <p class="stats-text">Project Launched</p>
-              </li>
-      
-              <li class="stats-card reveal">
-                <p class="h3 stats-title" data-count="65">0</p>
-                <p class="stats-text">Years Completed</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
-        <script>
-          // Intersection Observer for reveal animations
-          const reveals = document.querySelectorAll('.reveal');
-          
-          const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
+
+          <script>
+            // Intersection Observer for reveal animations
+            const reveals = document.querySelectorAll(".reveal");
+
+            const observer = new IntersectionObserver(
+              (entries, observer) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    observer.unobserve(entry.target);
+                  }
+                });
+              },
+              {
+                threshold: 0.1,
               }
+            );
+
+            reveals.forEach((reveal) => {
+              observer.observe(reveal);
             });
-          }, {
-            threshold: 0.1
-          });
-      
-          reveals.forEach(reveal => {
-            observer.observe(reveal);
-          });
-      
-          // Slideshow functionality
-          let slideIndex = 1;
-          showSlides(slideIndex);
-      
-          function plusSlides(n) {
-            showSlides(slideIndex += n);
-          }
-      
-          function currentSlide(n) {
-            showSlides(slideIndex = n);
-          }
-      
-          function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
+
+            // Slideshow functionality
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+              showSlides((slideIndex += n));
             }
-            slides[slideIndex-1].style.display = "block";
-          }
-      
-          // Optional: Auto-advance slides
-          setInterval(() => {
-            plusSlides(1);
-          }, 5000);
-        </script>
-      </section>
-      
+
+            function currentSlide(n) {
+              showSlides((slideIndex = n));
+            }
+
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              if (n > slides.length) {
+                slideIndex = 1;
+              }
+              if (n < 1) {
+                slideIndex = slides.length;
+              }
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              slides[slideIndex - 1].style.display = "block";
+            }
+
+            // Optional: Auto-advance slides
+            setInterval(() => {
+              plusSlides(1);
+            }, 5000);
+          </script>
+        </section>
 
         <!-- 
         - #PARTNERS
@@ -339,9 +430,9 @@
                 ...document.querySelectorAll(".testimonial-card"),
                 ...document.querySelectorAll(".location-info"),
                 ...document.querySelectorAll(".map-container"),
-                ...document.querySelectorAll(".partner-item")
+                ...document.querySelectorAll(".partner-item"),
               ];
-          
+
               const observer = new IntersectionObserver(
                 (entries, observer) => {
                   entries.forEach((entry, index) => {
@@ -356,206 +447,255 @@
                   threshold: 0.2,
                 }
               );
-          
-              animatedElements.forEach(el => observer.observe(el));
+
+              animatedElements.forEach((el) => observer.observe(el));
             });
           </script>
-          
         </section>
 
         <!-- 
         - #SERVICE
       -->
 
-      <section class="section service" id="services">
-        <div class="container">
-          <h2 class="h2 section-title underline">Services</h2>
+        <section class="section service" id="services">
+          <div class="container">
+            <h2 class="h2 section-title underline">Services</h2>
 
-          <ul class="service-list">
-            <li>
-              <div class="service-card">
-                <div class="card-icon">
-                  <img src="images/service1.jpg" alt="Apparel sourcing" width="250" height="`250" style="border-radius: 10px; ">
+            <ul class="service-list">
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img
+                      src="images/service1.jpg"
+                      alt="Apparel sourcing"
+                      width="250"
+                      height="`250"
+                      style="border-radius: 10px"
+                    />
+                  </div>
+
+                  <h3 class="h3 title">Apparel Sourcing & Fabric</h3>
+
+                  <p class="text"></p>
+
+                  <button
+                    class="card-btn"
+                    aria-label="Show More"
+                    onclick="window.location.href='apparel.html'"
+                  >
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </button>
                 </div>
+              </li>
 
-                <h3 class="h3 title">Apparel Sourcing & Fabric</h3>
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img
+                      src="images/service2.jpg"
+                      alt="Tourism"
+                      width="250"
+                      height="`250"
+                      style="border-radius: 10px"
+                    />
+                  </div>
 
-                <p class="text">
-                  
-                </p>
+                  <h3 class="h3 title">Tourism</h3>
 
-                <button class="card-btn" aria-label="Show More" onclick="window.location.href='apparel.html'" >
+                  <p class="text"></p>
 
-                  <ion-icon name="chevron-forward-outline"></ion-icon>
-                </button>
-              </div>
-            </li>
-
-            <li>
-              <div class="service-card">
-                <div class="card-icon">
-                  <img src="images/service2.jpg" alt="Tourism" width="250" height="`250" style="border-radius: 10px;">
+                  <button
+                    class="card-btn"
+                    aria-label="Show More"
+                    onclick="window.location.href='travelHome.html'"
+                  >
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </button>
                 </div>
+              </li>
 
-                <h3 class="h3 title">Tourism</h3>
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img
+                      src="images/service3.jpg"
+                      alt="Spices and Tea"
+                      width="250"
+                      height="250"
+                      style="border-radius: 10px"
+                    />
+                  </div>
 
-                <p class="text">
-                  
-                </p>
+                  <h3 class="h3 title">Spices & Tea</h3>
 
-                <button class="card-btn" aria-label="Show More" onclick="window.location.href='travelHome.html'">
-                  <ion-icon name="chevron-forward-outline"></ion-icon>
-                </button>
-              </div>
-            </li>
+                  <p class="text"></p>
 
-            <li>
-              <div class="service-card">
-                <div class="card-icon">
-                  <img src="images/service3.jpg" alt="Spices and Tea" width="250" height="250" style="border-radius: 10px;">
+                  <button
+                    class="card-btn"
+                    aria-label="Show More"
+                    onclick="window.location.href='spices.html'"
+                  >
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </button>
                 </div>
+              </li>
 
-                <h3 class="h3 title">Spices & Tea</h3>
+              <li>
+                <div class="service-card">
+                  <div class="card-icon">
+                    <img
+                      src="images/service4.jpg"
+                      alt="Home Decor"
+                      width="250"
+                      height="250"
+                      style="border-radius: 10px"
+                    />
+                  </div>
 
-                <p class="text">
-                 
-                </p>
+                  <h3 class="h3 title">Home Decor & Furnishing</h3>
 
-                <button class="card-btn" aria-label="Show More" onclick="window.location.href='spices.html'">
-                  <ion-icon name="chevron-forward-outline"></ion-icon>
-                </button>
-              </div>
-            </li>
+                  <p class="text"></p>
 
-            <li>
-              <div class="service-card">
-                <div class="card-icon">
-                  <img src="images/service4.jpg" alt="Home Decor" width="250" height="250" style="border-radius: 10px;">
+                  <button
+                    class="card-btn"
+                    aria-label="Show More"
+                    onclick="window.location.href='decor.html'"
+                  >
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </button>
                 </div>
+              </li>
+            </ul>
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const serviceCards = document.querySelectorAll(".service-card");
 
-                <h3 class="h3 title">Home Decor & Furnishing</h3>
+              const observer = new IntersectionObserver(
+                (entries, observer) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      entry.target.classList.add("animate");
+                      observer.unobserve(entry.target); // Animate only once
+                    }
+                  });
+                },
+                {
+                  threshold: 0.2,
+                }
+              );
 
-                <p class="text">
-                  
-                </p>
-
-                <button class="card-btn" aria-label="Show More" onclick="window.location.href='decor.html'">
-                  <ion-icon name="chevron-forward-outline"></ion-icon>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const serviceCards = document.querySelectorAll(".service-card");
-        
-            const observer = new IntersectionObserver(
-              (entries, observer) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                    observer.unobserve(entry.target); // Animate only once
-                  }
-                });
-              },
-              {
-                threshold: 0.2
-              }
-            );
-        
-            serviceCards.forEach(card => observer.observe(card));
-          });
-        </script>
-        
-      </section>
+              serviceCards.forEach((card) => observer.observe(card));
+            });
+          </script>
+        </section>
 
         <!-- 
         - #FEATURES
       -->
 
-        
-
         <!-- 
         - #success stories
       -->
 
-      <section class="section testimonial" id="testimonial">
-        <div class="container">
-          <h2 class="h2 section-title underline">Success stories</h2>
-      
-          <ul class="testimonial-list">
-            <li class="testimonial-card">
-              <figure class="testimonial-img">
-                <img src="images/FofL-2.png" alt="Andrew Bernstein" class="img-cover" />
-              </figure>
-              <div class="testimonial-content">
-                <p class="testimonial-text">
-                  "I have been working with Ruwan since 2015,
-                   and it has been a pleasure to deal with him in all aspects. 
-                   I have absolutely no hesitation in recommending him as a 
-                   valued partner and colleague. It is hard to find people
-                    you can genuinely trust in business nowadays,
-                    but Ruwan is one of those rare individuals—a man of integrity"
-                </p>
-                <h3 class="client-name">Andrew Bernstein</h3>
-                <span class="client-role">Chairman, Lockyer Textiles - UK</span>
-              </div>
-            </li>
-      
-            <li class="testimonial-card">
-              <figure class="testimonial-img">
-                <img src="images/z_p19-sidath.jpg" alt="Sidath Wettimuny" class="img-cover" />
-              </figure>
-              <div class="testimonial-content">
-                <p class="testimonial-text">
-                  "Having worked with Ruwan for many years, I can confidently say that he and his team are committed to their customers, reliable, and honorable in their dealings"
-                </p>
-                <h3 class="client-name">Sidath Wettimuny</h3>
-                <span class="client-role">Director, Nobleswear Pvt. Ltd.</span>
-              </div>
-            </li>
-      
-            <li class="testimonial-card">
-              <figure class="testimonial-img">
-                <img src="images/0.jpg" alt="Don Kapila Kalpage" class="img-cover" />
-              </figure>
-              <div class="testimonial-content">
-                <p class="testimonial-text">
-                  "I have been working with Ruwan and his team at BerNatali for years, and they have never disappointed me. He is very detail-oriented and keen to meet all expectations. His responsiveness to urgent matters makes him one of the best I have worked with. I highly recommend his services to anyone!"
-                </p>
-                <h3 class="client-name">Don Kapila Kalpage</h3>
-                <span class="client-role">Country Manager, Lockyer Textiles</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const cards = document.querySelectorAll(".testimonial-card");
-        
-            const observer = new IntersectionObserver(
-              (entries, observer) => {
-                entries.forEach((entry, index) => {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                    entry.target.style.animationDelay = `${index * 0.2}s`; // optional stagger
-                    observer.unobserve(entry.target);
-                  }
-                });
-              },
-              {
-                threshold: 0.2,
-              }
-            );
-        
-            cards.forEach(card => observer.observe(card));
-          });
-        </script>
-        
-      </section>
-        
-      
+        <section class="section testimonial" id="testimonial">
+          <div class="container">
+            <h2 class="h2 section-title underline">Success stories</h2>
+
+            <ul class="testimonial-list">
+              <li class="testimonial-card">
+                <figure class="testimonial-img">
+                  <img
+                    src="images/FofL-2.png"
+                    alt="Andrew Bernstein"
+                    class="img-cover"
+                  />
+                </figure>
+                <div class="testimonial-content">
+                  <p class="testimonial-text">
+                    "I have been working with Ruwan since 2015, and it has been
+                    a pleasure to deal with him in all aspects. I have
+                    absolutely no hesitation in recommending him as a valued
+                    partner and colleague. It is hard to find people you can
+                    genuinely trust in business nowadays, but Ruwan is one of
+                    those rare individuals—a man of integrity"
+                  </p>
+                  <h3 class="client-name">Andrew Bernstein</h3>
+                  <span class="client-role"
+                    >Chairman, Lockyer Textiles - UK</span
+                  >
+                </div>
+              </li>
+
+              <li class="testimonial-card">
+                <figure class="testimonial-img">
+                  <img
+                    src="images/z_p19-sidath.jpg"
+                    alt="Sidath Wettimuny"
+                    class="img-cover"
+                  />
+                </figure>
+                <div class="testimonial-content">
+                  <p class="testimonial-text">
+                    "Having worked with Ruwan for many years, I can confidently
+                    say that he and his team are committed to their customers,
+                    reliable, and honorable in their dealings"
+                  </p>
+                  <h3 class="client-name">Sidath Wettimuny</h3>
+                  <span class="client-role"
+                    >Director, Nobleswear Pvt. Ltd.</span
+                  >
+                </div>
+              </li>
+
+              <li class="testimonial-card">
+                <figure class="testimonial-img">
+                  <img
+                    src="images/0.jpg"
+                    alt="Don Kapila Kalpage"
+                    class="img-cover"
+                  />
+                </figure>
+                <div class="testimonial-content">
+                  <p class="testimonial-text">
+                    "I have been working with Ruwan and his team at BerNatali
+                    for years, and they have never disappointed me. He is very
+                    detail-oriented and keen to meet all expectations. His
+                    responsiveness to urgent matters makes him one of the best I
+                    have worked with. I highly recommend his services to
+                    anyone!"
+                  </p>
+                  <h3 class="client-name">Don Kapila Kalpage</h3>
+                  <span class="client-role"
+                    >Country Manager, Lockyer Textiles</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const cards = document.querySelectorAll(".testimonial-card");
+
+              const observer = new IntersectionObserver(
+                (entries, observer) => {
+                  entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                      entry.target.classList.add("animate");
+                      entry.target.style.animationDelay = `${index * 0.2}s`; // optional stagger
+                      observer.unobserve(entry.target);
+                    }
+                  });
+                },
+                {
+                  threshold: 0.2,
+                }
+              );
+
+              cards.forEach((card) => observer.observe(card));
+            });
+          </script>
+        </section>
       </article>
 
       <!-- Location Section -->
@@ -566,16 +706,17 @@
           <div class="location-content">
             <div class="location-info">
               <h3 class="h3">Visit Our Office</h3>
-              <p class="location-text">
-                
-              </p>
+              <p class="location-text"></p>
 
               <div class="contact-info">
                 <div class="contact-item">
                   <div class="contact-icon">
                     <ion-icon name="location-outline"></ion-icon>
                   </div>
-                  <address>547 Lourds Kreedapitiya Road / 1st Lane / Thewette Road Ragama</address>
+                  <address>
+                    547 Lourds Kreedapitiya Road / 1st Lane / Thewette Road
+                    Ragama
+                  </address>
                 </div>
 
                 <div class="contact-item">
@@ -617,9 +758,9 @@
             const animatedElements = [
               ...document.querySelectorAll(".testimonial-card"),
               ...document.querySelectorAll(".location-info"),
-              ...document.querySelectorAll(".map-container")
+              ...document.querySelectorAll(".map-container"),
             ];
-        
+
             const observer = new IntersectionObserver(
               (entries, observer) => {
                 entries.forEach((entry, index) => {
@@ -634,11 +775,10 @@
                 threshold: 0.2,
               }
             );
-        
-            animatedElements.forEach(el => observer.observe(el));
+
+            animatedElements.forEach((el) => observer.observe(el));
           });
         </script>
-        
       </section>
     </main>
 
@@ -652,9 +792,7 @@
           <div class="footer-brand">
             <a href="#" class="logo">Bernatali</a>
 
-            <p class="text">
-              Building Stronger Brands!
-            </p>
+            <p class="text">Building Stronger Brands!</p>
 
             <ul class="social-list">
               <li>
@@ -709,7 +847,9 @@
             </li>
 
             <li>
-              <a href="apparel.html" class="footer-link">Apparel Sourcing & Fabric</a>
+              <a href="apparel.html" class="footer-link"
+                >Apparel Sourcing & Fabric</a
+              >
             </li>
 
             <li>
@@ -750,15 +890,11 @@
               <a href="#" class="footer-link">Support</a>
             </li>
           </ul>
-
-          
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p class="copyright">
-          &copy; 2025 Bernatali. All rights reserved          
-        </p>
+        <p class="copyright">&copy; 2025 Bernatali. All rights reserved</p>
       </div>
     </footer>
 
@@ -787,14 +923,14 @@
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // Function to animate counting
         function animateCount(element) {
-          const target = parseInt(element.getAttribute('data-count'));
+          const target = parseInt(element.getAttribute("data-count"));
           const duration = 2000; // Animation duration in ms
           const start = 0;
           const increment = target / (duration / 16); // 60fps
-          
+
           let current = start;
           const timer = setInterval(() => {
             current += increment;
@@ -805,54 +941,57 @@
             element.textContent = Math.floor(current).toLocaleString();
           }, 16);
         }
-      
+
         // Intersection Observer to trigger animation when section is in view
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const counters = entry.target.querySelectorAll('.stats-title');
-              counters.forEach(counter => {
-                animateCount(counter);
-              });
-              observer.unobserve(entry.target); // Stop observing after animation
-            }
-          });
-        }, { threshold: 0.5 }); // Trigger when 50% of section is visible
-      
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll(".stats-title");
+                counters.forEach((counter) => {
+                  animateCount(counter);
+                });
+                observer.unobserve(entry.target); // Stop observing after animation
+              }
+            });
+          },
+          { threshold: 0.5 }
+        ); // Trigger when 50% of section is visible
+
         // Observe the about section
-        const aboutSection = document.getElementById('about');
+        const aboutSection = document.getElementById("about");
         if (aboutSection) {
           observer.observe(aboutSection);
         }
       });
-      </script>
+    </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const navbarLinks = document.querySelectorAll('.navbar-link');
-    const sections = document.querySelectorAll('section');
-    
-    // Highlight active section in navbar
-    window.addEventListener('scroll', function() {
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-          current = section.getAttribute('id');
-        }
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbarLinks = document.querySelectorAll(".navbar-link");
+        const sections = document.querySelectorAll("section");
+
+        // Highlight active section in navbar
+        window.addEventListener("scroll", function () {
+          let current = "";
+
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navbarLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.add("active");
+            }
+          });
+        });
       });
-      
-      navbarLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-  });
-  </script>
+    </script>
   </body>
 </html>
