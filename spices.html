@@ -1,185 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bernatali Sourcing Spices</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="assets/css/spices.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bernatali Sourcing Spices</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Modern CSS Reset */
+      :root {
+        --primary: #d35400; /* Warm spice orange color */
+        --primary-dark: #a04000;
+        --text-light: #ffffff;
+        --text-dark: #333333;
+        --bg-dark: #1a1a1a;
+        --bg-light: #f8f9fa;
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 16px;
+      }
 
-<header class="header" data-header>
-  <div class="container">
-    <a href="#home" class="logo">
-          <img src="images/logo.png" alt="Your Company Logo" style="height: 80px" />
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--bg-light);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        padding-top: 70px; /* Space for fixed header */
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Header Styles */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 1000;
+        transition: var(--transition);
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .header.active {
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 0.75rem 0;
+        box-shadow: var(--shadow-md);
+      }
+
+      .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-light);
+        z-index: 1001;
+      }
+
+      /* Navigation */
+      .navbar {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-list {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .navbar-link {
+        color: var(--text-light);
+        font-weight: 500;
+        font-size: 1.1rem;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .navbar-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+
+      .navbar-link:hover {
+        color: var(--primary);
+      }
+
+      .navbar-link:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile Menu */
+      .nav-open-btn,
+      .nav-close-btn,
+      .navbar-top,
+      .overlay {
+        display: none;
+      }
+
+      /* Hero Video Section */
+      .video-landing {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      .video-landing .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 0;
+      }
+
+      .landing-content {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-light);
+        text-align: center;
+        padding: 0 1.5rem;
+      }
+
+      .landing-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      .landing-content p {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        margin-bottom: 2rem;
+        max-width: 600px;
+        opacity: 0.9;
+        animation: fadeInUp 1.5s ease-out forwards;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background-color: var(--primary);
+        color: var(--text-light);
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+        animation: fadeInUp 2s ease-out forwards;
+      }
+
+      .cta-btn:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Content Sections */
+      section {
+        padding: 5rem 0;
+      }
+
+      .hero-spices {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        text-align: center;
+        padding: 6rem 0;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("images/spices-hero-bg.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-spices h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 1rem;
+      }
+
+      .hero-spices p {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .about-spices {
+        background-color: var(--text-light);
+        text-align: center;
+      }
+
+      .about-spices h2 {
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        margin-bottom: 2rem;
+        color: var(--bg-dark);
+      }
+
+      .about-spices p {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+      }
+
+      /* Spice Products Grid */
+      .spice-products {
+        background-color: var(--bg-light);
+      }
+
+      .spice-products h2 {
+        text-align: center;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        margin-bottom: 3rem;
+        color: var(--bg-dark);
+      }
+
+      .spice-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .spice-card {
+        background: var(--text-light);
+        padding: 2rem 1.5rem;
+        border-radius: var(--radius-md);
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .spice-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
+      }
+
+      .spice-card i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .spice-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--bg-dark);
+      }
+
+      .spice-card p {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* Strengths Section */
+      .spice-strengths {
+        background-color: var(--text-light);
+      }
+
+      .spice-strengths .container {
+        max-width: 800px;
+      }
+
+      .spice-strengths h2 {
+        text-align: center;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        margin-bottom: 2rem;
+        color: var(--bg-dark);
+      }
+
+      .spice-strengths ul {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .spice-strengths li {
+        position: relative;
+        padding-left: 2rem;
+        font-size: 1.1rem;
+      }
+
+      .spice-strengths li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        background-color: var(--primary);
+        border-radius: 50%;
+      }
+
+      /* CTA Section */
+      .cta-spices {
+        background-color: var(--primary);
+        color: var(--text-light);
+        text-align: center;
+      }
+
+      .cta-spices h2 {
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .cta-spices p {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background-color: var(--text-light);
+        color: var(--primary);
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+      }
+
+      .cta-button:hover {
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 60px;
+        }
+
+        .navbar-list {
+          display: none;
+        }
+
+        .nav-open-btn {
+          display: block;
+          font-size: 1.5rem;
+          color: var(--text-light);
+          z-index: 1001;
+        }
+
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 280px;
+          height: 100%;
+          background-color: var(--bg-dark);
+          padding: 2rem;
+          z-index: 1002;
+          transition: var(--transition);
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        .navbar.active {
+          left: 0;
+        }
+
+        .navbar-top {
+          display: flex;
+          justify-content: flex-end;
+          width: 100%;
+          margin-bottom: 2rem;
+        }
+
+        .nav-close-btn {
+          display: block;
+          font-size: 1.5rem;
+          color: var(--text-light);
+        }
+
+        .navbar-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          width: 100%;
+        }
+
+        .navbar-link {
+          font-size: 1.1rem;
+        }
+
+        .overlay {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.7);
+          z-index: 1001;
+          opacity: 0;
+          pointer-events: none;
+          transition: var(--transition);
+        }
+
+        .overlay.active {
+          opacity: 1;
+          pointer-events: all;
+        }
+
+        .spice-grid {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        section {
+          padding: 3rem 0;
+        }
+
+        .header .container {
+          height: 60px;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header" data-header>
+      <div class="container">
+        <a href="#home" class="logo">
+          <img
+            src="images/logo.png"
+            alt="Your Company Logo"
+            style="height: 80px"
+          />
         </a>
 
-    <div class="overlay" data-overlay></div>
+        <div class="overlay" data-overlay></div>
 
-    <nav class="navbar" data-navbar>
-      <div class="navbar-top">
-        <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
-          <i class="fas fa-times"></i>
+        <nav class="navbar" data-navbar>
+          <div class="navbar-top">
+            <button
+              class="nav-close-btn"
+              aria-label="Close Menu"
+              data-nav-close-btn
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="#home" class="navbar-link" data-navbar-link>Home</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#about" class="navbar-link" data-navbar-link>About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="#products" class="navbar-link" data-navbar-link
+                >Products</a
+              >
+            </li>
+            <li class="navbar-item">
+              <a href="#contact" class="navbar-link" data-navbar-link
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
+    </header>
 
-      <ul class="navbar-list">
-        <li class="navbar-item"><a href="#home" class="navbar-link" data-navbar-link>Home</a></li>
-        <li class="navbar-item"><a href="#about" class="navbar-link" data-navbar-link>About</a></li>
-        <li class="navbar-item"><a href="#products" class="navbar-link" data-navbar-link>Products</a></li>
-        <li class="navbar-item"><a href="#contact" class="navbar-link" data-navbar-link>Contact Us</a></li>
-      </ul>
-    </nav>
+    <div class="video-landing">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="images/spices.mp4" type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
 
-    <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
-      <i class="fas fa-bars"></i>
-    </button>
-  </div>
-</header>
+      <div class="overlay"></div>
 
-<div class="video-landing">
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="images/spices.mp4" type="video/mp4" />
-    Your browser does not support HTML5 video.
-  </video>
-
-  <div class="overlay"></div>
-
-  <div class="landing-content">
-    <h1>Discover the World of Authentic Spices</h1>
-    <p>Premium quality spices sourced directly from their native regions.</p>
-    <a href="#products" class="cta-btn">Explore Products</a>
-  </div>
-</div>
-
-<script>
-  const navbar = document.querySelector("[data-navbar]");
-  const navOpenBtn = document.querySelector("[data-nav-open-btn]");
-  const navCloseBtn = document.querySelector("[data-nav-close-btn]");
-  const overlay = document.querySelector("[data-overlay]");
-  const header = document.querySelector(".header");
-  const navbarLinks = document.querySelectorAll(".navbar-link");
-
-  const navToggle = function () {
-    navbar.classList.toggle("active");
-    overlay.classList.toggle("active");
-  };
-
-  navOpenBtn.addEventListener("click", navToggle);
-  navCloseBtn.addEventListener("click", navToggle);
-  overlay.addEventListener("click", navToggle);
-
-  navbarLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      if (window.innerWidth <= 768) {
-        navbar.classList.remove("active");
-        overlay.classList.remove("active");
-      }
-    });
-  });
-
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 50) {
-      header.classList.add("active");
-    } else {
-      header.classList.remove("active");
-    }
-  });
-</script>
-
-<!-- Hero Section -->
-<section class="hero-spices" id="home">
-  <div class="container">
-    <h1>Premium Spice Sourcing</h1>
-    <p>Connecting global buyers with authentic spice producers across Worldwide.</p>
-  </div>
-</section>
-
-<!-- About Section -->
-<section class="about-spices" id="about">
-  <div class="container">
-    <h2>About Our Spice Sourcing</h2>
-    <p>
-      Bernatali Sourcing Studios specializes in sourcing the finest spices from Sri Lanka, India, Bangladesh, and beyond.
-      We work directly with farmers and producers to bring you the most authentic flavors, carefully processed to maintain
-      their natural aroma and potency.
-    </p>
-  </div>
-</section>
-
-<!-- Spice Products -->
-<section class="spice-products" id="products">
-  <div class="container">
-    <h2>Our Spice Portfolio</h2>
-    <div class="spice-grid">
-      <div class="spice-card">
-        <i class="fas fa-pepper-hot"></i>
-        <h3>Chilies & Peppers</h3>
-        <p>From mild to extremely hot varieties</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-mortar-pestle"></i>
-        <h3>Whole Spices</h3>
-        <p>Cinnamon, cardamom, cloves, and more</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-seedling"></i>
-        <h3>Seeds</h3>
-        <p>Mustard, cumin, fennel, and coriander</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-leaf"></i>
-        <h3>Leaves & Herbs</h3>
-        <p>Curry leaves, bay leaves, pandan</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-spa"></i>
-        <h3>Root Spices</h3>
-        <p>Turmeric, ginger, galangal</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-blender"></i>
-        <h3>Powdered Spices</h3>
-        <p>Custom blends and single-origin powders</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-wine-bottle"></i>
-        <h3>Essential Oils</h3>
-        <p>Pure spice extracts and oils</p>
-      </div>
-      <div class="spice-card">
-        <i class="fas fa-box-open"></i>
-        <h3>Specialty Blends</h3>
-        <p>Authentic regional spice mixtures</p>
+      <div class="landing-content">
+        <h1>Discover the World of Authentic Spices</h1>
+        <p>
+          Premium quality spices sourced directly from their native regions.
+        </p>
+        <a href="#products" class="cta-btn">Explore Products</a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Strengths -->
-<section class="spice-strengths">
-  <div class="container">
-    <h2>Why Source With Us?</h2>
-    <ul>
-      <li>Direct relationships with spice growers</li>
-      <li>Strict quality control at every stage</li>
-      <li>Ethical and sustainable sourcing</li>
-      <li>Custom processing and packaging</li>
-      <li>Competitive bulk pricing</li>
-      <li>Global logistics expertise</li>
-    </ul>
-  </div>
-</section>
+    <script>
+      const navbar = document.querySelector("[data-navbar]");
+      const navOpenBtn = document.querySelector("[data-nav-open-btn]");
+      const navCloseBtn = document.querySelector("[data-nav-close-btn]");
+      const overlay = document.querySelector("[data-overlay]");
+      const header = document.querySelector(".header");
+      const navbarLinks = document.querySelectorAll(".navbar-link");
 
-<!-- CTA -->
-<section class="cta-spices" id="contact">
-  <div class="container">
-    <h2>Ready to Source Premium Spices?</h2>
-    <p>Let's add authentic flavors to your products.</p>
-    <a href="index.html#location" class="cta-button">Contact Our Team</a>
-  </div>
-</section>
+      const navToggle = function () {
+        navbar.classList.toggle("active");
+        overlay.classList.toggle("active");
+      };
 
-</body>
+      navOpenBtn.addEventListener("click", navToggle);
+      navCloseBtn.addEventListener("click", navToggle);
+      overlay.addEventListener("click", navToggle);
+
+      navbarLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            navbar.classList.remove("active");
+            overlay.classList.remove("active");
+          }
+        });
+      });
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          header.classList.add("active");
+        } else {
+          header.classList.remove("active");
+        }
+      });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-spices" id="home">
+      <div class="container">
+        <h1>Premium Spice Sourcing</h1>
+        <p>
+          Connecting global buyers with authentic spice producers across
+          Worldwide.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-spices" id="about">
+      <div class="container">
+        <h2>About Our Spice Sourcing</h2>
+        <p>
+          Bernatali Sourcing Studios specializes in sourcing the finest spices
+          from Sri Lanka, India, Bangladesh, and beyond. We work directly with
+          farmers and producers to bring you the most authentic flavors,
+          carefully processed to maintain their natural aroma and potency.
+        </p>
+      </div>
+    </section>
+
+    <!-- Spice Products -->
+    <section class="spice-products" id="products">
+      <div class="container">
+        <h2>Our Spice Portfolio</h2>
+        <div class="spice-grid">
+          <div class="spice-card">
+            <i class="fas fa-pepper-hot"></i>
+            <h3>Chilies & Peppers</h3>
+            <p>From mild to extremely hot varieties</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-mortar-pestle"></i>
+            <h3>Whole Spices</h3>
+            <p>Cinnamon, cardamom, cloves, and more</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-seedling"></i>
+            <h3>Seeds</h3>
+            <p>Mustard, cumin, fennel, and coriander</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-leaf"></i>
+            <h3>Leaves & Herbs</h3>
+            <p>Curry leaves, bay leaves, pandan</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-spa"></i>
+            <h3>Root Spices</h3>
+            <p>Turmeric, ginger, galangal</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-blender"></i>
+            <h3>Powdered Spices</h3>
+            <p>Custom blends and single-origin powders</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-wine-bottle"></i>
+            <h3>Essential Oils</h3>
+            <p>Pure spice extracts and oils</p>
+          </div>
+          <div class="spice-card">
+            <i class="fas fa-box-open"></i>
+            <h3>Specialty Blends</h3>
+            <p>Authentic regional spice mixtures</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strengths -->
+    <section class="spice-strengths">
+      <div class="container">
+        <h2>Why Source With Us?</h2>
+        <ul>
+          <li>Direct relationships with spice growers</li>
+          <li>Strict quality control at every stage</li>
+          <li>Ethical and sustainable sourcing</li>
+          <li>Custom processing and packaging</li>
+          <li>Competitive bulk pricing</li>
+          <li>Global logistics expertise</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-spices" id="contact">
+      <div class="container">
+        <h2>Ready to Source Premium Spices?</h2>
+        <p>Let's add authentic flavors to your products.</p>
+        <a href="index.html#location" class="cta-button">Contact Our Team</a>
+      </div>
+    </section>
+  </body>
 </html>
