@@ -28,7 +28,7 @@
   <style>
     /*-----------------------------------*\
   #CUSTOM PROPERTY
-\*-----------------------------------*/
+\*------------------------------------*/
 
     :root {
       /**
@@ -1900,7 +1900,7 @@
                 </li>
 
                 <li class="stats-card reveal">
-                  <p class="h3 stats-title" data-count="65">0</p>
+                  <p class="h3 stats-title" data-count="14">0</p>
                   <p class="stats-text">Years Completed</p>
                 </li>
               </ul>
@@ -2526,27 +2526,37 @@
           }, 16);
         }
 
-        // Intersection Observer to trigger animation when section is in view
+        const statsList = document.querySelector(".stats-list");
+        if (!statsList) return;
+
+        function runCounters() {
+          statsList.querySelectorAll(".stats-title").forEach((counter) => {
+            animateCount(counter);
+          });
+        }
+
+        // Fallback for browsers without IntersectionObserver
+        if (!("IntersectionObserver" in window)) {
+          runCounters();
+          return;
+        }
+
+        // Observe the stats list itself, not the whole about section: on mobile
+        // the section is far taller than the viewport, so a high threshold on it
+        // would never be reached and the counters would stay at 0.
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                const counters = entry.target.querySelectorAll(".stats-title");
-                counters.forEach((counter) => {
-                  animateCount(counter);
-                });
+                runCounters();
                 observer.unobserve(entry.target); // Stop observing after animation
               }
             });
           },
-          { threshold: 0.5 }
-        ); // Trigger when 50% of section is visible
+          { threshold: 0.15 }
+        );
 
-        // Observe the about section
-        const aboutSection = document.getElementById("about");
-        if (aboutSection) {
-          observer.observe(aboutSection);
-        }
+        observer.observe(statsList);
       });
     </script>
 
