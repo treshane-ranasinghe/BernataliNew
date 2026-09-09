@@ -2,2590 +2,979 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bernatali</title>
+    <title>Bernatali — Building Stronger Brands</title>
+    <meta
+      name="description"
+      content="Bernatali Sourcing Studios — a Sri Lanka based sourcing partner for apparel &amp; fabric, spices &amp; tea, home decor and tourism. Linking global buyers with trusted manufacturers."
+    />
+    <meta name="theme-color" content="#04150e" />
 
-    <!-- 
-    - favicon
-  -->
-    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/png" />
 
-    <!-- 
-    - custom css link
-  -->
-
-    <!-- 
-    - google font link
-  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Source+Sans+Pro:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
-  <style>
-    /*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*------------------------------------*/
-
-    :root {
-      /**
-   * colors
-   */
-
-      --forest-green: hsl(120, 61%, 20%);
-      --leaf-green: hsl(120, 61%, 38%);
-      --dark-green: hsl(120, 61%, 16%);
-      --sage-green: hsl(120, 30%, 25%);
-      --pine-green: hsl(120, 59%, 16%);
-      --light-green_50: hsla(120, 87%, 53%, 0.5);
-      --mint-green: hsl(120, 26%, 43%);
-      --olive-green: hsl(75, 54%, 33%);
-      --light-green: hsl(120, 87%, 53%);
-      --lime-green: hsl(120, 87%, 51%);
-
-      /* Adjusted colors for better contrast */
-      --accent-yellow: hsl(60, 100%, 50%); /* Brighter yellow for accents */
-      --soft-white: hsl(0, 0%, 96%);
-      --text-dark: hsl(120, 61%, 10%);
-      --text-light: hsl(120, 30%, 95%);
-      --platinum: hsl(0, 0%, 90%);
-      --black_70: hsla(0, 0%, 0%, 0.7);
-      --white: hsl(0, 0%, 100%);
-
-      --gradient-1: linear-gradient(
-        90deg,
-        var(--dark-green) 0,
-        var(--olive-green) 51%,
-        var(--dark-green)
-      );
-      --gradient-2: linear-gradient(
-        90deg,
-        var(--lime-green),
-        var(--accent-yellow)
-      );
-
-      /* Add these light green colors to your existing palette */
-      --light-bg: hsl(120, 50%, 98%); /* Very light green background */
-      --light-bg-secondary: hsl(
-        120,
-        30%,
-        90%
-      ); /* Slightly darker for contrast */
-      --card-bg: hsl(0, 0%, 100%); /* Pure white for cards */
-
-      /* Adjust your existing colors to complement the light green */
-      --forest-green: hsl(120, 61%, 20%);
-      --leaf-green: hsl(120, 61%, 38%);
-
-      /**
-   * typography
-   */
-
-      --ff-source-sans-pro: "Source Sans Pro", sans-serif;
-      --ff-poppins: "Poppins", sans-serif;
-
-      --fs-1: 4.2rem;
-      --fs-2: 3.8rem;
-      --fs-3: 3.2rem;
-      --fs-4: 2.5rem;
-      --fs-5: 2.4rem;
-      --fs-6: 2rem;
-      --fs-7: 1.8rem;
-      --fs-8: 1.5rem;
-
-      --fw-500: 500;
-      --fw-600: 600;
-      --fw-700: 700;
-
-      /**
-   * border radius
-   */
-
-      --radius-4: 4px;
-      --radius-12: 12px;
-
-      /**
-   * spacing
-   */
-
-      --section-padding: 60px;
-
-      /**
-   * transition
-   */
-
-      --transition-1: 0.15s ease;
-      --transition-2: 0.35s ease;
-      --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
-      --cubic-out: cubic-bezier(0.33, 0.85, 0.56, 1.02);
-
-      /**
-   * shadow
-   */
-
-      --shadow: 0 5px 20px 1px hsla(120, 63%, 33%, 0.1);
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--light-bg);
-      color: var(--text-dark);
-      font-size: 1.6rem;
-    }
-
-    /* Apply to all sections except hero */
-    section:not(.hero) {
-      background-color: var(--light-bg);
-      padding: var(--section-padding);
-    }
-
-    /* Alternate sections with slightly different shade */
-    section:nth-child(even):not(.hero) {
-      background-color: var(--light-bg-secondary);
-    }
-
-    /* Cards and containers should stay white for contrast */
-    .container {
-      background-color: transparent; /* Let section colors show through */
-    }
-
-    .service-card,
-    .features-card,
-    .stats-card,
-    .testimonial-card,
-    .partner-item {
-      background-color: var(--card-bg);
-      box-shadow: var(--shadow);
-    }
-
-    /*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
-
-    *,
-    *::before,
-    *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    li {
-      list-style: none;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    a,
-    img,
-    span,
-    input,
-    button,
-    ion-icon {
-      display: block;
-    }
-
-    button,
-    input {
-      background: none;
-      border: none;
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    input {
-      width: 100%;
-    }
-
-    ion-icon {
-      pointer-events: none;
-    }
-
-    img {
-      height: auto;
-    }
-
-    address {
-      font-style: normal;
-    }
-
-    html {
-      font-family: var(--ff-poppins);
-      font-size: 10px;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--soft-white);
-      color: var(--text-dark);
-      font-size: 1.6rem;
-    }
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background-color: hsl(120, 20%, 95%);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: hsl(120, 30%, 80%);
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background-color: hsl(120, 30%, 70%);
-    }
-
-    /*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
-
-    .container {
-      padding-inline: 15px;
-    }
-
-    .h2,
-    .h3 {
-      font-family: var(--ff-source-sans-pro);
-    }
-
-    .btn {
-      background-image: var(--gradient-2);
-      background-size: 200%;
-      color: var(--text-dark);
-      padding: 12px 35px;
-      font-size: var(--fs-8);
-      font-weight: var(--fw-500);
-      border-radius: 0 25px;
-      transition: var(--transition-2);
-    }
-
-    .btn:is(:hover, :focus) {
-      background-position: right;
-      color: var(--text-dark);
-    }
-
-    .w-100 {
-      width: 100%;
-    }
-
-    .banner-animation {
-      animation: waveAnim 2s linear infinite alternate;
-    }
-
-    @keyframes waveAnim {
-      0% {
-        transform: translate(0, 0) rotate(0);
-      }
-      100% {
-        transform: translate(2px, 2px) rotate(1deg);
-      }
-    }
-
-    .section {
-      padding-block: var(--section-padding);
-    }
-
-    .section-title {
-      color: var(--forest-green);
-      font-size: var(--fs-3);
-      margin-block-end: 60px;
-      max-width: max-content;
-      margin-inline: auto;
-    }
-
-    .underline {
-      position: relative;
-    }
-
-    .underline::before {
-      content: "";
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 6px;
-      background-image: var(--gradient-2);
-      border-radius: 10px;
-    }
-
-    :is(.service-card, .features-card) .title {
-      color: var(--forest-green);
-      font-size: var(--fs-4);
-      font-weight: var(--fw-700);
-    }
-
-    :is(.service-card, .features-card, .blog-card) .text {
-      font-size: var(--fs-8);
-      color: var(--text-dark);
-    }
-
-    .img-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /*-----------------------------------*\
-  #HEADER
-\*-----------------------------------*/
-
-    .header .btn {
-      display: none;
-    }
-
-    .header {
-      --color: var(--white);
-
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding-block: 14px;
-      z-index: 4;
-      transition: var(--transition-1);
-    }
-
-    .header.active {
-      --color: var(--forest-green);
-
-      position: fixed;
-      background-color: var(--soft-white);
-      box-shadow: 0 2px 30px hsla(0, 0%, 0%, 0.1);
-    }
-
-    .header .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .logo {
-      color: var(--color);
-      font-family: var(--ff-source-sans-pro);
-      font-size: var(--fs-3);
-    }
-
-    .nav-open-btn {
-      color: var(--color);
-      font-size: 32px;
-      padding: 4px;
-    }
-
-    .navbar {
-      background-color: var(--soft-white);
-      position: fixed;
-      top: 0;
-      left: -280px;
-      width: 100%;
-      max-width: 280px;
-      min-height: 100%;
-      padding: 20px;
-      visibility: hidden;
-      z-index: 2;
-      transition: 0.25s var(--cubic-in);
-    }
-
-    .navbar.active {
-      transform: translateX(280px);
-      visibility: visible;
-      transition: 0.5s var(--cubic-out);
-    }
-
-    .navbar-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-block: 10px 30px;
-    }
-
-    .navbar-top .logo {
-      color: var(--forest-green);
-      font-size: 4.2rem;
-      font-weight: var(--fw-700);
-    }
-
-    .nav-close-btn {
-      color: var(--sage-green);
-      font-size: 2.8rem;
-      padding: 4px;
-    }
-
-    .navbar-item:not(:last-child) {
-      border-bottom: 1px solid var(--platinum);
-    }
-
-    .navbar-link {
-      color: var(--color);
-      font-size: var(--fs-8);
-      font-weight: var(--fw-600);
-      padding-block: 12px;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-link::after {
-      content: "";
-      position: absolute;
-      bottom: 8px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--leaf-green);
-      transition: width 0.3s ease;
-    }
-
-    .navbar-link:hover {
-      color: var(--leaf-green);
-    }
-
-    .navbar-link:hover::after {
-      width: 100%;
-    }
-
-    /* For active state (when on that section) */
-    .navbar-link.active {
-      color: var(--leaf-green);
-    }
-
-    .navbar-link.active::after {
-      width: 100%;
-    }
-
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background-color: var(--black_70);
-      z-index: 1;
-      opacity: 0;
-      pointer-events: none;
-      transition: var(--transition-2);
-    }
-
-    .overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    /*-----------------------------------*\
-  #HERO
-\*-----------------------------------*/
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
-    .hero-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* Ensure video covers full container */
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      /* Improve performance */
-      transform-style: preserve-3d;
-      backface-visibility: hidden;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .hero-content {
-      color: var(--text-light);
-      max-width: 600px;
-      /* Add some animation */
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero-subtitle {
-      color: var(--accent-yellow);
-      font-family: "Source Sans Pro", sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-
-    .hero-title {
-      font-size: 6.5rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-text {
-      font-size: 1.6rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Animation for content */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 3.2rem;
-      }
-
-      .hero-text {
-        font-size: 1.4rem;
-      }
-
-      .hero-video {
-        /* On mobile, you might want to force landscape video */
-        width: auto;
-        height: 100%;
-      }
-    }
-
-    /* Ensure video plays on mobile devices */
-    /* Some mobile browsers require this */
-    video {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    /*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
-
-    .about-banner {
-      margin-block-end: 30px;
-    }
-
-    .about .section-title {
-      margin-inline: 0;
-    }
-
-    .about .underline::before {
-      left: 0;
-      transform: translateX(0);
-    }
-
-    .about-text {
-      font-size: var(--fs-8);
-      margin-block-end: 20px;
-    }
-
-    .stats-list {
-      display: grid;
-      gap: 30px;
-    }
-
-    .stats-card {
-      text-align: center;
-      padding: 15px;
-      box-shadow: var(--shadow);
-      border-radius: var(--radius-12);
-      background-color: var(--white);
-      transition: transform 0.3s ease;
-    }
-
-    .stats-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .stats-title {
-      color: var(--forest-green);
-      font-size: var(--fs-2);
-      font-weight: var(--fw-700);
-      transition: color 0.5s ease;
-    }
-
-    .stats-text {
-      font-size: var(--fs-8);
-      color: var(--text-dark);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease-out;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Slideshow container */
-    .slideshow-container {
-      position: relative;
-      margin-block-end: 30px;
-      max-width: 700px;
-    }
-
-    /* Hide all slides by default */
-    .mySlides {
-      display: none;
-    }
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
-
-    /* Fading animation */
-    .fade {
-      animation-name: fade;
-      animation-duration: 3.5s;
-    }
-
-    /* Adjust image size */
-    .slideshow-container img {
-      width: 100%;
-      height: auto;
-      max-height: 720px;
-      object-fit: cover;
-    }
-
-    @keyframes fade {
-      from {
-        opacity: 0.4;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    /*-----------------------------------*\
-  #PARTNERS
-\*-----------------------------------*/
-
-    .partners-carousel {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      margin-top: 40px;
-    }
-
-    .carousel-track {
-      display: flex;
-      width: fit-content;
-      animation: scroll-carousel 15s linear infinite;
-    }
-
-    .partner-item {
-      flex: 0 0 auto;
-      margin-right: 30px;
-      background-color: var(--white);
-      padding: 50px;
-      border-radius: var(--radius-12);
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 200px;
-      transition: var(--transition-1);
-    }
-
-    .partner-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .partner-item img {
-      max-width: 100%;
-      max-height: 120px;
-      object-fit: contain;
-    }
-
-    @keyframes scroll-carousel {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .partner-item {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .partner-item.animate {
-      animation: fadeSlideIn 0.8s ease forwards;
-    }
-
-    /*-----------------------------------*\
-  #SERVICE
-\*-----------------------------------*/
-
-    .service-list {
-      display: grid;
-      gap: 20px;
-    }
-
-    .service-card .card-icon {
-      background-image: url("../images/service-banner-pattern.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-color: hsla(120, 87%, 53%, 0.12);
-      aspect-ratio: 1 / 1;
-      max-width: 165px;
-      display: grid;
-      place-content: center;
-      margin-inline: auto;
-      transition: var(--transition-1);
-    }
-
-    .service-card:hover .card-icon {
-      background-color: var(--light-green);
-    }
-
-    .service-card .card-icon ion-icon {
-      font-size: 5rem;
-      color: var(--light-green);
-      --ionicon-stroke-width: 20px;
-      transition: var(--transition-1);
-    }
-
-    .service-card:hover .card-icon ion-icon {
-      color: var(--white);
-    }
-
-    .service-card .title {
-      text-align: center;
-      margin-block-end: 15px;
-    }
-
-    .service-card .text {
-      text-align: center;
-      margin-block-end: 20px;
-    }
-
-    .service-card .card-btn {
-      margin-inline: auto;
-      padding: 15px;
-      border: 1px solid var(--light-green);
-      border-radius: 50%;
-      color: var(--light-green);
-      transition: var(--transition-1);
-    }
-
-    .service-card .card-btn:is(:hover, :focus) {
-      color: var(--white);
-      background-color: var(--light-green);
-    }
-
-    /* Add this at the bottom of your CSS */
-
-    @keyframes fadeSlideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .service-card {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    /* Class to trigger animation */
-    .service-card.animate {
-      animation: fadeSlideUp 0.8s ease-out forwards;
-    }
-
-    .service-card {
-      padding: 30px;
-      box-shadow: var(--shadow);
-      border-radius: var(--radius-12);
-      background-color: var(--white);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow 0.35s ease;
-      transform: translateY(0) scale(1);
-      will-change: transform;
-    }
-
-    /* Hover: stronger lift, springy bounce */
-    .service-card:hover {
-      transform: translateY(-12px) scale(1.06);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-
-    .service-card:hover {
-      transform: translateY(-12px) scale(1.06);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
-        0 0 20px rgba(144, 238, 144, 0.4); /* soft green glow */
-    }
-
-    /*-----------------------------------*\
-  #FEATURE
-\*-----------------------------------*/
-
-    .features-list > li:first-child {
-      margin-block-end: 30px;
-    }
-
-    .features-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    .features-card .icon {
-      background-image: var(--gradient-1);
-      background-size: 200%;
-      color: var(--white);
-      min-width: max-content;
-      max-width: max-content;
-      font-size: 36px;
-      padding: 22px;
-      border-radius: 50%;
-    }
-
-    .features-card .icon ion-icon {
-      --ionicon-stroke-width: 20px;
-    }
-
-    .features-card .title {
-      margin-block-end: 10px;
-    }
-
-    .features-banner {
-      margin-block: 40px;
-    }
-
-    .features-banner > img {
-      max-width: max-content;
-      margin-inline: auto;
-    }
-
-    /*-----------------------------------*\
-  #sucess stories
-\*-----------------------------------*/
-
-    .testimonial {
-      padding-block: 80px;
-      margin-bottom: 50px;
-    }
-
-    .testimonial-list {
-      display: grid;
-      gap: 30px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      margin-top: 40px;
-    }
-
-    .testimonial-card {
-      background-color: white;
-      padding: 30px 20px;
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-    }
-
-    .testimonial-img {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-
-    .testimonial-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .testimonial-text {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
-
-    .client-name {
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 4px;
-    }
-
-    .client-role {
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .testimonial-card {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    /* When visible in viewport */
-    .testimonial-card.animate {
-      animation: fadeSlideIn 0.8s ease forwards;
-    }
-
-    /*-----------------------------------*\
-  #LOCATION
-\*-----------------------------------*/
-
-    .location {
-      margin-top: -50px;
-      padding-block: var(--section-padding);
-      background-color: var(--soft-white);
-    }
-
-    .location .section-title {
-      color: var(--forest-green);
-      margin-block-end: 50px;
-    }
-
-    .location-content {
-      display: grid;
-      gap: 40px;
-    }
-
-    .location-info {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    .location-info .h3 {
-      color: var(--sage-green);
-      font-size: var(--fs-4);
-      font-weight: var(--fw-600);
-    }
-
-    .location-text {
-      color: var(--text-dark);
-      font-size: var(--fs-7);
-      line-height: 1.6;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-    }
-
-    .contact-icon {
-      background-image: var(--gradient-2);
-      color: var(--text-dark);
-      font-size: 18px;
-      padding: 10px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .contact-item address,
-    .contact-item a {
-      color: var(--text-dark);
-      font-style: normal;
-      font-size: var(--fs-7);
-      transition: var(--transition-1);
-    }
-
-    .contact-item a:hover {
-      color: var(--light-green);
-      text-decoration: underline;
-    }
-
-    .map-container {
-      position: relative;
-      border-radius: var(--radius-12);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .map-iframe {
-      width: 100%;
-      height: 400px;
-      display: block;
-      border: none;
-    }
-
-    /* Responsive Styles */
-    @media (min-width: 768px) {
-      .location-content {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-
-      .map-iframe {
-        height: 450px;
-      }
-    }
-
-    @media (min-width: 992px) {
-      .location-content {
-        gap: 60px;
-      }
-    }
-
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .location-info,
-    .map-container {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-
-    .location-info.animate,
-    .map-container.animate {
-      animation: fadeSlideIn 0.8s ease forwards;
-    }
-
-    /*-----------------------------------*\
-  #FOOTER
-\*-----------------------------------*/
-
-    .footer {
-      font-size: var(--fs-8);
-    }
-
-    .footer a {
-      color: inherit;
-    }
-
-    .footer-top {
-      background-image: url("../images/footer-bg.png"), var(--gradient-1);
-      background-repeat: no-repeat;
-      background-size: auto, 200%;
-      background-position: center, center;
-      color: var(--text-light);
-    }
-
-    .footer-brand {
-      margin-block-end: 30px;
-    }
-
-    .footer-brand .logo {
-      font-weight: var(--fw-700);
-      margin-block-end: 15px;
-    }
-
-    .footer-brand .text {
-      font-size: var(--fs-8);
-      margin-block-end: 20px;
-    }
-
-    .social-list {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-top .social-link {
-      background-color: var(--text-light);
-      color: var(--light-green);
-      font-size: 18px;
-      padding: 8px;
-      border-radius: 50%;
-    }
-
-    .footer-top .social-link:is(:hover, :focus) {
-      background-image: var(--gradient-2);
-      color: var(--text-dark);
-    }
-
-    .footer-list:not(:last-child) {
-      margin-block-end: 25px;
-    }
-
-    .footer-list-title {
-      font-family: var(--ff-source-sans-pro);
-      font-size: var(--fs-5);
-      font-weight: var(--fw-700);
-      margin-block-end: 15px;
-    }
-
-    .footer-link {
-      padding-block: 5px;
-    }
-
-    :is(.footer-link, .footer-item-link):not(address):is(:hover, :focus) {
-      text-decoration: underline;
-    }
-
-    .footer-item {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 10px;
-      padding-block: 10px;
-    }
-
-    .footer-item-icon {
-      background-image: var(--gradient-2);
-      padding: 13px;
-      border-radius: 50%;
-    }
-
-    .footer-bottom {
-      background-color: var(--pine-green);
-      padding: 20px;
-      text-align: center;
-      color: var(--text-light);
-    }
-
-    .copyright-link {
-      display: inline-block;
-      text-decoration: underline;
-    }
-
-    .copyright-link:is(:hover, :focus) {
-      text-decoration: none;
-    }
-
-    /*-----------------------------------*\
-  #GO TO TOP
-\*-----------------------------------*/
-
-    .go-top {
-      position: fixed;
-      bottom: 0;
-      right: 15px;
-      background-color: var(--light-green);
-      color: var(--text-dark);
-      font-size: 2rem;
-      padding: 14px;
-      border-radius: var(--radius-4);
-      z-index: 2;
-      visibility: hidden;
-      opacity: 0;
-      transition: var(--transition-1);
-    }
-
-    .go-top.active {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(-15px);
-    }
-
-    /*-----------------------------------*\
-  #MEDIA QUERIES
-\*-----------------------------------*/
-
-    /**
- * responsive for larger than 550px screen
- */
-
-    @media (min-width: 550px) {
-      /**
-   * REUSED STYLE
-   */
-
-      .container {
-        max-width: 550px;
-        margin-inline: auto;
-      }
-
-      .section-title {
-        --fs-3: 3.6rem;
-      }
-
-      /**
-   * HEADER
-   */
-
-      .header .btn {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        margin-inline-start: auto;
-      }
-
-      /**
-   * ABOUT
-   */
-
-      .stats-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      /**
-   * BLOG
-   */
-
-      .blog-card {
-        display: grid;
-        grid-template-columns: 0.75fr 1fr;
-        gap: 20px;
-        padding: 30px;
-      }
-
-      .blog-card .banner {
-        margin-block-end: 0;
-      }
-
-      .blog-card .banner a {
-        height: 100%;
-      }
-
-      /**
-   * FOOTER
-   */
-
-      .footer-brand,
-      .footer-list:not(:last-child) {
-        margin-block-end: 0;
-      }
-
-      .footer-top .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px 50px;
-      }
-    }
-
-    /**
- * responsive for larger than 768px screen
- */
-
-    @media (min-width: 768px) {
-      /**
-   * REUSED STYLE
-   */
-
-      .container {
-        max-width: 720px;
-      }
-
-      /**
-   * HERO
-   */
-
-      .hero {
-        min-height: 600px;
-        display: grid;
-        place-items: center;
-      }
-
-      .hero-content {
-        margin-block-end: 0;
-      }
-
-      .hero .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 30px;
-      }
-
-      /**
-   * SERVICE
-   */
-
-      .service-list {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      /**
-   * FEATURES
-   */
-
-      .features-list > li:first-child {
-        margin-block-end: 0;
-      }
-
-      .features-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-      }
-
-      /**
-   * FOOTER
-   */
-
-      .footer-top .container {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    /**
- * responsive for larger than 992px screen
- */
-
-    @media (min-width: 992px) {
-      /**
-   * CUSTOM PROPERTY
-   */
-
-      :root {
-        /**
-     * typography
-     */
-        --fs-1: 5.4rem;
-      }
-
-      /**
-   * REUSED STYLE
-   */
-
-      .container {
-        max-width: 950px;
-      }
-
-      /**
-   * HEADER
-   */
-
-      .header {
-        padding-block: 20px;
-      }
-
-      .overlay,
-      .nav-open-btn,
-      .navbar-top {
-        display: none;
-      }
-
-      .navbar,
-      .navbar.active {
-        all: unset;
-        margin-inline-start: auto;
-      }
-
-      .header .btn {
-        margin-inline-start: 0;
-      }
-
-      .navbar-list {
-        display: flex;
-        gap: 25px;
-      }
-
-      .navbar-item:not(:last-child) {
-        border-bottom: none;
-      }
-
-      .navbar-link {
-        color: var(--color);
-      }
-
-      /**
-   * HERO
-   */
-
-      .hero {
-        min-height: 700px;
-      }
-
-      /**
-   * ABOUT
-   */
-
-      .about .container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
-      }
-
-      /**
-   * SERVICE
-   */
-
-      .service-list {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      /**
-   * FEATURES
-   */
-
-      .features-list {
-        grid-template-columns: 1fr;
-      }
-
-      .features .container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-      }
-
-      .features .section-title {
-        grid-column: 1 / 4;
-      }
-
-      .features-banner {
-        margin-block: 0;
-        display: grid;
-        place-items: center;
-      }
-
-      /**
-   * FOOTER
-   */
-
-      .footer-top .container {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .footer-brand {
-        grid-column: 1 / 5;
-      }
-
-      .footer-brand .text {
-        max-width: 45ch;
-      }
-    }
-
-    /**
- * responsive for larger than 1200px screen
- */
-
-    @media (min-width: 1200px) {
-      /**
-   * REUSED STYLE
-   */
-
-      .container {
-        max-width: 1200px;
-      }
-
-      .section-title {
-        --fs-3: 4.6rem;
-      }
-
-      /**
-   * HERO
-   */
-
-      .hero {
-        min-height: 800px;
-      }
-
-      /**
-   * BLOG
-   */
-
-      .blog-list {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .blog-card {
-        height: 100%;
-      }
-
-      .blog-card .content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      /**
-   * FOOTER
-   */
-
-      .footer-top .container {
-        grid-template-columns: 1fr 0.5fr 0.7fr 0.5fr 1fr;
-      }
-
-      .footer-brand {
-        grid-column: auto;
-      }
-    }
-  </style>
 
   <body id="top">
-    <!-- 
-    - #HEADER
-  -->
-
-    <header class="header" data-header>
-      <div class="container">
-        <div class="overlay" data-overlay></div>
-
-        <a href="#home" class="logo">
-          <img
-            src="images/logo.png"
-            alt="Your Company Logo"
-            style="height: 80px"
+    <!-- ============================================================
+         ICON SPRITE
+         ========================================================= -->
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <defs>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M5 12h14M13 5l7 7-7 7"
           />
+        </symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 19V5M5 12l7-7 7 7"
+          />
+        </symbol>
+        <symbol id="i-chevron-left" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 18l-6-6 6-6"
+          />
+        </symbol>
+        <symbol id="i-chevron-right" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 18l6-6-6-6"
+          />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0118 0z"
+          />
+          <circle
+            cx="12"
+            cy="10"
+            r="3"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"
+          />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+          <rect
+            x="2"
+            y="4"
+            width="20"
+            height="16"
+            rx="2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M22 6l-10 7L2 6"
+          />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            d="M12 7v5l3.2 1.9"
+          />
+        </symbol>
+        <symbol id="i-star" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M12 2.5l2.9 5.9 6.6.9-4.8 4.6 1.2 6.5L12 17.4 6.1 20.4l1.2-6.5-4.8-4.6 6.6-.9z"
+          />
+        </symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0022 12z"
+          />
+        </symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24">
+          <rect
+            x="2.5"
+            y="2.5"
+            width="19"
+            height="19"
+            rx="5.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="4.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 002.48 2.5A2.5 2.5 0 007.5 6a2.5 2.5 0 00-2.52-2.5zM3 21h4V9.5H3V21zm7 0h4v-6.3c0-1.7.9-2.6 2.1-2.6 1.2 0 1.9.8 1.9 2.6V21h4v-6.9c0-3.5-1.9-5.1-4.4-5.1-2 0-3 1.1-3.5 1.9V9.5h-4V21z"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <!-- ============================================================
+         PRELOADER · PROGRESS · GRAIN
+         ========================================================= -->
+    <noscript>
+      <style>
+        .preloader { display: none; }
+        [data-reveal], .fade-up, .hero__cue { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+      </style>
+    </noscript>
+
+    <div class="preloader" data-preloader>
+      <div class="preloader__inner">
+        <div class="preloader__mark">Bernatali</div>
+        <div class="preloader__bar"><span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-progress" data-progress></div>
+    <div class="grain"></div>
+
+    <!-- ============================================================
+         HEADER
+         ========================================================= -->
+    <header class="header" data-header>
+      <div class="container header__inner">
+        <a href="#top" class="brand" aria-label="Bernatali home">
+          <img src="images/logo.png" alt="Bernatali" />
         </a>
 
-        <nav class="navbar" data-navbar>
-          <div class="navbar-top">
-            <button
-              class="nav-close-btn"
-              aria-label="Close Menu"
-              data-nav-close-btn
-            >
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-          </div>
-
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a
-                style="font-size: large"
-                href="#home"
-                class="navbar-link"
-                data-navbar-link
-                >Home</a
-              >
-            </li>
-
-            <li class="navbar-item">
-              <a
-                style="font-size: large"
-                href="#about"
-                class="navbar-link"
-                data-navbar-link
-                >About Us</a
-              >
-            </li>
-
-            <li class="navbar-item">
-              <a
-                style="font-size: large"
-                href="#services"
-                class="navbar-link"
-                data-navbar-link
-                >Services</a
-              >
-            </li>
-
-            <li class="navbar-item">
-              <a
-                style="font-size: large"
-                href="#testimonial"
-                class="navbar-link"
-                data-navbar-link
-                >Success stories</a
-              >
-            </li>
-
-            <li class="navbar-item">
-              <a
-                style="font-size: large"
-                href="#location"
-                class="navbar-link"
-                data-navbar-link
-                >Contact Us</a
-              >
+        <nav aria-label="Primary">
+          <ul class="nav__list">
+            <li><a href="#home" class="nav__link" data-spy>Home</a></li>
+            <li><a href="#about" class="nav__link" data-spy>About</a></li>
+            <li><a href="#services" class="nav__link" data-spy>Services</a></li>
+            <li><a href="#partners" class="nav__link" data-spy>Partners</a></li>
+            <li>
+              <a href="#stories" class="nav__link" data-spy>Success Stories</a>
             </li>
           </ul>
         </nav>
 
-        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
-          <ion-icon name="menu-outline"></ion-icon>
+        <a href="#contact" class="btn btn--ghost header__cta" data-magnetic="0.2">
+          Contact Us
+          <svg><use href="#i-arrow-right" /></svg>
+        </a>
+
+        <button
+          class="burger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span><span></span><span></span>
         </button>
       </div>
-      <script>
-        window.addEventListener("scroll", function () {
-          const header = document.querySelector(".header");
-          if (window.scrollY > 50) {
-            header.classList.add("active");
-          } else {
-            header.classList.remove("active");
-          }
-        });
-      </script>
     </header>
 
+    <!-- Mobile menu -->
+    <div class="nav-panel" data-nav-panel>
+      <ul class="nav-panel__list">
+        <li class="nav-panel__item">
+          <a href="#home" class="nav-panel__link" style="--i: 0"
+            ><span class="num">01</span> Home</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#about" class="nav-panel__link" style="--i: 1"
+            ><span class="num">02</span> About</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#services" class="nav-panel__link" style="--i: 2"
+            ><span class="num">03</span> Services</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#partners" class="nav-panel__link" style="--i: 3"
+            ><span class="num">04</span> Partners</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#stories" class="nav-panel__link" style="--i: 4"
+            ><span class="num">05</span> Stories</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#contact" class="nav-panel__link" style="--i: 5"
+            ><span class="num">06</span> Contact</a
+          >
+        </li>
+      </ul>
+
+      <div class="nav-panel__foot">
+        <a href="mailto:ruwanr@bernatali.com">ruwanr@bernatali.com</a>
+        <a href="tel:+94774245178">+94 77 424 5178</a>
+        <span>Ragama, Sri Lanka</span>
+      </div>
+    </div>
+
     <main>
-      <article>
-        <!-- 
-        - #HERO
-      -->
+      <!-- ==========================================================
+           HERO
+           ======================================================= -->
+      <section class="hero" id="home">
+        <div class="hero__media">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="images/test.jpg"
+            aria-hidden="true"
+          >
+            <source src="images/hero3.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero__scrim"></div>
 
-        <section class="hero" id="home">
-          <!-- Video background container -->
-          <div class="hero-bg">
-            <video autoplay muted loop playsinline class="hero-video">
-              <source src="images/hero3.mp4" type="video/mp4" />
-              <!-- Fallback image if video doesn't load -->
-              <img
-                src="images/test.jpg"
-                alt="Background"
-                class="hero-bg-image"
-              />
-            </video>
-            <div class="hero-overlay"></div>
-          </div>
+        <div class="container">
+          <div class="hero__inner">
+            <p class="eyebrow eyebrow--inv fade-up" style="--d: 0">
+              Sourcing Studios · Sri Lanka
+            </p>
 
-          <div class="container">
-            <div class="hero-content">
-              <h1 class="hero-title">Building Stronger Brands!</h1>
-              <p class="hero-text"></p>
-              <button class="btn" onclick="scrollToAbout()">Learn More</button>
-              <script>
-                function scrollToAbout() {
-                  document.getElementById("about").scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }
-              </script>
-            </div>
-          </div>
-        </section>
+            <h1 class="hero__title" data-split>Building Stronger Brands</h1>
 
-        <!-- 
-        - #ABOUT
-      -->
+            <p class="hero__text fade-up" style="--d: 0.85">
+              A dynamic sourcing partner linking global buyers with trusted
+              manufacturers — across apparel &amp; fabric, spices &amp; tea,
+              home decor and travel.
+            </p>
 
-        <section class="section about" id="about">
-          <div class="container">
-            <div class="slideshow-container reveal">
-              <!-- Slides -->
-              <div class="mySlides fade">
-                <img
-                  src="images/about 1.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 1"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 2.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 3.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 11.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 15.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 12.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-
-              <div class="mySlides fade">
-                <img
-                  src="images/about 8.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 9.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 10.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-              <div class="mySlides fade">
-                <img
-                  src="images/about 13.png"
-                  width="700"
-                  height="200"
-                  loading="lazy"
-                  alt="Slide 2"
-                  class="w-100 banner-animation"
-                />
-              </div>
-
-              <!-- Next and previous buttons -->
-              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="hero__actions fade-up" style="--d: 1">
+              <a href="#services" class="btn btn--primary" data-magnetic="0.25">
+                Explore Services
+                <svg><use href="#i-arrow-right" /></svg>
+              </a>
+              <a href="#contact" class="btn btn--ghost" data-magnetic="0.25">
+                Start a Conversation
+              </a>
             </div>
 
-            <div class="about-content reveal">
-              <h2 class="h2 section-title underline">About Us</h2>
+            <ul class="hero__stats fade-up" style="--d: 1.15">
+              <li class="hero__chip"><b>14</b> Years of sourcing</li>
+              <li class="hero__chip"><b>4</b> Manufacturing hubs</li>
+              <li class="hero__chip"><b>5</b> Product verticals</li>
+            </ul>
+          </div>
+        </div>
 
-              <p style="text-align: justify" class="about-text">
-                A dynamic and fast growing sourcing company specialized in
-                apparel fabric and sourcing, based in Sri Lanka, providing a
-                vital link between customers & suppliers internationally and
-                locally.
-                <br /><br />
-                We work closely with manufacturing facilities of international
-                companies, who are fully equipped with the most technologically
-                advanced, efficient, and competitive facilities for all
-                processes.
-                <br /><br />
-                Our team has vast experience in the garment industry from
-                product development to garment manufacturing and fabric dying to
-                finishing. We have highly trained and skilled staff to provide
-                the best customer support and after sales solutions. We are
-                continuously on the look for new developments and trends in the
-                market.
-                <br /><br />
-                We are linked with many state-of-the-art apparel manufacturers
-                in Sri Lanka / India / Bangladesh and China and undertake
-                apparel orders for lingerie, casual wear, pants, shirts and many
-                more items. We have very strong sourcing capabilities and our
-                prices are extremely competitive.
-                <br /><br />
-                The company has diversified its business line by exporting Sri
-                Lankan spices, tea, coconut and coconut-based products to the
-                International market.
-              </p>
+        <div class="hero__cue" aria-hidden="true">
+          <span>Scroll</span>
+          <i></i>
+        </div>
 
-              <ul class="stats-list">
-                <li class="stats-card reveal">
-                  <p class="h3 stats-title" data-count="9875">0</p>
-                  <p class="stats-text">Satisfied Clients</p>
+        <div class="hero__curve" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L0,40 C240,80 480,0 720,20 C960,40 1200,80 1440,32 L1440,80 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           RIBBON
+           ======================================================= -->
+      <div class="ribbon" aria-hidden="true">
+        <div class="ribbon__track" data-marquee>
+          <div class="ribbon__group">
+            <span class="ribbon__item">Apparel &amp; Fabric</span>
+            <span class="ribbon__item">Spices &amp; Tea</span>
+            <span class="ribbon__item">Home Decor</span>
+            <span class="ribbon__item">Tourism</span>
+            <span class="ribbon__item">Coconut Products</span>
+            <span class="ribbon__item">Global Logistics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================================
+           ABOUT
+           ======================================================= -->
+      <section class="section section--cream" id="about">
+        <div
+          class="orb orb--moss"
+          style="width: 460px; height: 460px; top: -120px; right: -140px"
+          aria-hidden="true"
+        ></div>
+
+        <div class="container">
+          <div class="about__grid">
+            <!-- Slideshow -->
+            <div data-reveal="left" style="position: relative">
+              <div class="about__badge" aria-hidden="true">
+                <b>Est. 2011</b>
+                <span>Ragama · Sri Lanka</span>
+              </div>
+
+              <div class="slider" data-slider>
+                <div class="slider__slide is-active">
+                  <img src="images/about 1.png" alt="Bernatali at work" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 2.png" alt="Sourcing operations" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 3.png" alt="Fabric selection" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 11.png" alt="Product development" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 15.png" alt="Quality inspection" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 12.png" alt="Manufacturing partner" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 8.png" alt="Garment production" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 9.png" alt="Finishing" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 10.png" alt="Packing and dispatch" />
+                </div>
+                <div class="slider__slide">
+                  <img src="images/about 13.png" alt="Our team" />
+                </div>
+
+                <div class="slider__dots" data-slider-dots></div>
+
+                <div class="slider__nav">
+                  <button
+                    class="slider__btn"
+                    type="button"
+                    aria-label="Previous slide"
+                    data-slider-prev
+                  >
+                    <svg><use href="#i-chevron-left" /></svg>
+                  </button>
+                  <button
+                    class="slider__btn"
+                    type="button"
+                    aria-label="Next slide"
+                    data-slider-next
+                  >
+                    <svg><use href="#i-chevron-right" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Copy -->
+            <div>
+              <div class="section-head" data-reveal="up">
+                <p class="eyebrow">Who We Are</p>
+                <h2 class="h2 section-title">
+                  A vital link between
+                  <span class="italic-accent">buyers</span> and
+                  <span class="italic-accent">makers</span>
+                  <span class="rule"></span>
+                </h2>
+              </div>
+
+              <div class="stack" data-reveal-group data-reveal-step="0.08">
+                <p class="body-text" data-reveal="up">
+                  A dynamic and fast growing sourcing company specialised in
+                  apparel fabric and sourcing, based in Sri Lanka, providing a
+                  vital link between customers &amp; suppliers internationally
+                  and locally.
+                </p>
+                <p class="body-text" data-reveal="up">
+                  We work closely with manufacturing facilities of international
+                  companies, fully equipped with the most technologically
+                  advanced, efficient and competitive facilities for all
+                  processes. Our team has vast experience in the garment
+                  industry — from product development to garment manufacturing,
+                  and fabric dyeing to finishing.
+                </p>
+                <p class="body-text" data-reveal="up">
+                  We are linked with many state-of-the-art apparel manufacturers
+                  in Sri Lanka, India, Bangladesh and China, and undertake
+                  orders for lingerie, casual wear, pants, shirts and much more.
+                  The company has also diversified into exporting Sri Lankan
+                  spices, tea, coconut and coconut-based products to the
+                  international market.
+                </p>
+              </div>
+
+              <ul class="stats" data-reveal-group data-reveal-step="0.12">
+                <li class="stat" data-reveal="up">
+                  <p class="stat__num">
+                    <span data-count="9875">0</span><sup>+</sup>
+                  </p>
+                  <p class="stat__label">Satisfied Clients</p>
                 </li>
-
-                <li class="stats-card reveal">
-                  <p class="h3 stats-title" data-count="7894">0</p>
-                  <p class="stats-text">Project Launched</p>
+                <li class="stat" data-reveal="up">
+                  <p class="stat__num">
+                    <span data-count="7894">0</span><sup>+</sup>
+                  </p>
+                  <p class="stat__label">Projects Launched</p>
                 </li>
-
-                <li class="stats-card reveal">
-                  <p class="h3 stats-title" data-count="14">0</p>
-                  <p class="stats-text">Years Completed</p>
+                <li class="stat" data-reveal="up">
+                  <p class="stat__num">
+                    <span data-count="14">0</span><sup>yrs</sup>
+                  </p>
+                  <p class="stat__label">Years Completed</p>
                 </li>
               </ul>
             </div>
           </div>
+        </div>
+      </section>
 
-          <script>
-            // Intersection Observer for reveal animations
-            const reveals = document.querySelectorAll(".reveal");
-
-            const observer = new IntersectionObserver(
-              (entries, observer) => {
-                entries.forEach((entry) => {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("active");
-                    observer.unobserve(entry.target);
-                  }
-                });
-              },
-              {
-                threshold: 0.1,
-              }
-            );
-
-            reveals.forEach((reveal) => {
-              observer.observe(reveal);
-            });
-
-            // Slideshow functionality
-            let slideIndex = 1;
-            showSlides(slideIndex);
-
-            function plusSlides(n) {
-              showSlides((slideIndex += n));
-            }
-
-            function currentSlide(n) {
-              showSlides((slideIndex = n));
-            }
-
-            function showSlides(n) {
-              let i;
-              let slides = document.getElementsByClassName("mySlides");
-              if (n > slides.length) {
-                slideIndex = 1;
-              }
-              if (n < 1) {
-                slideIndex = slides.length;
-              }
-              for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-              }
-              slides[slideIndex - 1].style.display = "block";
-            }
-
-            // Optional: Auto-advance slides
-            setInterval(() => {
-              plusSlides(1);
-            }, 5000);
-          </script>
-        </section>
-
-        <!-- 
-        - #PARTNERS
-      -->
-
-        <section class="section partners" id="partners">
-          <div class="container">
-            <h2 class="h2 section-title underline">Our Partners</h2>
-
-            <div class="partners-carousel">
-              <div class="carousel-track">
-                <div class="partner-item">
-                  <img src="images/p3.png" alt="Partner 1" />
-                </div>
-                <div class="partner-item">
-                  <img src="images/p2.png" alt="Partner 2" />
-                </div>
-                <div class="partner-item">
-                  <img src="images/p4.png" alt="Partner 3" />
-                </div>
-                <div class="partner-item">
-                  <img src="images/mothercare1799.jpg" alt="Partner 4" />
-                </div>
-                <div class="partner-item">
-                  <img src="images/Murray.png" alt="Partner 5" />
-                </div>
-
-                <!-- Duplicates for seamless loop -->
-                <div class="partner-item">
-                  <img src="images/P & P.jpg" alt="Partner 1" />
-                </div>
-                <div class="partner-item">
-                  <img src="images/Phase Eight.png" alt="Partner 2" />
-                </div>
-                <div class="partner-item">
-                  <img src="images/Ritz Clothing.jpg" alt="Partner 3" />
-                </div>
-                <div class="partner-item">
-                  <img src="./assets/images/partner4.png" alt="Partner 4" />
-                </div>
-                <div class="partner-item">
-                  <img src="./assets/images/partner5.png" alt="Partner 5" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const animatedElements = [
-                ...document.querySelectorAll(".testimonial-card"),
-                ...document.querySelectorAll(".location-info"),
-                ...document.querySelectorAll(".map-container"),
-                ...document.querySelectorAll(".partner-item"),
-              ];
-
-              const observer = new IntersectionObserver(
-                (entries, observer) => {
-                  entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                      entry.target.classList.add("animate");
-                      entry.target.style.animationDelay = `${index * 0.2}s`;
-                      observer.unobserve(entry.target);
-                    }
-                  });
-                },
-                {
-                  threshold: 0.2,
-                }
-              );
-
-              animatedElements.forEach((el) => observer.observe(el));
-            });
-          </script>
-        </section>
-
-        <!-- 
-        - #SERVICE
-      -->
-
-        <section class="section service" id="services">
-          <div class="container">
-            <h2 class="h2 section-title underline">Services</h2>
-
-            <ul class="service-list">
-              <li>
-                <div class="service-card">
-                  <div class="card-icon">
-                    <img
-                      src="images/service1.jpg"
-                      alt="Apparel sourcing"
-                      width="250"
-                      height="`250"
-                      style="border-radius: 10px"
-                    />
-                  </div>
-
-                  <h3 class="h3 title">Apparels & Fabric Sourcing</h3>
-
-                  <p class="text"></p>
-
-                  <button
-                    class="card-btn"
-                    aria-label="Show More"
-                    onclick="window.location.href='apparel.html'"
-                  >
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </button>
-                </div>
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <div class="card-icon">
-                    <img
-                      src="images/service2.jpg"
-                      alt="Tourism"
-                      width="250"
-                      height="`250"
-                      style="border-radius: 10px"
-                    />
-                  </div>
-
-                  <h3 class="h3 title">Tourism</h3>
-
-                  <p class="text"></p>
-
-                  <button
-                    class="card-btn"
-                    aria-label="Show More"
-                    onclick="window.location.href='travelHome.html'"
-                  >
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </button>
-                </div>
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <div class="card-icon">
-                    <img
-                      src="images/service3.jpg"
-                      alt="Spices and Tea"
-                      width="250"
-                      height="250"
-                      style="border-radius: 10px"
-                    />
-                  </div>
-
-                  <h3 class="h3 title">Spices & Tea</h3>
-
-                  <p class="text"></p>
-
-                  <button
-                    class="card-btn"
-                    aria-label="Show More"
-                    onclick="window.location.href='spices.html'"
-                  >
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </button>
-                </div>
-              </li>
-
-              <li>
-                <div class="service-card">
-                  <div class="card-icon">
-                    <img
-                      src="images/service4.jpg"
-                      alt="Home Decor"
-                      width="250"
-                      height="250"
-                      style="border-radius: 10px"
-                    />
-                  </div>
-
-                  <h3 class="h3 title">Home Decor & Furnishing</h3>
-
-                  <p class="text"></p>
-
-                  <button
-                    class="card-btn"
-                    aria-label="Show More"
-                    onclick="window.location.href='decor.html'"
-                  >
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const serviceCards = document.querySelectorAll(".service-card");
-
-              const observer = new IntersectionObserver(
-                (entries, observer) => {
-                  entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                      entry.target.classList.add("animate");
-                      observer.unobserve(entry.target); // Animate only once
-                    }
-                  });
-                },
-                {
-                  threshold: 0.2,
-                }
-              );
-
-              serviceCards.forEach((card) => observer.observe(card));
-            });
-          </script>
-        </section>
-
-        <!-- 
-        - #FEATURES
-      -->
-
-        <!-- 
-        - #success stories
-      -->
-
-        <section class="section testimonial" id="testimonial">
-          <div class="container">
-            <h2 class="h2 section-title underline">Success stories</h2>
-
-            <ul class="testimonial-list">
-              <li class="testimonial-card">
-                <figure class="testimonial-img">
-                  <img
-                    src="images/FofL-2.png"
-                    alt="Andrew Bernstein"
-                    class="img-cover"
-                  />
-                </figure>
-                <div class="testimonial-content">
-                  <p class="testimonial-text">
-                    "I have been working with Ruwan since 2015, and it has been
-                    a pleasure to deal with him in all aspects. I have
-                    absolutely no hesitation in recommending him as a valued
-                    partner and colleague. It is hard to find people you can
-                    genuinely trust in business nowadays, but Ruwan is one of
-                    those rare individuals—a man of integrity"
-                  </p>
-                  <h3 class="client-name">Andrew Bernstein</h3>
-                  <span class="client-role"
-                    >Chairman, Lockyer Textiles - UK</span
-                  >
-                </div>
-              </li>
-
-              <li class="testimonial-card">
-                <figure class="testimonial-img">
-                  <img
-                    src="images/z_p19-sidath.jpg"
-                    alt="Sidath Wettimuny"
-                    class="img-cover"
-                  />
-                </figure>
-                <div class="testimonial-content">
-                  <p class="testimonial-text">
-                    "Having worked with Ruwan for many years, I can confidently
-                    say that he and his team are committed to their customers,
-                    reliable, and honorable in their dealings"
-                  </p>
-                  <h3 class="client-name">Sidath Wettimuny</h3>
-                  <span class="client-role"
-                    >Director, Nobleswear Pvt. Ltd.</span
-                  >
-                </div>
-              </li>
-
-              <li class="testimonial-card">
-                <figure class="testimonial-img">
-                  <img
-                    src="images/0.jpg"
-                    alt="Don Kapila Kalpage"
-                    class="img-cover"
-                  />
-                </figure>
-                <div class="testimonial-content">
-                  <p class="testimonial-text">
-                    "I have been working with Ruwan and his team at BerNatali
-                    for years, and they have never disappointed me. He is very
-                    detail-oriented and keen to meet all expectations. His
-                    responsiveness to urgent matters makes him one of the best I
-                    have worked with. I highly recommend his services to
-                    anyone!"
-                  </p>
-                  <h3 class="client-name">Don Kapila Kalpage</h3>
-                  <span class="client-role"
-                    >Country Manager, Lockyer Textiles</span
-                  >
-                </div>
-              </li>
-            </ul>
-          </div>
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-              const cards = document.querySelectorAll(".testimonial-card");
-
-              const observer = new IntersectionObserver(
-                (entries, observer) => {
-                  entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                      entry.target.classList.add("animate");
-                      entry.target.style.animationDelay = `${index * 0.2}s`; // optional stagger
-                      observer.unobserve(entry.target);
-                    }
-                  });
-                },
-                {
-                  threshold: 0.2,
-                }
-              );
-
-              cards.forEach((card) => observer.observe(card));
-            });
-          </script>
-        </section>
-      </article>
-
-      <!-- Location Section -->
-      <section class="location" id="location">
+      <!-- ==========================================================
+           SERVICES
+           ======================================================= -->
+      <section class="section section--paper" id="services">
         <div class="container">
-          <h2 class="section-title underline">Our Location</h2>
+          <div class="section-head section-head--center" data-reveal="up">
+            <p class="eyebrow">What We Do</p>
+            <h2 class="h2 section-title">
+              Four verticals, one standard
+              <span class="rule"></span>
+            </h2>
+            <p class="lead">
+              Every line we source is held to the same benchmark — verified
+              suppliers, competitive pricing and delivery you can plan around.
+            </p>
+          </div>
 
-          <div class="location-content">
-            <div class="location-info">
-              <h3 class="h3">Visit Our Office</h3>
-              <p class="location-text"></p>
-
-              <div class="contact-info">
-                <div class="contact-item">
-                  <div class="contact-icon">
-                    <ion-icon name="location-outline"></ion-icon>
-                  </div>
-                  <address>
-                    547 Lourds Kreedapitiya Road / 1st Lane / Thewette Road
-                    Ragama
-                  </address>
-                </div>
-
-                <div class="contact-item">
-                  <div class="contact-icon">
-                    <ion-icon name="call-outline"></ion-icon>
-                  </div>
-                  <a href="tel:+441234567890">+94 77 424 5178</a>
-                </div>
-
-                <div class="contact-item">
-                  <div class="contact-icon">
-                    <ion-icon name="mail-outline"></ion-icon>
-                  </div>
-                  <a href="mailto:info@yourdesign.com">ruwanr@bernatali.com</a>
-                </div>
+          <div class="services__grid" data-reveal-group data-reveal-step="0.12">
+            <a href="apparel.html" class="service" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="images/service1.jpg" alt="" />
               </div>
+              <div class="service__body">
+                <span class="service__num">01</span>
+                <h3 class="service__title">Apparel &amp; Fabric Sourcing</h3>
+                <p class="service__text">
+                  Lingerie, casual wear, pants and shirts — sourced from
+                  certified mills across Sri Lanka, India, Bangladesh and China.
+                </p>
+                <span class="service__go">
+                  Explore
+                  <span><svg><use href="#i-arrow-right" /></svg></span>
+                </span>
+              </div>
+            </a>
 
-              <button class="btn">Get Directions</button>
-            </div>
+            <a
+              href="travelHome.html"
+              class="service"
+              data-reveal="up"
+              data-tilt="7"
+            >
+              <div class="service__img">
+                <img src="images/service2.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">02</span>
+                <h3 class="service__title">Tourism</h3>
+                <p class="service__text">
+                  Curated Sri Lankan journeys — beaches, hill country, ancient
+                  cities and wildlife, arranged end to end.
+                </p>
+                <span class="service__go">
+                  Explore
+                  <span><svg><use href="#i-arrow-right" /></svg></span>
+                </span>
+              </div>
+            </a>
 
-            <div class="map-container">
-              <!-- Google Map Embed -->
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1979.888092852567!2d79.925917!3d7.035571!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f9d0dc9ec9c7%3A0xd273d86c86cd11ee!2s547%20Playground%201st%20Ln%2C%20Ragama!5e0!3m2!1sen!2slk!4v1747891048613!5m2!1sen!2slk"
-                width="600"
-                height="450"
-                style="border: 0"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                class="map-iframe"
-              >
-              </iframe>
+            <a href="spices.html" class="service" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="images/service3.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">03</span>
+                <h3 class="service__title">Spices &amp; Tea</h3>
+                <p class="service__text">
+                  Cinnamon, cardamom, pepper and single-origin tea, bought
+                  direct from growers and processed to keep their aroma intact.
+                </p>
+                <span class="service__go">
+                  Explore
+                  <span><svg><use href="#i-arrow-right" /></svg></span>
+                </span>
+              </div>
+            </a>
+
+            <a href="decor.html" class="service" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="images/service4.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">04</span>
+                <h3 class="service__title">Home Decor &amp; Furnishing</h3>
+                <p class="service__text">
+                  Furniture, lighting, textiles and tableware for interior
+                  designers, retailers and bulk buyers.
+                </p>
+                <span class="service__go">
+                  Explore
+                  <span><svg><use href="#i-arrow-right" /></svg></span>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           PARTNERS
+           ======================================================= -->
+      <section class="section section--tight partners" id="partners">
+        <div class="container">
+          <div class="section-head section-head--center" data-reveal="up">
+            <p class="eyebrow">Trusted By</p>
+            <h2 class="h2 section-title">
+              Brands we source for
+              <span class="rule"></span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="marquee" data-reveal="zoom">
+          <div class="marquee__track" data-marquee>
+            <div class="marquee__group">
+              <div class="partner">
+                <img src="images/p1.png" alt="Partner" />
+              </div>
+              <div class="partner">
+                <img src="images/p2.png" alt="Partner" />
+              </div>
+              <div class="partner">
+                <img src="images/p3.png" alt="Partner" />
+              </div>
+              <div class="partner">
+                <img src="images/p4.png" alt="Partner" />
+              </div>
+              <div class="partner">
+                <img src="images/mothercare1799.jpg" alt="Mothercare" />
+              </div>
+              <div class="partner">
+                <img src="images/Murray.png" alt="Murray" />
+              </div>
+              <div class="partner">
+                <img src="images/P &amp; P.jpg" alt="P &amp; P" />
+              </div>
+              <div class="partner">
+                <img src="images/Phase Eight.png" alt="Phase Eight" />
+              </div>
+              <div class="partner">
+                <img src="images/Ritz Clothing.jpg" alt="Ritz Clothing" />
+              </div>
             </div>
           </div>
         </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const animatedElements = [
-              ...document.querySelectorAll(".testimonial-card"),
-              ...document.querySelectorAll(".location-info"),
-              ...document.querySelectorAll(".map-container"),
-            ];
+      </section>
 
-            const observer = new IntersectionObserver(
-              (entries, observer) => {
-                entries.forEach((entry, index) => {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                    entry.target.style.animationDelay = `${index * 0.2}s`; // Optional stagger
-                    observer.unobserve(entry.target);
-                  }
-                });
-              },
-              {
-                threshold: 0.2,
-              }
-            );
+      <!-- ==========================================================
+           SUCCESS STORIES
+           ======================================================= -->
+      <section class="section section--ink testimonials" id="stories">
+        <div
+          class="orb orb--gold"
+          style="width: 420px; height: 420px; top: 8%; left: -160px"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="orb orb--plum"
+          style="width: 380px; height: 380px; bottom: 0; right: -140px"
+          aria-hidden="true"
+        ></div>
 
-            animatedElements.forEach((el) => observer.observe(el));
-          });
-        </script>
+        <div class="container">
+          <div class="section-head section-head--center" data-reveal="up">
+            <p class="eyebrow">Success Stories</p>
+            <h2 class="h2 section-title">
+              What our partners say
+              <span class="rule"></span>
+            </h2>
+          </div>
+
+          <div
+            class="testimonials__grid"
+            data-reveal-group
+            data-reveal-step="0.14"
+          >
+            <figure class="quote" data-reveal="up">
+              <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+              <div class="quote__stars" aria-label="Rated 5 out of 5">
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+              </div>
+              <blockquote class="quote__text">
+                I have been working with Ruwan since 2015, and it has been a
+                pleasure to deal with him in all aspects. I have absolutely no
+                hesitation in recommending him as a valued partner and
+                colleague. It is hard to find people you can genuinely trust in
+                business nowadays, but Ruwan is one of those rare individuals —
+                a man of integrity.
+              </blockquote>
+              <figcaption class="quote__person">
+                <span class="quote__avatar">
+                  <img src="images/FofL-2.png" alt="Andrew Bernstein" />
+                </span>
+                <span>
+                  <span class="quote__name">Andrew Bernstein</span><br />
+                  <span class="quote__role"
+                    >Chairman, Lockyer Textiles — UK</span
+                  >
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote" data-reveal="up">
+              <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+              <div class="quote__stars" aria-label="Rated 5 out of 5">
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+              </div>
+              <blockquote class="quote__text">
+                Having worked with Ruwan for many years, I can confidently say
+                that he and his team are committed to their customers, reliable,
+                and honorable in their dealings.
+              </blockquote>
+              <figcaption class="quote__person">
+                <span class="quote__avatar">
+                  <img src="images/z_p19-sidath.jpg" alt="Sidath Wettimuny" />
+                </span>
+                <span>
+                  <span class="quote__name">Sidath Wettimuny</span><br />
+                  <span class="quote__role"
+                    >Director, Nobleswear Pvt. Ltd.</span
+                  >
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote" data-reveal="up">
+              <div class="quote__mark" aria-hidden="true">&ldquo;</div>
+              <div class="quote__stars" aria-label="Rated 5 out of 5">
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+                <svg><use href="#i-star" /></svg>
+              </div>
+              <blockquote class="quote__text">
+                I have been working with Ruwan and his team at BerNatali for
+                years, and they have never disappointed me. He is very
+                detail-oriented and keen to meet all expectations. His
+                responsiveness to urgent matters makes him one of the best I
+                have worked with. I highly recommend his services to anyone!
+              </blockquote>
+              <figcaption class="quote__person">
+                <span class="quote__avatar">
+                  <img src="images/0.jpg" alt="Don Kapila Kalpage" />
+                </span>
+                <span>
+                  <span class="quote__name">Don Kapila Kalpage</span><br />
+                  <span class="quote__role"
+                    >Country Manager, Lockyer Textiles</span
+                  >
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           CONTACT
+           ======================================================= -->
+      <section class="section section--cream" id="contact">
+        <div class="container">
+          <div class="section-head" data-reveal="up">
+            <p class="eyebrow">Get In Touch</p>
+            <h2 class="h2 section-title">
+              Let's build something together
+              <span class="rule"></span>
+            </h2>
+          </div>
+
+          <div class="contact__grid">
+            <div class="contact__card" data-reveal="left">
+              <h3 class="h3">Visit our office</h3>
+              <p class="lead" style="margin-top: 0.6rem">
+                We're happy to talk through your sourcing brief — no commitment
+                needed.
+              </p>
+
+              <div class="contact__items">
+                <div class="contact__item">
+                  <span class="contact__icon">
+                    <svg><use href="#i-pin" /></svg>
+                  </span>
+                  <span>
+                    <span class="contact__label">Address</span>
+                    <address class="contact__value">
+                      547 Lourds Kreedapitiya Road, 1st Lane,<br />
+                      Thewette Road, Ragama, Sri Lanka
+                    </address>
+                  </span>
+                </div>
+
+                <a
+                  class="contact__item"
+                  href="tel:+94774245178"
+                  aria-label="Call Bernatali"
+                >
+                  <span class="contact__icon">
+                    <svg><use href="#i-phone" /></svg>
+                  </span>
+                  <span>
+                    <span class="contact__label">Phone</span>
+                    <span class="contact__value">+94 77 424 5178</span>
+                  </span>
+                </a>
+
+                <a class="contact__item" href="mailto:ruwanr@bernatali.com">
+                  <span class="contact__icon">
+                    <svg><use href="#i-mail" /></svg>
+                  </span>
+                  <span>
+                    <span class="contact__label">Email</span>
+                    <span class="contact__value">ruwanr@bernatali.com</span>
+                  </span>
+                </a>
+
+                <div class="contact__item">
+                  <span class="contact__icon">
+                    <svg><use href="#i-clock" /></svg>
+                  </span>
+                  <span>
+                    <span class="contact__label">Hours</span>
+                    <span class="contact__value"
+                      >Mon – Fri · 9:00 – 18:00 (GMT+5:30)</span
+                    >
+                  </span>
+                </div>
+              </div>
+
+              <a
+                class="btn btn--moss"
+                href="https://www.google.com/maps/dir/?api=1&amp;destination=547+Playground+1st+Ln,+Ragama"
+                target="_blank"
+                rel="noopener"
+                data-magnetic="0.22"
+              >
+                Get Directions
+                <svg><use href="#i-arrow-right" /></svg>
+              </a>
+            </div>
+
+            <div class="map" data-reveal="right">
+              <iframe
+                title="Bernatali office location"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1979.888092852567!2d79.925917!3d7.035571!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f9d0dc9ec9c7%3A0xd273d86c86cd11ee!2s547%20Playground%201st%20Ln%2C%20Ragama!5e0!3m2!1sen!2slk!4v1747891048613!5m2!1sen!2slk"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================
+           CTA BAND
+           ======================================================= -->
+      <section class="section section--tight cta-band">
+        <div class="container">
+          <h2 class="h2" data-reveal="up">
+            Ready to source with a partner you can trust?
+          </h2>
+          <p class="lead" data-reveal="up" style="--delay: 0.1s">
+            Tell us what you need and we'll come back with suppliers, samples
+            and a costing.
+          </p>
+          <div class="cta-band__actions" data-reveal="up" style="--delay: 0.2s">
+            <a
+              href="mailto:ruwanr@bernatali.com"
+              class="btn btn--primary"
+              data-magnetic="0.25"
+            >
+              Email Us
+              <svg><use href="#i-arrow-right" /></svg>
+            </a>
+            <a
+              href="tel:+94774245178"
+              class="btn btn--ghost"
+              data-magnetic="0.25"
+            >
+              +94 77 424 5178
+            </a>
+          </div>
+        </div>
       </section>
     </main>
 
-    <!-- 
-    - #FOOTER
-  -->
-
+    <!-- ============================================================
+         FOOTER
+         ========================================================= -->
     <footer class="footer">
-      <div class="footer-top section">
-        <div class="container">
-          <div class="footer-brand">
-            <a href="#" class="logo">Bernatali</a>
-
-            <p class="text">Building Stronger Brands!</p>
-
-            <ul class="social-list">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand" data-reveal="up">
+            <img src="images/logo.png" alt="Bernatali" />
+            <p class="footer__tagline">Building Stronger Brands</p>
+            <p class="footer__blurb">
+              Bernatali Sourcing Studios (Pvt) Ltd — a Sri Lanka based sourcing
+              partner connecting international buyers with trusted
+              manufacturers.
+            </p>
+            <ul class="socials">
               <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-facebook"></ion-icon>
+                <a href="#" class="social" aria-label="Facebook">
+                  <svg><use href="#i-facebook" /></svg>
                 </a>
               </li>
-
               <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-instagram"></ion-icon>
+                <a href="#" class="social" aria-label="Instagram">
+                  <svg><use href="#i-instagram" /></svg>
                 </a>
               </li>
-
               <li>
-                <a href="#" class="social-link">
-                  <ion-icon name="logo-twitter"></ion-icon>
+                <a href="#" class="social" aria-label="LinkedIn">
+                  <svg><use href="#i-linkedin" /></svg>
                 </a>
               </li>
             </ul>
           </div>
 
-          <ul class="footer-list">
-            <li>
-              <p class="footer-list-title">Our links</p>
-            </li>
+          <div data-reveal="up" style="--delay: 0.08s">
+            <p class="footer__title">Explore</p>
+            <ul class="footer__links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#partners">Partners</a></li>
+              <li><a href="#stories">Success Stories</a></li>
+            </ul>
+          </div>
 
-            <li>
-              <a href="#home" class="footer-link">Home</a>
-            </li>
+          <div data-reveal="up" style="--delay: 0.16s">
+            <p class="footer__title">Services</p>
+            <ul class="footer__links">
+              <li><a href="apparel.html">Apparel &amp; Fabric</a></li>
+              <li><a href="travelHome.html">Tourism</a></li>
+              <li><a href="spices.html">Spices &amp; Tea</a></li>
+              <li><a href="decor.html">Home Decor</a></li>
+            </ul>
+          </div>
 
-            <li>
-              <a href="#about" class="footer-link">About Us</a>
-            </li>
-
-            <li>
-              <a href="#services" class="footer-link">Services</a>
-            </li>
-
-            <li>
-              <a href="#testimonial" class="footer-link">Success stories</a>
-            </li>
-
-            <li>
-              <a href="#location" class="footer-link">Contact Us</a>
-            </li>
-          </ul>
-
-          <ul class="footer-list">
-            <li>
-              <p class="footer-list-title">Our Services</p>
-            </li>
-
-            <li>
-              <a href="apparel.html" class="footer-link"
-                >Apparel Sourcing & Fabric</a
-              >
-            </li>
-
-            <li>
-              <a href="travelHome.html" class="footer-link">Tourism</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">Spices & Tea</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link"></a>
-            </li>
-          </ul>
-
-          <ul class="footer-list">
-            <li>
-              <p class="footer-list-title">Other links</p>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">FAQ</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">Portfolio</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">Privacy Policy</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">Terms & Conditions</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">Support</a>
-            </li>
-          </ul>
+          <div data-reveal="up" style="--delay: 0.24s">
+            <p class="footer__title">Contact</p>
+            <ul class="footer__links">
+              <li>
+                <a href="mailto:ruwanr@bernatali.com">ruwanr@bernatali.com</a>
+              </li>
+              <li><a href="tel:+94774245178">+94 77 424 5178</a></li>
+              <li><a href="#contact">Ragama, Sri Lanka</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div class="footer-bottom">
-        <p class="copyright">&copy; 2025 Bernatali. All rights reserved</p>
+        <div class="footer__bottom">
+          <p>
+            &copy; 2026 Bernatali Sourcing Studios (Pvt) Ltd. All rights
+            reserved.
+          </p>
+          <p>Building Stronger Brands · Sri Lanka</p>
+        </div>
       </div>
     </footer>
 
-    <!-- 
-    - #GO TO TOP
-  -->
-
-    <a href="#top" class="go-top active" aria-label="Go To Top" data-go-top>
-      <ion-icon name="arrow-up-outline"></ion-icon>
+    <!-- Go to top -->
+    <a href="#top" class="go-top" aria-label="Back to top" data-go-top>
+      <svg class="go-top__ring" viewBox="0 0 52 52" aria-hidden="true">
+        <circle cx="26" cy="26" r="24" />
+      </svg>
+      <svg><use href="#i-arrow-up" /></svg>
     </a>
 
-    <!-- 
-    - custom js link
-  -->
-    <script src="./assets/js/script.js"></script>
-
-    <!-- 
-    - ionicon link
-  -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Function to animate counting
-        function animateCount(element) {
-          const target = parseInt(element.getAttribute("data-count"));
-          const duration = 2000; // Animation duration in ms
-          const start = 0;
-          const increment = target / (duration / 16); // 60fps
-
-          let current = start;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              clearInterval(timer);
-              current = target;
-            }
-            element.textContent = Math.floor(current).toLocaleString();
-          }, 16);
-        }
-
-        const statsList = document.querySelector(".stats-list");
-        if (!statsList) return;
-
-        function runCounters() {
-          statsList.querySelectorAll(".stats-title").forEach((counter) => {
-            animateCount(counter);
-          });
-        }
-
-        // Fallback for browsers without IntersectionObserver
-        if (!("IntersectionObserver" in window)) {
-          runCounters();
-          return;
-        }
-
-        // Observe the stats list itself, not the whole about section: on mobile
-        // the section is far taller than the viewport, so a high threshold on it
-        // would never be reached and the counters would stay at 0.
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                runCounters();
-                observer.unobserve(entry.target); // Stop observing after animation
-              }
-            });
-          },
-          { threshold: 0.15 }
-        );
-
-        observer.observe(statsList);
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const navbarLinks = document.querySelectorAll(".navbar-link");
-        const sections = document.querySelectorAll("section");
-
-        // Highlight active section in navbar
-        window.addEventListener("scroll", function () {
-          let current = "";
-
-          sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
-              current = section.getAttribute("id");
-            }
-          });
-
-          navbarLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === `#${current}`) {
-              link.classList.add("active");
-            }
-          });
-        });
-      });
-    </script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
