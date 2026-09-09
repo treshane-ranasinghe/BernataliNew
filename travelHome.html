@@ -1,1666 +1,709 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tourism Website</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Tourism — Bernatali</title>
+    <meta
+      name="description"
+      content="Unforgettable Sri Lankan journeys by Bernatali — beaches, hill country, ancient cities and wildlife, arranged end to end."
+    />
+    <meta name="theme-color" content="#04150e" />
+
+    <link rel="shortcut icon" href="images/logo.png" type="image/png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
-    <script>
-      function toggleMenu() {
-        const navLinks = document.getElementById("navLinks");
-        navLinks.classList.toggle("show");
-      }
-      ("use strict");
-
-      /**
-       * navbar toggle
-       */
-
-      const navOpenBtn = document.querySelector("[data-nav-open-btn]");
-      const navbar = document.querySelector("[data-navbar]");
-      const navCloseBtn = document.querySelector("[data-nav-close-btn]");
-      const overlay = document.querySelector("[data-overlay]");
-
-      const elemArr = [navCloseBtn, overlay, navOpenBtn];
-
-      for (let i = 0; i < elemArr.length; i++) {
-        elemArr[i].addEventListener("click", function () {
-          navbar.classList.toggle("active");
-          overlay.classList.toggle("active");
-        });
-      }
-
-      /**
-       * toggle navbar & overlay when click any navbar-link
-       */
-
-      const navbarLinks = document.querySelectorAll("[data-navbar-link]");
-
-      for (let i = 0; i < navbarLinks.length; i++) {
-        navbarLinks[i].addEventListener("click", function () {
-          navbar.classList.toggle("active");
-          overlay.classList.toggle("active");
-        });
-      }
-
-      /**
-       * header & go-top-btn active
-       * when window scroll down to 400px
-       */
-
-      const header = document.querySelector("[data-header]");
-      const goTopBtn = document.querySelector("[data-go-top]");
-
-      window.addEventListener("scroll", function () {
-        if (window.scrollY >= 400) {
-          header.classList.add("active");
-          goTopBtn.classList.add("active");
-        } else {
-          header.classList.remove("active");
-          goTopBtn.classList.remove("active");
-        }
-      });
-    </script>
-    <style>
-      body,
-      html {
-        overflow-x: hidden; /* Prevent horizontal scrolling */
-        overflow-y: auto; /* Ensure smooth vertical scrolling */
-        width: 100%;
-      }
-
-      /* Add a black background color to the top navigation */
-      .topnav {
-        background-color: #333;
-        overflow: hidden;
-      }
-
-      /* Style the links inside the navigation bar */
-      .topnav a {
-        text-decoration: none;
-        color: white;
-        font-size: 20px;
-        font-size: 100;
-        padding: 15px;
-        display: block;
-        transition: all 0.3s ease;
-        font-family: "Roboto";
-      }
-
-      /* Add an active class to highlight the current page */
-      .active {
-        background-color: #04aa6d;
-        color: white;
-      }
-
-      /* Hide the link that should open and close the topnav on small screens */
-      .topnav .icon {
-        display: none;
-      }
-
-      /* Dropdown container - needed to position the dropdown content */
-      .dropdown {
-        float: left;
-        overflow: hidden;
-      }
-
-      /* Style the dropdown button to fit inside the topnav */
-      .dropdown .dropbtn {
-        color: white;
-
-        background-color: inherit;
-        font-family: inherit;
-
-        margin: 0 -30px;
-        cursor: pointer;
-      }
-
-      /* Style the dropdown content (hidden by default) */
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        top: 70%; /* Move dropdown slightly down */
-        background: rgba(255, 255, 255, 0.1); /* Adjust transparency */
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-
-      /* Style the links inside the dropdown */
-      .dropdown-content a {
-        float: none;
-        color: whitesmoke;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-        font-size: 17px;
-        font-weight: 600;
-      }
-
-      /* Add a dark background on topnav links and the dropdown button on hover */
-      .topnav a:hover,
-      .dropdown:hover .dropbtn {
-        background-color: white;
-        color: black;
-      }
-
-      /* Add a grey background to dropdown links on hover */
-      .dropdown-content a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-
-      /* Show the dropdown menu when the user moves the mouse over the dropdown button */
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-
-      /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        box-sizing: border-box;
-      }
-
-      .banner video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures the video covers the entire banner */
-        z-index: -1;
-      }
-
-      .navbar {
-        width: 100%;
-        padding: 30px;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        z-index: 100;
-        background-color: rgba(0, 95, 95, 0.5);
-        /* Lightened Deep Teal with 50% opacity */
-      }
-
-      .navbar ul {
-        list-style: none;
-        padding: 0; /* Make sure there's no default padding */
-        margin: 0; /* Ensure no margin around the list */
-        display: flex;
-      }
-
-      .navbar ul li {
-        margin: 0 20px; /* Adjusting margin for spacing between items */
-      }
-
-      .navbar ul li a {
-        text-decoration: none;
-        color: white;
-
-        font-weight: 700;
-        padding: 15px;
-        display: block; /* Ensures the whole area around the text is clickable */
-        transition: all 0.3s ease; /* Smooth transition for color and background */
-      }
-
-      /* Hover effect for anchor tag */
-      .navbar ul li a:hover {
-        background: #e0ffff; /* Change background color on hover */
-        color: black; /* Change text color on hover */
-      }
-
-      .logo {
-        height: 80px;
-        margin-top: -10px;
-        cursor: pointer;
-        margin-left: 100px;
-      }
-
-      .content {
-        width: 100%;
-        position: absolute;
-        color: white;
-        top: 45%;
-        transform: translateY(-50%);
-        text-align: left;
-        padding-right: 50%;
-        padding-left: 5%;
-        padding-top: 5%;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      }
-      .content h1 {
-        margin-top: 120px;
-        font-size: 52px;
-        font-weight: 800;
-        color: #ffd700;
-      }
-      .content h2 {
-        font-weight: 800;
-        font-size: 52px;
-        color: #e0ffff;
-      }
-
-      .sub {
-        width: 100%;
-        position: absolute;
-        color: white;
-      }
-
-      .sub h5 {
-        margin-top: 100px;
-        font-size: 30px;
-        font-weight: 800;
-        margin-top: -1px;
-      }
-      button {
-        width: 220px;
-        padding: 15px;
-        margin: 20px 5px;
-        text-align: center;
-        border-radius: 25px;
-        color: black;
-        border: 2px;
-        font-size: 20px;
-        cursor: pointer;
-        font-weight: 600;
-        float: right;
-        margin-right: 472px; /* Adjust this value to control the distance */
-        margin-top: 55px; /* Adjust this value to move the button down */
-        overflow: visible;
-        white-space: nowrap; /* Ensures text stays on one line */
-      }
-      button:hover {
-        background: #ff5733;
-        transition: 0.5s;
-      }
-      button:hover {
-        color: white;
-      }
-      .banner video {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-      }
-
-      /*=============== GOOGLE FONTS ===============*/
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
-
-      /*=============== VARIABLES CSS ===============*/
-      :root {
-        /*========== Colors ==========*/
-        /*Color mode HSL(hue, saturation, lightness)*/
-        --first-color: hsl(82, 60%, 28%);
-        --title-color: hsl(0, 0%, 15%);
-        --text-color: hsl(0, 0%, 35%);
-        --body-color: hsl(0, 0%, 95%);
-        --container-color: hsl(0, 0%, 100%);
-
-        /*========== Font and typography ==========*/
-        /*.5rem = 8px | 1rem = 16px ...*/
-        --body-font: "Poppins", sans-serif;
-        --h2-font-size: 1.25rem;
-        --small-font-size: 0.813rem;
-      }
-
-      /*=============== BASE ===============*/
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-      }
-
-      body {
-        font-family: var(--body-font);
-        background-color: var(--body-color);
-        color: var(--text-color);
-      }
-
-      img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-
-      /*=============== CARD ===============*/
-      .container {
-        display: grid;
-        place-items: center;
-        margin-inline: 1.5rem;
-        padding-block: 5rem;
-        display: grid;
-        margin-left: 800px;
-        margin-top: -50px;
-        padding: 2rem;
-        overflow-x: auto;
-        animation-name: fade-in-element;
-      }
-
-      .card__container {
-        display: flex;
-        row-gap: 3.5rem;
-        justify-content: flex-end; /* Align to the right */
-      }
-
-      .card__article {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card__img {
-        width: 150px !important;
-        height: auto !important;
-        border-radius: 1.5rem !important;
-      }
-
-      .card__data {
-        width: 150px !important;
-        background-color: var(--container-color);
-        padding: 1rem 2rem;
-        box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
-        border-radius: 1rem;
-        position: absolute;
-        bottom: -9rem;
-        left: 0;
-        right: 0;
-        margin-inline: auto;
-        opacity: 0;
-        transition: opacity 1s 1s;
-      }
-
-      .card__description {
-        display: block;
-        font-size: var(--small-font-size);
-        margin-bottom: 0.25rem;
-        font-family: Roboto;
-      }
-
-      .card__title {
-        font-size: var(--h5-font-size);
-        font-weight: 500;
-        color: var(--title-color);
-        margin-bottom: 0.75rem;
-        font-family: Roboto;
-      }
-
-      .card__button {
-        text-decoration: none;
-        font-size: var(--small-font-size);
-        font-weight: 500;
-        color: var(--first-color);
-      }
-
-      .card__button:hover {
-        text-decoration: underline;
-      }
-
-      /* Naming animations in hover */
-      .card__article:hover .card__data {
-        animation: show-data 1s forwards;
-        opacity: 1;
-        transition: opacity 0.3s;
-      }
-
-      .card__article:hover {
-        animation: remove-overflow 2s forwards;
-      }
-
-      .card__article:not(:hover) {
-        animation: show-overflow 2s forwards;
-      }
-
-      .card__article:not(:hover) .card__data {
-        animation: remove-data 1s forwards;
-      }
-
-      /* Card animation */
-      @keyframes show-data {
-        50% {
-          transform: translateY(-10rem);
-        }
-        100% {
-          transform: translateY(-7rem);
-        }
-      }
-
-      @keyframes remove-overflow {
-        to {
-          overflow: initial;
-        }
-      }
-
-      @keyframes remove-data {
-        0% {
-          transform: translateY(-7rem);
-        }
-        50% {
-          transform: translateY(-10rem);
-        }
-        100% {
-          transform: translateY(0.5rem);
-        }
-      }
-
-      @keyframes show-overflow {
-        0% {
-          overflow: initial;
-          pointer-events: none;
-        }
-        50% {
-          overflow: hidden;
-        }
-      }
-
-      /*=============== BREAKPOINTS ===============*/
-      /* For small devices */
-      @media screen and (max-width: 340px) {
-        .container {
-          margin-inline: 1rem;
-        }
-
-        .card__data {
-          width: 200px;
-          padding: 1rem;
-        }
-      }
-
-      /* For medium devices */
-      @media screen and (min-width: 768px) {
-        .card__container {
-          grid-template-columns: repeat(2, 1fr);
-          column-gap: 1.5rem;
-        }
-      }
-
-      /* For large devices */
-      @media screen and (min-width: 1120px) {
-        .container {
-          height: 100vh;
-        }
-
-        .card__container {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .card__img {
-          width: 348px;
-        }
-        .card__data {
-          width: 316px;
-          padding-inline: 2.5rem;
-        }
-      }
-
-      .card-container {
-        margin-top: 50px !important;
-        display: flex !important; /* Keep cards in a row */
-        overflow-x: auto !important; /* Enable horizontal scrolling */
-        margin-left: 50px !important;
-        margin-inline: 1.5rem !important;
-        padding-block: 5rem !important;
-        width: 100% !important; /* Full width */
-        scroll-snap-type: x mandatory; /* Optional, for smooth snapping of cards */
-      }
-
-      .card {
-        width: 320px !important; /* Fixed width for each card */
-        background-color: whitesmoke !important;
-        border-radius: 10px !important;
-        overflow: hidden !important;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2) !important;
-        margin: 20px !important; /* Space between cards */
-        flex-shrink: 0 !important; /* Prevent cards from shrinking */
-        display: flex !important;
-        flex-direction: column !important;
-      }
-
-      .slider-container {
-        display: flex;
-        align-items: center; /* Aligns text and cards vertically */
-        gap: 50px; /* Space between text and first card */
-        width: 100%;
-        padding: 20px;
-      }
-
-      #slider {
-        text-align: left; /* Align text to the left */
-        max-width: 300px;
-        margin: 50px; /* Prevents text from stretching too much */
-      }
-
-      #slider h2 {
-        font-size: 80px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        margin-top: px; /* Adjust spacing */
-        font-family: "Roboto";
-      }
-
-      #slider h4 {
-        color: lightseagreen;
-        font-size: 50px;
-        font-weight: bold;
-      }
-
-      .card-container {
-        display: flex;
-        overflow-x: auto; /* Allows horizontal scrolling */
-        gap: 5px; /* Space between cards */
-        scroll-snap-type: x mandatory; /* Smooth snapping */
-      }
-
-      .card-container::-webkit-scrollbar {
-        width: 0;
-      }
-
-      .card img {
-        width: 100% !important;
-        height: auto !important;
-      }
-
-      .card-content {
-        padding: 16px !important;
-      }
-
-      .card-content h3 {
-        color: black;
-        font-weight: 500;
-      }
-
-      .card-content {
-        font-size: 18px !important;
-        margin-bottom: 8px !important;
-      }
-
-      .card-content p {
-        margin-top: 10px;
-        color: #666 !important;
-        font-size: 14px !important;
-        min-height: 80px;
-      }
-
-      .card-content .btn {
-        display: inline-block;
-        padding: 8px;
-        text-decoration: none;
-        border-radius: 4px;
-        margin-top: 16px;
-        color: black;
-        font-family: Roboto;
-      }
-
-      button:hover {
-        background: #ffcc00;
-        transition: 0.5s;
-      }
-      button:hover {
-        color: white;
-      }
-
-      .des_Guide {
-        margin-top: 80px;
-        margin-left: 10px;
-      }
-      .des_Guide h2 {
-        margin-left: 40px;
-        margin-top: -50px;
-        margin-bottom: 50px;
-        font-weight: 800;
-        font-size: 52px;
-        color: black;
-        font-family: Roboto;
-      }
-
-      .des_Guide h4 {
-        margin-left: 40px;
-        margin-top: -50px;
-        margin-bottom: 50px;
-        font-weight: 600;
-        font-size: 52px;
-        color: black;
-        font-family: Roboto;
-      }
-
-      .des_Guide h5 {
-        margin-left: 40px;
-        margin-top: -50px;
-        margin-bottom: 50px;
-        text-align: left;
-        font-family: Roboto;
-        color: black;
-        font-size: 15px;
-      }
-
-      .container2 {
-        display: grid;
-        place-items: center;
-        margin-inline: 1.5rem;
-        padding-block: 5rem;
-        display: grid;
-        margin-left: 500px;
-        margin-top: -500px;
-        margin-bottom: -150px;
-        padding: 2rem;
-      }
-
-      .card2__container {
-        display: flex;
-        row-gap: 3.5rem;
-        justify-content: flex-end; /* Align to the right */
-      }
-
-      .card2__article {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card2__img {
-        width: 1000px !important;
-        height: auto !important;
-        border-radius: 1.5rem !important;
-      }
-
-      .card2__data {
-        width: 150px !important;
-        background-color: var(--container-color);
-        padding: 1rem 2rem;
-        box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
-        border-radius: 1rem;
-        position: absolute;
-        bottom: -9rem;
-        left: 0;
-        right: 0;
-        margin-inline: auto;
-        opacity: 0;
-        transition: opacity 1s 1s;
-      }
-
-      .card2__description {
-        display: block;
-        font-size: var(--small-font-size);
-        margin-bottom: 0.25rem;
-        font-family: Roboto;
-      }
-
-      .card2__title {
-        font-size: var(--h5-font-size);
-        font-weight: 500;
-        color: var(--title-color);
-        margin-bottom: 0.75rem;
-        font-family: Roboto;
-      }
-
-      .card2__button {
-        text-decoration: none;
-        font-size: var(--small-font-size);
-        font-weight: 500;
-        color: var(--first-color);
-      }
-
-      .card2__button:hover {
-        text-decoration: underline;
-      }
-
-      /* Naming animations in hover */
-      .card2__article:hover .card2__data {
-        animation: show-data 1s forwards;
-        opacity: 1;
-        transition: opacity 0.3s;
-      }
-
-      .card2__article:hover {
-        animation: remove-overflow 2s forwards;
-      }
-
-      .card2__article:not(:hover) {
-        animation: show-overflow 2s forwards;
-      }
-
-      .card2__article:not(:hover) .card2__data {
-        animation: remove-data 1s forwards;
-      }
-      /* Card animation */
-      @keyframes show-data {
-        50% {
-          transform: translateY(-10rem);
-        }
-        100% {
-          transform: translateY(-7rem);
-        }
-      }
-
-      @keyframes remove-overflow {
-        to {
-          overflow: initial;
-        }
-      }
-
-      @keyframes remove-data {
-        0% {
-          transform: translateY(-7rem);
-        }
-        50% {
-          transform: translateY(-10rem);
-        }
-        100% {
-          transform: translateY(0.5rem);
-        }
-      }
-
-      @keyframes show-overflow {
-        0% {
-          overflow: initial;
-          pointer-events: none;
-        }
-        50% {
-          overflow: hidden;
-        }
-      }
-
-      /*=============== BREAKPOINTS ===============*/
-      /* For small devices */
-      @media screen and (max-width: 340px) {
-        .container2 {
-          margin-inline: 1rem;
-        }
-
-        .card2__data {
-          width: 250px;
-          padding: 1rem;
-        }
-      }
-
-      /* For medium devices */
-      @media screen and (min-width: 768px) {
-        .card2__container {
-          grid-template-columns: repeat(2, 1fr);
-          column-gap: 1.5rem;
-        }
-      }
-
-      /* For large devices */
-      @media screen and (min-width: 1120px) {
-        .container2 {
-          height: 100vh;
-        }
-
-        .card2__container {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .card2__img {
-          width: 348px;
-        }
-        .card2__data {
-          width: 316px;
-          padding-inline: 2.5rem;
-        }
-      }
-
-      /*=============== Footer ===============*/
-
-      footer {
-        width: 100%;
-        background-color: #333; /* or your color */
-        color: white;
-        text-align: center;
-        padding: 20px 10px;
-        box-sizing: border-box;
-        position: relative;
-        z-index: 10;
-        overflow: hidden;
-      }
-
-      .footer * {
-        position: relative;
-        z-index: 2;
-      }
-
-      .row {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap; /* Ensures responsiveness */
-      }
-
-      .columns {
-        text-align: left;
-        margin: 60px;
-        min-width: 200px; /* Ensures they don't shrink too much */
-      }
-
-      .columns h4 {
-        text-decoration: none;
-        color: white;
-        font-size: 30px;
-        border-bottom: 2px solid #ffd700;
-        padding-bottom: 5px;
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      ul li {
-        margin: 5px 0;
-      }
-
-      ul li a {
-        text-decoration: none;
-        color: #e0e0e0;
-        font-size: 20px;
-        font-weight: 500;
-        transition: color 0.3s ease-in-out;
-      }
-
-      ul li a:hover {
-        color: #ffd700;
-      }
-
-      .footer p {
-        font-size: 16px;
-        margin-top: 20px;
-      }
-
-      .footer-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 1;
-      }
-
-      @media screen and (max-width: 768px) {
-        .content {
-          position: relative;
-          padding-right: 10%;
-          padding-left: 5%;
-          text-align: center;
-        }
-
-        button {
-          margin-right: auto;
-          margin-left: auto;
-          display: block;
-          float: none;
-        }
-
-        .card-container {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        footer {
-          position: relative;
-          bottom: 0;
-          width: 100%;
-        }
-      }
-
-      /* Responsive adjustments */
-      @media (max-width: 1024px) {
-        .columns h4 {
-          font-size: 26px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .columns h4 {
-          font-size: 22px;
-          padding-bottom: 4px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .columns h4 {
-          font-size: 18px;
-          padding-bottom: 3px;
-          border-bottom: 1px solid #ffd700;
-        }
-      }
-
-      /* Responsive Design */
-      @media screen and (max-width: 768px) {
-        .topnav {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .topnav a {
-          display: block;
-          width: 100%;
-          text-align: center;
-          padding: 10px;
-        }
-
-        .dropdown {
-          width: 100%;
-          text-align: center;
-        }
-
-        .dropdown .dropbtn {
-          width: 100%;
-        }
-
-        .navbar {
-          flex-direction: column;
-          padding: 15px;
-        }
-
-        .navbar ul {
-          flex-direction: column;
-          width: 100%;
-        }
-
-        .navbar ul li {
-          margin: 10px 0;
-          text-align: center;
-        }
-
-        .banner video {
-          height: auto;
-          max-width: 100%;
-        }
-
-        .content {
-          width: 100%;
-          padding: 10px;
-          margin-top: 50px;
-          text-align: center;
-          position: relative;
-          top: 0;
-          transform: none;
-        }
-
-        .content h1,
-        .content h2 {
-          font-size: 32px;
-        }
-
-        .button {
-          float: none;
-          width: 100%;
-          margin: 10px auto;
-          text-align: center;
-        }
-
-        .card-container {
-          margin-top: 600px !important;
-
-          flex-wrap: wrap;
-          justify-content: center;
-          margin-left: 0 !important;
-          overflow-y: hidden;
-          overflow-x: hidden;
-          scroll-snap-type: x mandatory;
-        }
-
-        .card {
-          width: 90% !important;
-          margin: 10px 0 !important;
-        }
-
-        .slider-container {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          gap: 20px;
-        }
-
-        #slider {
-          max-width: 100%;
-          margin: 0;
-        }
-
-        #slider h2 {
-          font-size: 40px;
-        }
-
-        #slider h4 {
-          font-size: 25px;
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        .content h1,
-        .content h2 {
-          font-size: 24px;
-        }
-
-        .topnav {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .topnav a {
-          font-size: 16px;
-          padding: 8px;
-        }
-
-        .dropdown .dropbtn {
-          font-size: 16px;
-          padding: 8px;
-        }
-
-        .navbar {
-          padding: 10px;
-        }
-
-        .navbar ul li {
-          margin: 5px 0;
-        }
-
-        .button {
-          width: 100%;
-          font-size: 18px;
-          padding: 10px;
-        }
-
-        .slider-container {
-          gap: 10px;
-        }
-
-        #slider h2 {
-          font-size: 30px;
-        }
-
-        #slider h4 {
-          font-size: 20px;
-        }
-
-        .card-container {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .card {
-          width: 100% !important;
-        }
-      }
-
-      /* Responsive Design for mobile - screens below 768px */
-      @media screen and (max-width: 768px) {
-        .container2 {
-          padding: 0 15px;
-        }
-
-        .card2__container {
-          justify-content: center;
-        }
-
-        .card2__article {
-          width: 48%; /* Two columns for medium screens */
-          margin-bottom: 20px;
-        }
-      }
-
-      /* Responsive Design for mobile - screens below 480px */
-      @media screen and (max-width: 480px) {
-        .container2 {
-          padding: 0 10px;
-        }
-
-        .card2__article {
-          width: 100%; /* Full width on very small screens */
-        }
-
-        .card2__title {
-          font-size: 16px; /* Adjust title size */
-        }
-
-        .card2__button {
-          padding: 8px 16px; /* Slightly smaller button */
-          font-size: 14px;
-        }
-      }
-
-      /* ============ MOBILE RESPONSIVENESS ============ */
-      @media screen and (max-width: 768px) {
-        .topnav a {
-          font-size: 16px;
-          padding: 10px;
-          text-align: center;
-        }
-
-        .navbar {
-          flex-direction: column;
-          padding: 15px;
-          align-items: flex-start;
-        }
-
-        .navbar ul {
-          flex-direction: column;
-          width: 100%;
-        }
-
-        .navbar ul li {
-          margin: 10px 0;
-        }
-
-        .logo {
-          margin-bottom: 15px;
-        }
-
-        .content {
-          position: relative;
-          top: auto;
-          transform: none;
-          padding: 10% 5%;
-          text-align: center;
-        }
-
-        .content h1,
-        .content h2 {
-          font-size: 32px;
-        }
-
-        .sub h5 {
-          font-size: 20px;
-          text-align: center;
-        }
-
-        button {
-          float: none;
-          margin: 20px auto;
-          display: block;
-          width: 80%;
-          margin-right: 0;
-          white-space: normal;
-          font-size: 18px;
-        }
-
-        .container {
-          margin-left: 0;
-          margin-top: 0;
-          padding: 1rem;
-          display: block;
-        }
-
-        .card__container {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .card__img {
-          width: 100% !important;
-        }
-
-        .card__data {
-          width: 90% !important;
-          padding: 1rem;
-        }
-
-        .card-container {
-          flex-direction: column !important;
-          overflow-x: hidden !important;
-          align-items: center !important;
-          margin-left: 0 !important;
-        }
-
-        .card {
-          width: 90% !important;
-          margin: 15px 0 !important;
-        }
-
-        .dropdown .dropbtn {
-          margin: 0;
-          font-size: 18px;
-        }
-
-        .dropdown-content {
-          position: static;
-          min-width: 100%;
-          box-shadow: none;
-          backdrop-filter: none;
-          -webkit-backdrop-filter: none;
-          background-color: rgba(10, 25, 47, 0.9);
-        }
-
-        .dropdown-content a {
-          font-size: 16px;
-          padding: 10px;
-          text-align: center;
-        }
-
-        .banner video {
-          object-fit: cover;
-          height: auto;
-        }
-      }
-
-      /* ============ ULTRA SMALL DEVICES ============ */
-      @media screen and (max-width: 480px) {
-        .content h1,
-        .content h2 {
-          font-size: 24px;
-        }
-
-        .sub h5 {
-          font-size: 16px;
-        }
-
-        button {
-          font-size: 16px;
-          padding: 10px;
-        }
-      }
-
-      /* Default - hide hamburger on desktop */
-      .hamburger {
-        display: none;
-        font-size: 28px;
-        color: white;
-        cursor: pointer;
-      }
-
-      /* Hide nav-links on mobile by default */
-      .nav-links {
-        display: flex;
-        flex-direction: row;
-      }
-
-      /* Mobile Responsive Styles */
-      @media (max-width: 768px) {
-        .navbar {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .hamburger {
-          display: block;
-          position: absolute;
-          top: 20px;
-          right: 20px;
-        }
-
-        .nav-links {
-          display: none;
-          width: 100%;
-          flex-direction: column;
-          background-color: rgba(0, 0, 0, 0.8);
-          position: absolute;
-          top: 60px;
-          left: 0;
-          z-index: 1000;
-          padding: 20px;
-        }
-
-        .nav-links ul {
-          flex-direction: column;
-        }
-
-        .nav-links ul li {
-          margin: 10px 0;
-        }
-
-        .nav-links.show {
-          display: flex;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/main.css" />
   </head>
-  <body>
-    <section>
-      <div class="banner">
-        <video autoplay loop muted plays-inline>
-          <source src="travelPics/assets/lp.mp4" type="video/mp4" />
-        </video>
-        <div class="navbar">
-          <img class="logo" src="images/logo.png" />
 
-          <!-- Hamburger Icon -->
-          <div class="hamburger" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-          </div>
+  <body id="top">
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+    >
+      <defs>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M5 12h14M13 5l7 7-7 7"
+          />
+        </symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 19V5M5 12l7-7 7 7"
+          />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M20 6L9 17l-5-5"
+          />
+        </symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0022 12z"
+          />
+        </symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24">
+          <rect
+            x="2.5"
+            y="2.5"
+            width="19"
+            height="19"
+            rx="5.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="4.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          />
+          <circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" />
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M4.98 3.5A2.5 2.5 0 002.5 6a2.5 2.5 0 002.48 2.5A2.5 2.5 0 007.5 6a2.5 2.5 0 00-2.52-2.5zM3 21h4V9.5H3V21zm7 0h4v-6.3c0-1.7.9-2.6 2.1-2.6 1.2 0 1.9.8 1.9 2.6V21h4v-6.9c0-3.5-1.9-5.1-4.4-5.1-2 0-3 1.1-3.5 1.9V9.5h-4V21z"
+          />
+        </symbol>
+      </defs>
+    </svg>
 
-          <!-- Navigation Links -->
-          <div class="nav-links" id="navLinks">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="index.html">About Us</a></li>
-              <li><a href="index.html">Services</a></li>
-              <li><a href="index.html">Success stories</a></li>
-              <li><a href="index.html">About Us</a></li>
+    <noscript>
+      <style>
+        .preloader { display: none; }
+        [data-reveal], .fade-up, .hero__cue { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+      </style>
+    </noscript>
+
+    <div class="preloader" data-preloader>
+      <div class="preloader__inner">
+        <div class="preloader__mark">Bernatali</div>
+        <div class="preloader__bar"><span></span></div>
+      </div>
+    </div>
+
+    <div class="scroll-progress" data-progress></div>
+    <div class="grain"></div>
+
+    <!-- HEADER -->
+    <header class="header" data-header>
+      <div class="container header__inner">
+        <a href="index.html" class="brand" aria-label="Bernatali home">
+          <img src="images/logo.png" alt="Bernatali" />
+        </a>
+
+        <nav aria-label="Primary">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link">Home</a></li>
+            <li>
+              <a href="travelHome.html" class="nav__link is-active">Tourism</a>
+            </li>
+            <li><a href="#highlights" class="nav__link" data-spy>Highlights</a></li>
+            <li>
+              <a href="#destinations" class="nav__link" data-spy>Destinations</a>
+            </li>
+            <li><a href="apparel.html" class="nav__link">Apparel</a></li>
+          </ul>
+        </nav>
+
+        <a
+          href="index.html#contact"
+          class="btn btn--ghost header__cta"
+          data-magnetic="0.2"
+        >
+          Contact Us
+          <svg><use href="#i-arrow-right" /></svg>
+        </a>
+
+        <button
+          class="burger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-panel" data-nav-panel>
+      <ul class="nav-panel__list">
+        <li class="nav-panel__item">
+          <a href="index.html" class="nav-panel__link" style="--i: 0"
+            ><span class="num">01</span> Home</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#highlights" class="nav-panel__link" style="--i: 1"
+            ><span class="num">02</span> Highlights</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#guide" class="nav-panel__link" style="--i: 2"
+            ><span class="num">03</span> Destination Guide</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="#destinations" class="nav-panel__link" style="--i: 3"
+            ><span class="num">04</span> Destinations</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="index.html#services" class="nav-panel__link" style="--i: 4"
+            ><span class="num">05</span> Other Services</a
+          >
+        </li>
+        <li class="nav-panel__item">
+          <a href="index.html#contact" class="nav-panel__link" style="--i: 5"
+            ><span class="num">06</span> Contact</a
+          >
+        </li>
+      </ul>
+
+      <div class="nav-panel__foot">
+        <a href="mailto:ruwanr@bernatali.com">ruwanr@bernatali.com</a>
+        <a href="tel:+94774245178">+94 77 424 5178</a>
+        <span>Ragama, Sri Lanka</span>
+      </div>
+    </div>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero__media">
+          <video autoplay muted loop playsinline poster="travelPics/assets/landing-page-01.jpg" aria-hidden="true">
+            <source src="travelPics/assets/lp.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="hero__scrim"></div>
+
+        <div class="container">
+          <div class="hero__inner">
+            <p class="crumbs fade-up" style="--d: 0">
+              <a href="index.html">Home</a> <span>/</span> Tourism
+            </p>
+
+            <h1 class="hero__title" data-split>Unforgettable Journeys</h1>
+
+            <p class="hero__text fade-up" style="--d: 0.85">
+              Sri Lanka casts a spell unlike anywhere else. Book your dream
+              getaway — beaches, hill country, ancient cities and wildlife,
+              arranged end to end.
+            </p>
+
+            <div class="hero__actions fade-up" style="--d: 1">
+              <a
+                href="index.html#contact"
+                class="btn btn--primary"
+                data-magnetic="0.25"
+              >
+                Book Now
+                <svg><use href="#i-arrow-right" /></svg>
+              </a>
+              <a href="#destinations" class="btn btn--ghost" data-magnetic="0.25">
+                Explore Destinations
+              </a>
+            </div>
+
+            <ul class="hero__stats fade-up" style="--d: 1.15">
+              <li class="hero__chip"><b>12</b> Destinations</li>
+              <li class="hero__chip"><b>8</b> UNESCO sites</li>
+              <li class="hero__chip"><b>365</b> Days of season</li>
             </ul>
           </div>
         </div>
-        <script src="script.js"></script>
 
-        <div class="content">
-          <h1>Experience</h1>
-          <h2>Unforgettable Journeys</h2>
-          <div class="sub">
-            <h5>Book Your Dream Getaway Now</h5>
-          </div>
-          <div>
-            <button type="button">Book Now</button>
+        <div class="hero__cue" aria-hidden="true">
+          <span>Scroll</span>
+          <i></i>
+        </div>
+
+        <div class="hero__curve" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path
+              d="M0,80 L0,40 C240,80 480,0 720,20 C960,40 1200,80 1440,32 L1440,80 Z"
+            />
+          </svg>
+        </div>
+      </section>
+
+      <!-- RIBBON -->
+      <div class="ribbon" aria-hidden="true">
+        <div class="ribbon__track" data-marquee>
+          <div class="ribbon__group">
+            <span class="ribbon__item">Beaches</span>
+            <span class="ribbon__item">Hill Country</span>
+            <span class="ribbon__item">Ancient Cities</span>
+            <span class="ribbon__item">Wildlife Safaris</span>
+            <span class="ribbon__item">Tea Trails</span>
+            <span class="ribbon__item">Surf &amp; Whales</span>
           </div>
         </div>
       </div>
 
-      <div class="container">
-        <div class="card__container">
-          <article class="card__article">
-            <img
-              src="travelPics/assets/landscape-01.jpg"
-              alt="image"
-              class="card__img"
-              loading="lazy"
-            />
+      <!-- HIGHLIGHTS -->
+      <section class="section section--cream" id="highlights">
+        <div
+          class="orb orb--moss"
+          style="width: 440px; height: 440px; top: -130px; right: -150px"
+          aria-hidden="true"
+        ></div>
 
-            <div class="card__data">
-              <span class="card__description"></span>
-              <h2 class="card__title">Nine Arch Bridge</h2>
-              <a href="#" class="card__button"></a>
+        <div class="container">
+          <div class="section-head section-head--center" data-reveal="up">
+            <p class="eyebrow">Experience</p>
+            <h2 class="h2 section-title">
+              Moments worth travelling for
+              <span class="rule"></span>
+            </h2>
+            <p class="lead">
+              A handful of the places our guests remember long after they fly
+              home.
+            </p>
+          </div>
+
+          <div class="services__grid" data-reveal-group data-reveal-step="0.12">
+            <article class="service service--plain" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="travelPics/assets/landscape-01.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">01</span>
+                <h3 class="service__title">Nine Arch Bridge</h3>
+                <p class="service__text">
+                  The colonial-era viaduct curving through Ella's tea country —
+                  best seen as the morning train rolls over it.
+                </p>
+              </div>
+            </article>
+
+            <article class="service service--plain" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="travelPics/assets/landscape-02.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">02</span>
+                <h3 class="service__title">Unawatuna Beach</h3>
+                <p class="service__text">
+                  A sheltered crescent of golden sand on the south coast, calm
+                  enough to swim year round.
+                </p>
+              </div>
+            </article>
+
+            <article class="service service--plain" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="travelPics/assets/landscape-03.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">03</span>
+                <h3 class="service__title">Sigiriya</h3>
+                <p class="service__text">
+                  A fifth-century rock fortress with water gardens, frescoes and
+                  a view across the whole of the dry zone.
+                </p>
+              </div>
+            </article>
+
+            <article class="service service--plain" data-reveal="up" data-tilt="7">
+              <div class="service__img">
+                <img src="travelPics/assets/landsacpe-05.jpg" alt="" />
+              </div>
+              <div class="service__body">
+                <span class="service__num">04</span>
+                <h3 class="service__title">Kandy</h3>
+                <p class="service__text">
+                  The hill capital and last kingdom of Sri Lanka, built around
+                  its lake and the Temple of the Tooth.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESTINATION GUIDE -->
+      <section class="section section--ink" id="guide">
+        <div
+          class="orb orb--gold"
+          style="width: 420px; height: 420px; top: 6%; left: -160px"
+          aria-hidden="true"
+        ></div>
+
+        <div class="container">
+          <div class="split">
+            <div data-reveal="left">
+              <div class="section-head">
+                <p class="eyebrow">Destination Guide</p>
+                <h2 class="h2 section-title">
+                  Holiday in <span class="italic-accent">Sri Lanka</span>
+                  <span class="rule"></span>
+                </h2>
+              </div>
+
+              <div class="stack">
+                <p class="lead">
+                  Sri Lanka is a meeting place of friendly faces who share their
+                  homes and trade a space for spiritual healing; a land for
+                  learning from the old and the new; a hub of commercial
+                  activity; a spot for tranquility.
+                </p>
+                <p class="lead">
+                  It draws people in not with artificial attractions and grand
+                  gestures, but by spellbinding soul and sincerity.
+                </p>
+              </div>
+
+              <ul class="checklist mt-2" data-reveal-group data-reveal-step="0.1">
+                <li data-reveal="up">
+                  <span class="tick"><svg><use href="#i-check" /></svg></span>
+                  Itineraries built around your dates and pace
+                </li>
+                <li data-reveal="up">
+                  <span class="tick"><svg><use href="#i-check" /></svg></span>
+                  Vetted hotels, drivers and guides
+                </li>
+                <li data-reveal="up">
+                  <span class="tick"><svg><use href="#i-check" /></svg></span>
+                  Airport transfers and inter-city travel handled
+                </li>
+              </ul>
+
+              <p class="mt-2">
+                <a href="Weligama.html" class="link-arrow" style="color: var(--gold-2)">
+                  Read the Weligama guide
+                  <svg><use href="#i-arrow-right" /></svg>
+                </a>
+              </p>
             </div>
-          </article>
 
-          <article class="card__article">
-            <img
-              src="travelPics/assets/landscape-02.jpg"
-              alt="image"
-              class="card__img"
-              loading="lazy"
-            />
-
-            <div class="card__data">
-              <span class="card__description"></span>
-              <h2 class="card__title">Unawatuna Beach</h2>
-              <a href="#" class="card__button"></a>
+            <div class="photo-grid" data-reveal="right">
+              <figure class="photo">
+                <img src="travelPics/assets/product1.jpg" alt="Sri Lanka" />
+              </figure>
+              <figure class="photo">
+                <img src="travelPics/assets/product5.png" alt="Sri Lanka" />
+              </figure>
+              <figure class="photo">
+                <img src="travelPics/assets/product4.jpg" alt="Sri Lanka" />
+              </figure>
             </div>
-          </article>
+          </div>
+        </div>
+      </section>
 
-          <article class="card__article">
-            <img
-              src="travelPics/assets/landscape-03.jpg"
-              alt="image"
-              class="card__img"
-              loading="lazy"
-            />
+      <!-- DESTINATIONS -->
+      <section class="section section--paper" id="destinations">
+        <div class="container">
+          <div class="section-head section-head--center" data-reveal="up">
+            <p class="eyebrow">Explore Top</p>
+            <h2 class="h2 section-title">
+              Destinations
+              <span class="rule"></span>
+            </h2>
+            <p class="lead">
+              Twelve places that between them cover the coast, the highlands and
+              the cultural triangle.
+            </p>
+          </div>
 
-            <div class="card__data">
-              <span class="card__description"></span>
-              <h2 class="card__title">sigiriya</h2>
-              <a href="#" class="card__button"></a>
-            </div>
-          </article>
-          <article class="card__article">
-            <img
-              src="travelPics/assets/landsacpe-05.jpg"
-              alt="image"
-              class="card__img"
-            />
+          <div class="services__grid" data-reveal-group data-reveal-step="0.06">
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Galle.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Galle</h3>
+                <p class="service__text">
+                  Discover the ancient charm of Galle, a UNESCO World Heritage
+                  Site.
+                </p>
+              </div>
+            </article>
 
-            <div class="card__data">
-              <span class="card__description"></span>
-              <h2 class="card__title">Kandy</h2>
-              <a href="#" class="card__button"></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Hikkaduwa.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Hikkaduwa</h3>
+                <p class="service__text">
+                  A vibrant coastal town renowned for its coral reefs and lively
+                  beaches, offering excellent snorkeling and diving.
+                </p>
+              </div>
+            </article>
 
-    <section id="Destinations">
-      <div class="des_Guide">
-        <h2 style="color: #ffd700">Destination <br />Guide</h2>
-        <h4 style="color: lightseagreen">Holiday In Sri Lanka</h4>
-        <h5 style="text-align: justify">
-          Sri Lanka is a meeting place of friendly faces who share their<br />
-          homes and trade a space for spiritual healing; a land for learning<br />
-          from the old and the new; a hub of commercial activity; a spot for<br />
-          tranquility. Sri Lanka casts a spell unlike anywhere else. It draws<br />
-          people in not with artificial attractions and grand gestures, but
-          by<br />
-          spellbinding soul and sincerity.
-        </h5>
-      </div>
-      <div class="container2">
-        <div class="card2__container">
-          <article class="card2__article">
-            <img
-              src="travelPics/assets/product1.jpg"
-              alt="image"
-              class="card2__img"
-            />
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Mirissa.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Mirissa</h3>
+                <p class="service__text">
+                  A serene beach destination famous for whale watching and
+                  surfing, with stunning sunsets.
+                </p>
+              </div>
+            </article>
 
-            <div class="card2__data">
-              <span class="card2__description"></span>
-              <h2 class="card_2_title"></h2>
-              <a href="#" class="card2__button"></a>
-            </div>
-          </article>
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Anuradhapura.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Anuradhapura</h3>
+                <p class="service__text">
+                  An ancient city and one of Sri Lanka's earliest capitals,
+                  showcasing well-preserved palaces, temples and stupas.
+                </p>
+              </div>
+            </article>
 
-          <article class="card2__article">
-            <img
-              src="travelPics/assets/product5.png"
-              alt="image"
-              class="card2__img"
-            />
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Ella.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Ella</h3>
+                <p class="service__text">
+                  A picturesque hill town known for lush landscapes, tea
+                  plantations, the Nine Arches Bridge and Little Adam's Peak.
+                </p>
+              </div>
+            </article>
 
-            <div class="card2__data">
-              <span class="card2__description"></span>
-              <h2 class="card2__title"></h2>
-              <a href="#" class="card2__button"></a>
-            </div>
-          </article>
-          <article class="card2__article">
-            <img
-              src="travelPics/assets/product4.jpg"
-              alt="image"
-              class="card2__img"
-            />
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Kandy.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Kandy</h3>
+                <p class="service__text">
+                  Often referred to as the Hill Capital, Kandy was the last
+                  kingdom of Sri Lanka.
+                </p>
+              </div>
+            </article>
 
-            <div class="card2__data">
-              <span class="card2__description"></span>
-              <h2 class="card2__title"></h2>
-              <a href="#" class="card2__button"></a>
-            </div>
-          </article>
-        </div>
-      </div>
-      <div class="card-container">
-        <div id="slider">
-          <h2 style="color: lightseagreen">Explore Top</h2>
-          <h4 style="color: gold">Destinations</h4>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Galle.png" />
-          <div class="card-content">
-            <h3>Galle</h3>
-            <p>
-              Discover the ancient charm of Galle, a UNESCO World Heritage Site.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Hikkaduwa.png" />
-          <div class="card-content">
-            <h3>Hikkaduwa</h3>
-            <p>
-              A vibrant coastal town renowned for its coral reefs and lively
-              beaches, offering excellent snorkeling and diving experiences.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Mirissa.png" />
-          <div class="card-content">
-            <h3>Mirissa</h3>
-            <p>
-              A serene beach destination famous for whale watching and surfing,
-              providing a tranquil escape with stunning sunsets.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Anuradhapura.png" />
-          <div class="card-content">
-            <h3>Anurahapura</h3>
-            <p>
-              An ancient city that served as one of Sri Lanka's earliest
-              capitals, showcasing well-preserved ruins of palaces, temples, and
-              stupas.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Ella.png" />
-          <div class="card-content">
-            <h3>Ella</h3>
-            <p>
-              A picturesque town nestled in the hills, known for its lush
-              landscapes, tea plantations, and attractions like the Nine Arches
-              Bridge and Little Adam's Peak.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Kandy.png" />
-          <div class="card-content">
-            <h3>Kandy</h3>
-            <p>
-              Often referred to as the Hill Capital, Kandy was the last kingdom
-              of Sri Lanka
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Nuwara Eliya.png" />
-          <div class="card-content">
-            <h3>Nuwara Eliya</h3>
-            <p>
-              Known as "Little England," this hill station offers cool climates,
-              colonial architecture, and sprawling tea plantations.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Yala.png" />
-          <div class="card-content">
-            <h3>Yala</h3>
-            <p>
-              Home to Yala National Park, renowned for having the highest
-              density of leopards in the world, making it a prime spot for
-              wildlife enthusiasts.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Polonaruwa.png" />
-          <div class="card-content">
-            <h3>Polonnaruwa</h3>
-            <p>
-              This ancient city features impressive stone carvings and ruins
-              that reflect the grandeur of Sri Lanka's past civilizations.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/Sigiriya.png" />
-          <div class="card-content">
-            <h3>Sigiriya</h3>
-            <p>
-              An ancient rock fortress built by King Kashyapa in the 5th
-              century, featuring elaborate gardens and frescoes.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/jaffna.png" />
-          <div class="card-content">
-            <h3>Jaffna</h3>
-            <p>
-              A vibrant cultural hub in northern Sri Lanka, Jaffna is known for
-              its rich Tamil heritage, historic temples, and scenic coastal
-              beauty.
-            </p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="travelPics/assets/trincomalee.png" />
-          <div class="card-content">
-            <h3>Trincomalee</h3>
-            <p>
-              Nestled on the eastern coast, Trincomalee boasts pristine beaches,
-              ancient sites, and one of the world’s finest natural harbors.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Nuwara Eliya.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Nuwara Eliya</h3>
+                <p class="service__text">
+                  Known as "Little England", this hill station offers cool
+                  climates, colonial architecture and sprawling tea estates.
+                </p>
+              </div>
+            </article>
 
-    <section>
-      <div class="booking">
-        <form></form>
-      </div>
-    </section>
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Yala.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Yala</h3>
+                <p class="service__text">
+                  Home to Yala National Park, renowned for the highest density
+                  of leopards in the world.
+                </p>
+              </div>
+            </article>
 
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Polonaruwa.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Polonnaruwa</h3>
+                <p class="service__text">
+                  An ancient city of impressive stone carvings and ruins
+                  reflecting the grandeur of past civilizations.
+                </p>
+              </div>
+            </article>
+
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/Sigiriya.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Sigiriya</h3>
+                <p class="service__text">
+                  A rock fortress built by King Kashyapa in the 5th century,
+                  featuring elaborate gardens and frescoes.
+                </p>
+              </div>
+            </article>
+
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/jaffna.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Jaffna</h3>
+                <p class="service__text">
+                  A vibrant cultural hub in the north, known for its Tamil
+                  heritage, historic temples and scenic coast.
+                </p>
+              </div>
+            </article>
+
+            <article class="service service--plain" data-reveal="up" data-tilt="6">
+              <div class="service__img">
+                <img src="travelPics/assets/trincomalee.png" alt="" />
+              </div>
+              <div class="service__body">
+                <h3 class="service__title">Trincomalee</h3>
+                <p class="service__text">
+                  On the eastern coast, with pristine beaches, ancient sites and
+                  one of the world's finest natural harbours.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section section--tight cta-band" id="contact">
+        <div class="container">
+          <h2 class="h2" data-reveal="up">Ready to book your dream getaway?</h2>
+          <p class="lead" data-reveal="up" style="--delay: 0.1s">
+            Tell us your dates and what you'd like to see — we'll build the
+            itinerary around you.
+          </p>
+          <div class="cta-band__actions" data-reveal="up" style="--delay: 0.2s">
+            <a
+              href="mailto:ruwanr@bernatali.com"
+              class="btn btn--primary"
+              data-magnetic="0.25"
+            >
+              Book Now
+              <svg><use href="#i-arrow-right" /></svg>
+            </a>
+            <a
+              href="tel:+94774245178"
+              class="btn btn--ghost"
+              data-magnetic="0.25"
+            >
+              +94 77 424 5178
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer class="footer">
-      <img
-        src="images/footer-image05.png"
-        alt="Footer Background"
-        class="footer-bg"
-      />
-      <div class="row">
-        <div class="columns">
-          <h4>Pages</h4>
-          <ul>
-            <li><a href="#Home">Home</a></li>
-            <li><a href="#Destinations">Destinations</a></li>
-          </ul>
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand" data-reveal="up">
+            <img src="images/logo.png" alt="Bernatali" />
+            <p class="footer__tagline">Building Stronger Brands</p>
+            <p class="footer__blurb">
+              Bernatali Sourcing Studios (Pvt) Ltd — a Sri Lanka based sourcing
+              partner connecting international buyers with trusted
+              manufacturers.
+            </p>
+            <ul class="socials">
+              <li>
+                <a href="#" class="social" aria-label="Facebook">
+                  <svg><use href="#i-facebook" /></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="social" aria-label="Instagram">
+                  <svg><use href="#i-instagram" /></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="social" aria-label="LinkedIn">
+                  <svg><use href="#i-linkedin" /></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div data-reveal="up" style="--delay: 0.08s">
+            <p class="footer__title">Explore</p>
+            <ul class="footer__links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#highlights">Highlights</a></li>
+              <li><a href="#guide">Destination Guide</a></li>
+              <li><a href="#destinations">Destinations</a></li>
+            </ul>
+          </div>
+
+          <div data-reveal="up" style="--delay: 0.16s">
+            <p class="footer__title">Services</p>
+            <ul class="footer__links">
+              <li><a href="apparel.html">Apparel &amp; Fabric</a></li>
+              <li><a href="travelHome.html">Tourism</a></li>
+              <li><a href="spices.html">Spices &amp; Tea</a></li>
+              <li><a href="decor.html">Home Decor</a></li>
+            </ul>
+          </div>
+
+          <div data-reveal="up" style="--delay: 0.24s">
+            <p class="footer__title">Contact</p>
+            <ul class="footer__links">
+              <li>
+                <a href="mailto:ruwanr@bernatali.com">ruwanr@bernatali.com</a>
+              </li>
+              <li><a href="tel:+94774245178">+94 77 424 5178</a></li>
+              <li><a href="index.html#contact">Ragama, Sri Lanka</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="columns">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="#">Flight Booking</a></li>
-            <li><a href="#">Hotel Reservation</a></li>
-            <li><a href="#">Travel Insurance</a></li>
-            <li><a href="#">Car Rental</a></li>
-          </ul>
-        </div>
-        <div class="columns">
-          <h4>Contact Us</h4>
-          <ul>
-            <li>
-              Email: <a href="mailto:Support@gamil.com">Support@gamil.com</a>
-            </li>
-            <li>Phone: +1 234 567 890</li>
-            <li>Address: 123 Main Street, Anytown, USA</li>
-          </ul>
-        </div>
-        <div class="columns">
-          <h4>Follow Us</h4>
-          <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
+
+        <div class="footer__bottom">
+          <p>
+            &copy; 2026 Bernatali Sourcing Studios (Pvt) Ltd. All rights
+            reserved.
+          </p>
+          <p>Building Stronger Brands · Sri Lanka</p>
         </div>
       </div>
     </footer>
+
+    <a href="#top" class="go-top" aria-label="Back to top" data-go-top>
+      <svg class="go-top__ring" viewBox="0 0 52 52" aria-hidden="true">
+        <circle cx="26" cy="26" r="24" />
+      </svg>
+      <svg><use href="#i-arrow-up" /></svg>
+    </a>
+
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
