@@ -26,6 +26,9 @@
     var bar = $(".preloader__bar span", pre);
     var pct = 0;
 
+    // Only lock scrolling once we know the script is alive to unlock it.
+    document.body.classList.add("is-locked");
+
     var tick = setInterval(function () {
       pct = Math.min(pct + Math.random() * 18, 92);
       if (bar) bar.style.width = pct + "%";

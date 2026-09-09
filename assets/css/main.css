@@ -586,6 +586,18 @@ address {
   visibility: hidden;
 }
 
+/* Failsafe: if the script never runs, uncover the page anyway. */
+.preloader {
+  animation: preloaderFailsafe 0.6s var(--ease-out) 5s forwards;
+}
+
+@keyframes preloaderFailsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 .preloader__inner {
   display: grid;
   justify-items: center;
@@ -1099,13 +1111,15 @@ body.nav-open .nav-panel__foot {
 }
 
 /* Word-by-word reveal */
-.hero__title .word {
+.hero__title .word,
+.page-hero__title .word {
   display: inline-block;
   overflow: hidden;
   vertical-align: bottom;
 }
 
-.hero__title .word > span {
+.hero__title .word > span,
+.page-hero__title .word > span {
   display: inline-block;
   transform: translateY(110%);
   opacity: 0;
@@ -1134,7 +1148,7 @@ body.nav-open .nav-panel__foot {
 }
 
 /* Fade-up entrance helper for hero children */
-.hero__inner .fade-up {
+.fade-up {
   opacity: 0;
   transform: translateY(28px);
   animation: fadeUp 1s var(--ease-out) forwards;
